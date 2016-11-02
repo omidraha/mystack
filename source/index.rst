@@ -6,11 +6,19 @@
 Welcome to MyStack's documentation!
 ===================================
 
+    Hi !
+
+    I'm Omid Raha,
+
+    Here i gathered some notes from the net, that i often refer to them as my stack.
+
+
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 3
 
+    linux/linux
 
 
 Indices and tables
