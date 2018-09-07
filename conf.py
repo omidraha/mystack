@@ -31,7 +31,7 @@ sys.path.insert(0, os.path.abspath('_ext'))
 extensions = ['edit_on_github']
 
 edit_on_github_project = 'omidraha/mystack'
-edit_on_github_branch = 'master/src'
+edit_on_github_branch = 'master'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
