@@ -2,7 +2,4 @@
 
 .doctrees
 .idea
-_build
-temp.py
-
-
+build
