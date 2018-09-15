@@ -228,7 +228,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'MyStack.tex', u'MyStack Documentation',
+    (master_doc, 'MyStack.tex', u'Omid Raha MyStack Documentation',
      u'Omid Raha', 'manual'),
 ]
 
@@ -258,7 +258,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'mystack', u'MyStack Documentation',
+    (master_doc, 'mystack', u'Omid Raha MyStack Documentation',
      [author], 1)
 ]
 
@@ -272,7 +272,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'MyStack', u'MyStack Documentation',
+    (master_doc, 'MyStack', u'Omid Raha MyStack Documentation',
      author, 'MyStack', 'One line description of project.',
      'Miscellaneous'),
 ]
