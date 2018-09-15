@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'MyStack'
+project = u'Omid Raha MyStack'
 copyright = u'2016, Omid Raha'
 author = u'Omid Raha'
 
