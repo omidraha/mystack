@@ -51,3 +51,11 @@ https://github.com/nicolargo/glances
 
 
 
+Windows
+-------
+
+GPU-Z
++++++
+
+https://www.techpowerup.com/gpuz/
+

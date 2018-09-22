@@ -69,3 +69,42 @@ https://slushpool.com/help/get-started/getting_started
 https://slushpool.com/help/get-started/advanced_mining
 
 https://slushpool.com/help/get-started/mining_beginners
+
+
+Hash Rate
+---------
+
+
+
+Hash Rate Measured & its Unit
++++++++++++++++++++++++++++++
+
+
+Hash rate denominations
+
+    1 kH/s is 1,000 (one thousand) hashes per second
+
+    1 MH/s is 1,000,000 (one million) hashes per second.
+
+    1 GH/s is 1,000,000,000 (one billion) hashes per second.
+
+    1 TH/s is 1,000,000,000,000 (one trillion) hashes per second.
+
+    1 PH/s is 1,000,000,000,000,000 (one quadrillion) hashes per second.
+
+    1 EH/s is 1,000,000,000,000,000,000 (one quintillion) hashes per second.
+
+Common Hash rate Conversions
+
+
+    1 MH/s = 1,000 kH/s
+
+    1 GH/s = 1,000 MH/s = 1,000,000 kH/s
+
+    1 TH/s = 1,000 GH/s = 1,000,000 MH/s = 1,000,000,000 kH/s
+
+    1 PH/s = 1,000 TH/s = 1,000,000 GH/s = 1,000,000,000 MH/s
+
+    1 EH/s = 1,000 PH/s = 1,000,000 TH/s = 1,000,000,000 GH/s
+
+https://coinsutra.com/hash-rate-or-hash-power/

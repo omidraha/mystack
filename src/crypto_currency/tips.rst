@@ -75,6 +75,7 @@ Bitcoin
 Generate wallet
 +++++++++++++++
 
+
 https://liteaddress.org/
 
 https://www.bitaddress.org/
@@ -82,6 +83,16 @@ https://www.bitaddress.org/
 https://tools.bitcoin.com/paper-wallet/
 
 https://bitcoinpaperwallet.com/bitcoinpaperwallet/generate-wallet.html
+
+
+Universal JavaScript Client-Side Wallet Generator
+-------------------------------------------------
+
+https://github.com/walletgeneratornet/WalletGenerator.net
+
+https://walletgenerator.net/
+
+https://walletgenerator.net/?currency=Zcash
 
 
 Blockchain explorer
