@@ -137,3 +137,5 @@ https://whattomine.com/calculators
 https://www.bitdegree.org/tutorials/best-coin-to-mine/#Best_Coin_to_Mine_Some_Examples
 
 https://www.cointelligence.com/content/cryptocurrencies-can-still-mine-cpu-gpu-2018/
+
+https://www.nicehash.com/
