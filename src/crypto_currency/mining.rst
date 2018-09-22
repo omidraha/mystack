@@ -133,3 +133,5 @@ What to mine
 ------------
 
 https://whattomine.com/calculators
+
+https://www.cointelligence.com/content/cryptocurrencies-can-still-mine-cpu-gpu-2018/
