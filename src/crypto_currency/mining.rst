@@ -127,3 +127,9 @@ Common Hash rate Conversions
     1 EH/s = 1,000 PH/s = 1,000,000 TH/s = 1,000,000,000 GH/s
 
 https://coinsutra.com/hash-rate-or-hash-power/
+
+
+What to mine
+------------
+
+https://whattomine.com/calculators
