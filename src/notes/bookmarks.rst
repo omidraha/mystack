@@ -109,12 +109,3 @@ Robtex Swiss Army Knife Internet Tool
 
 https://www.robtex.com/
 
-
-Others
-======
-
-http://idea.lanyus.com
-
-http://114.215.133.70:41017
-
-https://m.do.co/c/be94ebcce415

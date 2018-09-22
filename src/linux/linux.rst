@@ -12,6 +12,7 @@ Contents:
     hard
     memory
     cpu
+    gpu
     ldap
     centos
     debian
