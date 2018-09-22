@@ -70,6 +70,25 @@ https://slushpool.com/help/get-started/advanced_mining
 
 https://slushpool.com/help/get-started/mining_beginners
 
+zcache
+******
+
+
+https://slushpool.com/help/get-started/getting_started_zcash
+
+https://support.slushpool.com/section/29-zcash-mining-setup
+
+
+flypool
++++++++
+
+https://flypool.org/
+
+minergate
++++++++++
+
+https://www.minergate.com/pool-stats/eth
+
 
 Hash Rate
 ---------

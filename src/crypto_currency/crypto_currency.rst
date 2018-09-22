@@ -5,7 +5,7 @@ Crypto currency
 Contents:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
 
    tips
    mining

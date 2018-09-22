@@ -61,6 +61,8 @@ https://github.com/AbenezerMamo/crypto-signal
 
 https://github.com/triestpa/Cryptocurrency-Analysis-Python
 
+http://chainquery.com/bitcoin-api/getdifficulty
+
 
 Python
 ------
