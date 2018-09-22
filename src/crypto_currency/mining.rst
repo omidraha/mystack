@@ -129,9 +129,11 @@ Common Hash rate Conversions
 https://coinsutra.com/hash-rate-or-hash-power/
 
 
-What to mine
-------------
+Best coin to mine
+-----------------
 
 https://whattomine.com/calculators
+
+https://www.bitdegree.org/tutorials/best-coin-to-mine/#Best_Coin_to_Mine_Some_Examples
 
 https://www.cointelligence.com/content/cryptocurrencies-can-still-mine-cpu-gpu-2018/
