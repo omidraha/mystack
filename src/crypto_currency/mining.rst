@@ -89,6 +89,11 @@ minergate
 
 https://www.minergate.com/pool-stats/eth
 
+antpool
++++++++
+
+https://www.antpool.com/
+
 
 Hash Rate
 ---------
