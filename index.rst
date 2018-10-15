@@ -40,6 +40,7 @@ Contents:
    src/haproxy/haproxy
    src/http/http
    src/iptables/iptables
+   src/ipfs/ipfs
    src/irc/irc
    src/java/java
    src/javascript/javascript
