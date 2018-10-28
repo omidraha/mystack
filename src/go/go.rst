@@ -1,5 +1,5 @@
-Go
-====
+Go-Lang
+=======
 
 
 Contents:
@@ -8,5 +8,4 @@ Contents:
    :maxdepth: 2
 
    tips
-   intro
 
