@@ -442,3 +442,19 @@ Clear log history
     $ sudo ./docker-logs-clean.sh
 
 https://github.com/docker/compose/issues/1083#issuecomment-216540808
+
+
+Set maximum concurrent download for docker pull
+-----------------------------------------------
+
+
+
+.. code-block:: bash
+
+    $ sudo vim  /lib/systemd/system/docker.service
+
+    [Service]
+    ExecStart=/usr/bin/dockerd -H fd:// --max-concurrent-downloads 1
+
+    $ sudo systemctl daemon-reload
+    $ systemctl restart docker
