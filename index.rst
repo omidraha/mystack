@@ -45,6 +45,7 @@ Contents:
    src/java/java
    src/javascript/javascript
    src/linux/linux
+   src/machine_learning/machine_learning
    src/mercurial/mercurial
    src/metasploit/metasploit
    src/mobile/mobile
