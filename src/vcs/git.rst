@@ -1,6 +1,8 @@
 Git
 ===
 
+https://github.com/k88hudson/git-flight-rules
+
 
 Set push.default
 ----------------
