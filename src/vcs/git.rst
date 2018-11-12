@@ -715,3 +715,39 @@ Abort the merge
 
     # git merge --abort
 
+
+Track remote branch that doesn't exist on local
+-----------------------------------------------
+
+Sometimes remote branch is not tracked on local, and there is no the branch name on the local:
+
+Related error: Git: cannot checkout branch - error: pathspec  did not match any file(s) known to git
+
+
+.. code-block:: bash
+
+    $ git branch
+        master
+        dev
+
+    $ git branch -a
+
+        remotes/origin/master
+        remotes/origin/dev
+        remotes/origin/rc
+
+
+.. code-block:: bash
+
+    $ git remote update
+    $ git fetch --all
+    $ git checkout --track remotes/origin/rc
+
+
+.. code-block:: bash
+
+    $ git branch
+        master
+        rc
+        dev
+

@@ -66,3 +66,7 @@ https://sdaps.org/Documentation/Tutorial/example.tex
 The `example.tif` file is here:
 
 https://sdaps.org/Documentation/Tutorial/example.tif
+
+Scanning:
+
+https://sdaps.org/Documentation/Scanning/
