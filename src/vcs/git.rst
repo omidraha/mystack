@@ -636,14 +636,14 @@ Add tag and merge dev to mater
 .. code-block:: bash
 
     git checkout dev
-    proxychains git pull
+    git pull
     git tag -a 2.0.1 -m "2.0.1"
-    proxychains git push --follow-tags
+    git push --follow-tags
 
     git checkout master
-    proxychains git pull
+    git pull
     git merge dev
-    proxychains git push --follow-tags
+    git push --follow-tags
     git checkout dev
 
 
