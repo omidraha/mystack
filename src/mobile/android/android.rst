@@ -96,3 +96,12 @@ Before Using Android IDE
 .. code-block:: bash
 
 	$ sudo apt-get install lib32z1 lib32ncurses5 lib32stdc++6
+
+
+
+List_of custom Android distributions
+-------------------------------------
+
+https://en.wikipedia.org/wiki/List_of_custom_Android_distributions
+
+https://www.geckoandfly.com/23320/custom-rom-firmware-android-smartphones/

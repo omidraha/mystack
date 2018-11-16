@@ -22,6 +22,8 @@ Contents:
    etcd
    patroni
    ignite
+   faas
+
 
 
 

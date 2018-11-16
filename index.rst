@@ -40,10 +40,12 @@ Contents:
    src/haproxy/haproxy
    src/http/http
    src/iptables/iptables
+   src/ipfs/ipfs
    src/irc/irc
    src/java/java
    src/javascript/javascript
    src/linux/linux
+   src/machine_learning/machine_learning
    src/mercurial/mercurial
    src/metasploit/metasploit
    src/mobile/mobile

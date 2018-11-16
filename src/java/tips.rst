@@ -38,3 +38,21 @@ Apache Maven, Eclipse and IntelliJ IDEA execute the following command:
 
 
 https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get
+
+
+Switch between installed java
+-----------------------------
+
+Configures the default for the program "java". That's the Java VM
+
+.. code-block:: bash
+
+
+    $ sudo update-alternatives --config java
+
+Configures the default Java compiler
+
+.. code-block:: bash
+
+
+    $ sudo update-alternatives --config javac

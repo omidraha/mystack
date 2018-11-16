@@ -1425,21 +1425,52 @@ https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
 Monitor multiple remote log files with MultiTail
 ------------------------------------------------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        $ sudo apt-get install multitail
+    $ sudo apt-get install multitail
 
-        # example for two log-files
-        $ multitail log-file_a log-file_b
+    # example for two log-files
+    $ multitail log-file_a log-file_b
 
-        # example for two log-files and two columns
-        $ multitail -s 2 log-file_a log-file_a
+    # example for two log-files and two columns
+    $ multitail -s 2 log-file_a log-file_a
 
-        # example for two log-files and different colors
-        $ multitail -ci green log-file_a -ci yellow -I log-file_a
+    # example for two log-files and different colors
+    $ multitail -ci green log-file_a -ci yellow -I log-file_a
 
-        # example for one log file on remote
-        $ multitail -l "ssh -t <user>@<host> tail -f log-file"
+    # example for one log file on remote
+    $ multitail -l "ssh -t <user>@<host> tail -f log-file"
 
-        # example for two log files on remote
-        $ multitail -l "ssh -l <user>@<host> tail -f log-file_a" -l "ssh -l <user>@<host> tail -f log-file_b"
+    # example for two log files on remote
+    $ multitail -l "ssh -l <user>@<host> tail -f log-file_a" -l "ssh -l <user>@<host> tail -f log-file_b"
+
+
+
+
+Register GPG key by curl instead of dirmngr
+--------------------------------------------
+
+
+.. code-block:: bash
+
+    $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889
+
+Error traceback:
+
+.. code-block:: bash
+
+    Executing: /tmp/apt-key-gpghome.voccUPwlky/gpg.1.sh --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889
+    gpg: connecting dirmngr at '/run/user/0/gnupg/d.k4bafrtss9g1d86f8y5rxb8h/S.dirmngr' failed: IPC connect call failed
+    gpg: keyserver receive failed: No dirmngr
+
+
+
+Note that add `0x` prefix before the `5523BAEEB01FA116` key
+
+.. code-block:: bash
+
+    $ curl -sL "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x5523BAEEB01FA116" | sudo apt-key add
+
+
+
+
