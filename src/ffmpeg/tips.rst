@@ -170,3 +170,16 @@ Convert an animated gif to an mp4 file
 
 
 https://unix.stackexchange.com/a/294892
+
+
+
+Extract screen shot for a video at a given time
+-----------------------------------------------
+
+
+.. code-block:: bash
+
+    $ ffmpeg -ss 00:00:03 -i input.mp4 -vframes 1 -q:v 2 output.jpg
+
+
+https://stackoverflow.com/a/27573049
