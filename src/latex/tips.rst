@@ -14,6 +14,8 @@ User RTL and persian
 --------------------
 
 
+The `sample.tex` file:
+
 .. code-block:: latex
 
     \documentclass[12pt,a4paper,oneside,english]{report}
@@ -26,5 +28,13 @@ User RTL and persian
     \RTL
     \begin{document}
         \textbf{سلام لاتک! }
-        این یک نوشته‌ی آزمایشی است
+       فارسی نویسی در لاتک به این صورت است!
     \end{document}
+
+
+Generate pdf file:
+
+.. code-block:: bash
+
+    $ xelatex sample.tex
+
