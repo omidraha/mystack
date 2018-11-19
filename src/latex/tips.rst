@@ -10,22 +10,42 @@ Tips
 
 
 
-User RTL and persian
---------------------
+Write Persian in Latex
+----------------------
 
 
-The `sample.tex` file:
+
+Use `bidi` package and `RTL` :
+
 
 .. code-block:: latex
 
-    \documentclass[12pt,a4paper,oneside,english]{report}
+    \documentclass[12pt,a4paper,oneside]{report}
 
     \usepackage[utf8]{inputenc}
-    \usepackage{multicol}
     \usepackage{fontspec}
     \setmainfont{B Nazanin}
     \usepackage{bidi}
     \RTL
+    \begin{document}
+        \textbf{سلام لاتک! }
+       فارسی نویسی در لاتک به این صورت است!
+    \end{document}
+
+
+Use `xepersian` package:
+
+
+.. code-block:: latex
+
+    \documentclass[12pt,a4paper,oneside]{report}
+
+    \usepackage[utf8]{inputenc}
+    \usepackage{fontspec}
+    \usepackage{xepersian}
+    \settextfont{B Nazanin}
+    \setlatintextfont{Lato Thin}
+
     \begin{document}
         \textbf{سلام لاتک! }
        فارسی نویسی در لاتک به این صورت است!
