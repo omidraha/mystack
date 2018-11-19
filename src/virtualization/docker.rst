@@ -458,3 +458,21 @@ Set maximum concurrent download for docker pull
 
     $ sudo systemctl daemon-reload
     $ systemctl restart docker
+
+
+
+Override the ENTRYPOINT using docker run
+----------------------------------------
+
+
+.. code-block:: bash
+
+    docker run -it  --entrypoint "/bin/bash"  --rm -v "$PWD":/ws/omr/  lsakalauskas/sdaps
+
+
+Set image name when building a custom image
+-------------------------------------------
+
+.. code-block:: bash
+
+    $ docker build -t image_name .
