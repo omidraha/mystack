@@ -44,6 +44,7 @@ Contents:
    src/irc/irc
    src/java/java
    src/javascript/javascript
+   src/latex/latex
    src/linux/linux
    src/machine_learning/machine_learning
    src/mercurial/mercurial

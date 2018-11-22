@@ -1474,3 +1474,14 @@ Note that add `0x` prefix before the `5523BAEEB01FA116` key
 
 
 
+Install fonts
+-------------
+
+
+.. code-block:: bash
+
+    $ sudo apt-get install font-manager
+
+.. code-block:: bash
+
+    $ font-manager
