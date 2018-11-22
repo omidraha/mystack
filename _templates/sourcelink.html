@@ -1,15 +1,19 @@
 {%- if show_source and has_source and sourcename %}
-  <h3>{{ _('This Page') }}</h3>
-  <ul class="this-page-menu">
+<h3>{{ _('This Page') }}</h3>
+<ul class="this-page-menu">
     <li><a href="{{ pathto('_sources/' + sourcename, true)|e }}"
            rel="nofollow">{{ _('Show Source') }}</a></li>
-  {%- if show_on_github_url %}
+    {%- if show_on_github_url %}
     <li><a href="{{ show_on_github_url }}"
            rel="nofollow">{{ _('Show on GitHub') }}</a></li>
-  {%- endif %}
-  {%- if edit_on_github_url %}
+    {%- endif %}
+    {%- if edit_on_github_url %}
     <li><a href="{{ edit_on_github_url }}"
            rel="nofollow">{{ _('Edit on GitHub') }}</a></li>
-  {%- endif %}
-  </ul>
+    {%- endif %}
+</ul>
 {%- endif %}
+
+<br>
+
+<a href="https://www.vultr.com/?ref=7643832"><img src="https://www.vultr.com/media/banner_4.png" width="160" height="600"></a>
