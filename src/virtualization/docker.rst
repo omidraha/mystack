@@ -476,3 +476,29 @@ Set image name when building a custom image
 .. code-block:: bash
 
     $ docker build -t image_name .
+
+
+Set environment variables during the build in docker
+----------------------------------------------------
+
+.. code-block:: bash
+
+    FROM ubuntu:18.04
+    RUN apt-get update
+    ARG DEBIAN_FRONTEND=noninteractive
+
+
+The `ARG` is for setting environment variables which are used during the docker build process,
+and they are not present in the final image
+
+
+Remove unused, <none>, untag docker images file
+-----------------------------------------------
+
+
+.. code-block:: bash
+
+    $ docker image prune -f
+
+
+https://docs.docker.com/engine/reference/commandline/image_prune/#usage
