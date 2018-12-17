@@ -60,3 +60,21 @@ http://stackoverflow.com/a/36977126
 
 http://docs.celeryproject.org/en/latest/userguide/canvas.html#signatures
 
+
+Chain tasks on celery
+---------------------
+
+
+
+.. code-block:: bash
+
+    t1 = my_task_01.subtask((arg1,), immutable=True)
+    t2 = my_task_02.subtask((arg1, arg2), immutable=True)
+    t3 = my_task_01.subtask((arg1,), immutable=True)
+    task_list = [t1, t2, t3]
+    tasks = chain(task_list)
+    tasks.apply_async()
+
+The next task will run, if previous task run successfully.
+
+The `immutable` option is set to `True`, so the result of each task won't  send to the next task.
