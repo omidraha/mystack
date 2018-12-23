@@ -208,26 +208,42 @@ Translation
 
 
 
-Django User Group Permissions
------------------------------
+Django User Group Object Permissions
+------------------------------------
 
 
 Add permission to user
 
 .. code-block:: python
 
+    from django.contrib.auth.models import User
     from django.contrib.auth.models import Permission
+    usr = User.objects.first()
     perm = Permission.objects.get(name='Can edit org')
-    u.user_permissions.add(perm)
+    usr.user_permissions.add(perm)
 
 
 Add user to group
 
 .. code-block:: python
 
+    from django.contrib.auth.models import User
     from django.contrib.auth.models import Group
+    usr = User.objects.first()
     grp = Group.objects.get(name='Operator')
-    grp.user_set.add(your_user)
+    grp.user_set.add(usr)
+
+
+Add group to user
+
+.. code-block:: python
+
+    from django.contrib.auth.models import User
+    from django.contrib.auth.models import Group
+    usr = User.objects.first()
+    grp = Group.objects.get(name='Operator')
+    usr.groups.add(grp)
+
 
 
 Add permission to group
@@ -239,3 +255,15 @@ Add permission to group
     perm = Permission.objects.get(name='can edit org')
     grp = Group.objects.get(name='Operator')
     grp.permissions.add(perm)
+
+
+Create permission for an object
+
+.. code-block:: python
+
+    from django.contrib.auth.models import Group
+    from django.contrib.auth.models import Permission
+    from django.contrib.contenttypes.models import ContentType
+    from sample.models import SampleObj
+    ct = ContentType.objects.get_for_model(SampleObj)
+    perm = Permission.objects.create(codename='can edit org', name='Can Edit Org', content_type=ct)
