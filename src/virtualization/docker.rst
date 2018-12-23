@@ -502,3 +502,13 @@ Remove unused, <none>, untag docker images file
 
 
 https://docs.docker.com/engine/reference/commandline/image_prune/#usage
+
+
+Disable auto-restart on a container
+-----------------------------------
+
+
+.. code-block:: bash
+
+    $ docker update --restart=no container-id
+
