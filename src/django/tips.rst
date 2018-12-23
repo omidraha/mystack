@@ -205,3 +205,37 @@ Translation
     txt = 'Hello'
     ugettext(txt)
     'سلام'
+
+
+
+Django User Group Permissions
+-----------------------------
+
+
+Add permission to user
+
+.. code-block:: python
+
+    from django.contrib.auth.models import Permission
+    perm = Permission.objects.get(name='Can edit org')
+    u.user_permissions.add(perm)
+
+
+Add user to group
+
+.. code-block:: python
+
+    from django.contrib.auth.models import Group
+    grp = Group.objects.get(name='Operator')
+    grp.user_set.add(your_user)
+
+
+Add permission to group
+
+.. code-block:: python
+
+    from django.contrib.auth.models import Group
+    from django.contrib.auth.models import Permission
+    perm = Permission.objects.get(name='can edit org')
+    grp = Group.objects.get(name='Operator')
+    grp.permissions.add(perm)
