@@ -267,3 +267,34 @@ Create permission for an object
     from sample.models import SampleObj
     ct = ContentType.objects.get_for_model(SampleObj)
     perm = Permission.objects.create(codename='can edit org', name='Can Edit Org', content_type=ct)
+
+
+
+Add a permission to a user/group during a django migration
+
+
+.. code-block:: python
+
+    from django.contrib.auth.management import create_permissions
+    from django.db import migrations
+
+
+    def create_default_groups_and_permissions(apps, schema_editor):
+        for app_config in apps.get_app_configs():
+            app_config.models_module = True
+            create_permissions(app_config, verbosity=0)
+            app_config.models_module = None
+
+         # Now add your perms to group here
+
+
+    class Migration(migrations.Migration):
+        dependencies = [
+            ('contenttypes', '0002_remove_content_type_name'),
+        ]
+
+        operations = [
+            migrations.RunPython(create_default_groups_and_permissions)
+        ]
+
+
