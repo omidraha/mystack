@@ -298,3 +298,12 @@ Add a permission to a user/group during a django migration
         ]
 
 
+
+Django rest DjangoModelPermissions
+
+*   ``GET`` requests require the user to have the ``view`` permission on the model.
+*   ``POST`` requests require the user to have the ``add`` permission on the model.
+*   ``PUT`` and ``PATCH`` requests require the user to have the ``change`` permission on the model.
+*   ``DELETE`` requests require the user to have the ``delete`` permission on the model.
+
+https://www.django-rest-framework.org/api-guide/permissions/#djangomodelpermissions
