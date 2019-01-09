@@ -132,5 +132,39 @@ Specific port:
 
 .. code-block:: bash
 
-    $ netstat -ntu | grep ":80\|:443" | awk -F"[ :]+" 'NR>2{print $6}'|sort|uniq -c|sort -nr
+    $ netstat -ntu | grep ":80\|:443" | awk -F"[ :]+" '{print $6}'|sort|uniq -c|sort -nr
 
+Or:
+
+.. code-block:: bash
+
+    netstat -na | grep ":443\|:80" | grep -v LISTEN | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -rn | head
+
+
+Output:
+
+.. code-block:: bash
+
+     14 23.43.29.1
+     12 76.55.52.34
+      4 8.3.2.34
+      1 192.163.2.42
+      1 172.53.43.87
+
+Connections types:
+------------------
+
+.. code-block:: bash
+
+    $ netstat -ant | awk 'NR>1{print $6}' | sort | uniq -c | sort -rn
+
+Output:
+
+.. code-block:: bash
+
+     93 ESTABLISHED
+     15 TIME_WAIT
+     15 LISTEN
+      1 SYN_SENT
+      1 Foreign
+      1 CLOSE_WAIT
