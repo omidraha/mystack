@@ -476,3 +476,92 @@ Set image name when building a custom image
 .. code-block:: bash
 
     $ docker build -t image_name .
+
+
+Set environment variables during the build in docker
+----------------------------------------------------
+
+.. code-block:: bash
+
+    FROM ubuntu:18.04
+    RUN apt-get update
+    ARG DEBIAN_FRONTEND=noninteractive
+
+
+The `ARG` is for setting environment variables which are used during the docker build process,
+and they are not present in the final image
+
+
+Remove unused, <none>, untag docker images file
+-----------------------------------------------
+
+
+.. code-block:: bash
+
+    $ docker image prune -f
+
+
+https://docs.docker.com/engine/reference/commandline/image_prune/#usage
+
+
+Disable auto-restart on a container
+-----------------------------------
+
+
+.. code-block:: bash
+
+    $ docker update --restart=no container-id
+
+
+Minimal base docker OS images
+-----------------------------
+
+
+
+* https://registry.hub.docker.com/_/ubuntu/
+
+* https://registry.hub.docker.com/u/library/debian/
+
+* https://registry.hub.docker.com/_/busybox/
+
+* https://registry.hub.docker.com/_/centos/
+
+* https://registry.hub.docker.com/_/fedora/
+
+* https://registry.hub.docker.com/_/alpine/
+
+* https://registry.hub.docker.com/_/cirros/
+
+* https://hub.docker.com/_/python/
+
+* https://github.com/GoogleContainerTools/distroless
+
+https://www.brianchristner.io/docker-image-base-os-size-comparison/
+
+.. code-block:: bash
+
+    $ docker pull python:3.6-alpine
+    $ docker images | grep -i python
+    #    python          3.6-alpine          cb04a359db13        3 days ago          74.3MB
+
+
+https://github.com/docker-library/python
+
+
+.. code-block:: bash
+
+    $ docker pull gcr.io/distroless/python3
+    $ docker images | grep -i distroless
+    #   gcr.io/distroless/python3   latest              523f07cec1e2        49 years ago        50.9MB
+
+Note that there is no ```docker exec(run) -it  ...``` in `distroless` image.
+
+https://github.com/GoogleContainerTools/distroless
+
+
+Links:
+
+https://medium.com/c0d1um/building-django-docker-image-with-alpine-32de65d2706
+
+https://www.caktusgroup.com/blog/2017/03/14/production-ready-dockerfile-your-python-django-app/
+

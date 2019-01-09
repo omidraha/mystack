@@ -331,7 +331,7 @@ Install kubectl binary via curl
 
     $ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
     # To download a specific version
-    $ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.4.6/bin/linux/amd64/kubectl
+    $ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/linux/amd64/kubectl
     $ chmod +x ./kubectl
     $ sudo mv ./kubectl /usr/local/bin/kubectl
 
@@ -457,4 +457,11 @@ Labels are key/value pairs attached to objects and can be used in any number of 
     $ kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
     $ kubectl get services
     $ kubectl describe services/kubernetes-bootcamp
+
+
+Toturials
+---------
+
+
+https://www.digitalocean.com/community/tutorials/modernizing-applications-for-kubernetes
 

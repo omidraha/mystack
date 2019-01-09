@@ -1485,3 +1485,24 @@ Install fonts
 .. code-block:: bash
 
     $ font-manager
+
+
+Install tzdata noninteractive
+-----------------------------
+
+
+.. code-block:: bash
+
+
+    $ apt-get install -y tzdata
+    $ ln -fs /usr/share/zoneinfo/Asia/Tehran /etc/localtime
+    $ dpkg-reconfigure --frontend noninteractive tzdata
+
+If you are fine with UTC:
+
+
+.. code-block:: bash
+
+
+    $ DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
+

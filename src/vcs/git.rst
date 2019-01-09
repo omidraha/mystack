@@ -751,3 +751,33 @@ Related error: Git: cannot checkout branch - error: pathspec  did not match any 
         rc
         dev
 
+
+Fix git remote fatal: index-pack failed
+-----------------------------
+
+Traceback:
+
+.. code-block:: bash
+
+
+    or@omid:~/ws$ git clone git@bitbucket.org:example/example.git
+    Cloning into 'example'...
+    remote: Counting objects: 39831, done.
+    remote: Compressing objects: 100% (16929/16929), done.
+    Connection to bitbucket.org closed by remote host. 163.00 KiB/s
+    fatal: The remote end hung up unexpectedly
+    fatal: early EOFs:  99% (39758/39831), 19.57 MiB | 166.00 KiB/s
+    fatal: index-pack failed
+
+Solution:
+
+.. code-block:: bash
+
+    $ git config --global core.compression 0
+    $ git clone --depth 1 git@bitbucket.org:example/example.git
+    # retrieve the rest of the clone
+    $ git fetch --unshallow
+    # or, alternately:
+    $ git fetch --depth=2147483647
+    $ git pull --all
+

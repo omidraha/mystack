@@ -205,3 +205,105 @@ Translation
     txt = 'Hello'
     ugettext(txt)
     'سلام'
+
+
+
+Django User Group Object Permissions
+------------------------------------
+
+
+Add permission to user
+
+.. code-block:: python
+
+    from django.contrib.auth.models import User
+    from django.contrib.auth.models import Permission
+    usr = User.objects.first()
+    perm = Permission.objects.get(name='Can edit org')
+    usr.user_permissions.add(perm)
+
+
+Add user to group
+
+.. code-block:: python
+
+    from django.contrib.auth.models import User
+    from django.contrib.auth.models import Group
+    usr = User.objects.first()
+    grp = Group.objects.get(name='Operator')
+    grp.user_set.add(usr)
+
+
+Add group to user
+
+.. code-block:: python
+
+    from django.contrib.auth.models import User
+    from django.contrib.auth.models import Group
+    usr = User.objects.first()
+    grp = Group.objects.get(name='Operator')
+    usr.groups.add(grp)
+
+
+
+Add permission to group
+
+.. code-block:: python
+
+    from django.contrib.auth.models import Group
+    from django.contrib.auth.models import Permission
+    perm = Permission.objects.get(name='can edit org')
+    grp = Group.objects.get(name='Operator')
+    grp.permissions.add(perm)
+
+
+Create permission for an object
+
+.. code-block:: python
+
+    from django.contrib.auth.models import Group
+    from django.contrib.auth.models import Permission
+    from django.contrib.contenttypes.models import ContentType
+    from sample.models import SampleObj
+    ct = ContentType.objects.get_for_model(SampleObj)
+    perm = Permission.objects.create(codename='can edit org', name='Can Edit Org', content_type=ct)
+
+
+
+Add a permission to a user/group during a django migration
+
+
+.. code-block:: python
+
+    from django.contrib.auth.management import create_permissions
+    from django.db import migrations
+
+
+    def create_default_groups_and_permissions(apps, schema_editor):
+        for app_config in apps.get_app_configs():
+            app_config.models_module = True
+            create_permissions(app_config, verbosity=0)
+            app_config.models_module = None
+
+         # Now add your perms to group here
+
+
+    class Migration(migrations.Migration):
+        dependencies = [
+            ('contenttypes', '0002_remove_content_type_name'),
+        ]
+
+        operations = [
+            migrations.RunPython(create_default_groups_and_permissions)
+        ]
+
+
+
+Django rest DjangoModelPermissions
+
+*   ``GET`` requests require the user to have the ``view`` permission on the model.
+*   ``POST`` requests require the user to have the ``add`` permission on the model.
+*   ``PUT`` and ``PATCH`` requests require the user to have the ``change`` permission on the model.
+*   ``DELETE`` requests require the user to have the ``delete`` permission on the model.
+
+https://www.django-rest-framework.org/api-guide/permissions/#djangomodelpermissions
