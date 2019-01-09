@@ -119,3 +119,18 @@ Disable IP6
         net.ipv6.conf.lo.disable_ipv6 = 1
     $ sudo sysctl -p
 
+
+Number of open connections per ip
+---------------------------------
+
+
+.. code-block:: bash
+
+    $ netstat -ntu | awk -F"[ :]+" 'NR>2{print $6}'|sort|uniq -c|sort -nr
+
+Specific port:
+
+.. code-block:: bash
+
+    $ netstat -ntu | grep ":80\|:443" | awk -F"[ :]+" 'NR>2{print $6}'|sort|uniq -c|sort -nr
+
