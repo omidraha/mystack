@@ -1637,3 +1637,6 @@ Multi-master replication
 http://stackoverflow.com/questions/19657514/multi-master-replication-in-postgresql
 
 https://en.wikipedia.org/wiki/Multi-master_replication
+
+https://wiki.postgresql.org/wiki/Replication,_Clustering,_and_Connection_Pooling#Comparison_matrix
+
