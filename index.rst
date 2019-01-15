@@ -27,6 +27,7 @@ Contents:
    src/blockchain/blockchain
    src/browser/browser
    src/ceph/ceph
+   src/citus/citus
    src/crypto_currency/crypto_currency
    src/ctf/ctf
    src/deploy/deploy
