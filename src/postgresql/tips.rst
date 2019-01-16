@@ -1640,3 +1640,4 @@ https://en.wikipedia.org/wiki/Multi-master_replication
 
 https://wiki.postgresql.org/wiki/Replication,_Clustering,_and_Connection_Pooling#Comparison_matrix
 
+https://www.cybertec-postgresql.com/en/postgresql-affiliate-projects-for-horizontal-multi-terabyte-scaling/
