@@ -176,3 +176,10 @@ Only on coordinator:
     $ sudo -i -u postgres psql
 
 https://docs.citusdata.com/en/v8.1/installation/multi_machine_debian.html
+
+
+Have a unique constraint on one field of table
+----------------------------------------------
+
+https://stackoverflow.com/a/43660911
+

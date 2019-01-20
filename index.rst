@@ -28,6 +28,7 @@ Contents:
    src/browser/browser
    src/ceph/ceph
    src/citus/citus
+   src/cockroach_db/cockroach_db
    src/crypto_currency/crypto_currency
    src/ctf/ctf
    src/deploy/deploy
