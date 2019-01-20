@@ -181,5 +181,7 @@ https://docs.citusdata.com/en/v8.1/installation/multi_machine_debian.html
 Have a unique constraint on one field of table
 ----------------------------------------------
 
+https://docs.citusdata.com/en/v8.1/faq/faq.html#can-i-create-primary-keys-on-distributed-tables
+
 https://stackoverflow.com/a/43660911
 
