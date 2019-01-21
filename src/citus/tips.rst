@@ -185,3 +185,52 @@ https://docs.citusdata.com/en/v8.1/faq/faq.html#can-i-create-primary-keys-on-dis
 
 https://stackoverflow.com/a/43660911
 
+
+Limitation of Citus Community
+-----------------------------
+
+Re balance, Replicate, Isolate
+++++++++++++++++++++++++++++++
+
+These three important functions are not available:
+
+* rebalance_table_shards
+* replicate_table_shards
+* isolate_tenant_to_new_shard
+
+When you add and register new node, you can not balance current existing filled data to this new empty node.
+
+Tenant isolation is not available.
+
+https://github.com/citusdata/citus/issues/828
+
+https://docs.citusdata.com/en/v8.1/admin_guide/cluster_management.html#tenant-isolation
+
+
+Adding a coordinator
+++++++++++++++++++++
+
+Users can send their queries to any coordinator and scale out performance.
+If your setup requires you to use multiple coordinators, please contact us.
+
+https://docs.citusdata.com/en/v8.1/admin_guide/cluster_management.html#adding-a-coordinator
+
+Worker Node Failures
+++++++++++++++++++++
+
+Citus supports two modes of replication
+
+1. PostgreSQL streaming replication.
+2. Citus shard replication.
+
+
+Only the second one is available, suited for an append-only workload. and setting needs to be done before distributing data to the cluster.
+
+https://docs.citusdata.com/en/v8.1/admin_guide/cluster_management.html#worker-node-failures
+
+
+Django
+------
+
+https://docs.citusdata.com/en/v8.1/develop/migration_mt_django.html#django-migration
+

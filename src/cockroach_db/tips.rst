@@ -46,3 +46,12 @@ Performance
 
 https://www.cockroachlabs.com/blog/cockroachdb-2dot1-performance/
 
+
+
+Deploy multi-node cluster using HAProxy load balancer
+------------------------------------------------------
+
+
+Deploy a secure multi-node CockroachDB cluster on multiple machines, using HAProxy load balancers to distribute client traffic.
+
+https://www.cockroachlabs.com/docs/stable/deploy-cockroachdb-on-premises.html
