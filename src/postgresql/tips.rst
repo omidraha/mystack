@@ -167,6 +167,13 @@ http://www.postgresql.org/docs/8.2/static/high-availability.html
 There are basic 3 types of replication in postgresql i.e  Warm, hot standby and Streaming Replication.
 
 
+https://github.com/zalando/patroni
+
+https://github.com/sorintlab/stolon
+
+https://github.com/CrunchyData/crunchy-containers
+
+
 Warm Standby
 ++++++++++++
 
