@@ -18,6 +18,19 @@ https://www.cockroachlabs.com/blog/why-postgres/
 
 https://www.cockroachlabs.com/docs/v2.1/migrate-from-postgres.html
 
+*Performance best practice*
+
+
+https://www.cockroachlabs.com/docs/stable/performance-best-practices-overview.html
+
+*Join*
+
+
+https://www.cockroachlabs.com/docs/stable/joins.html
+
+https://www.cockroachlabs.com/docs/stable/joins.html#performance-best-practices
+
+
 Support Django
 --------------
 
@@ -69,3 +82,6 @@ https://www.cockroachlabs.com/blog/building-application-cockroachdb-sqlalchemy-2
 https://www.cockroachlabs.com/docs/stable/build-a-python-app-with-cockroachdb-sqlalchemy.html
 
 
+*SqlAlchemy Best Practice*
+
+https://www.cockroachlabs.com/docs/stable/build-a-python-app-with-cockroachdb-sqlalchemy.html#best-practices

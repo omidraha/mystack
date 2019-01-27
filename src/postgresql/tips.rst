@@ -88,6 +88,13 @@ Add or create a user account and grant permission for database
     postgres=# \q
 
 
+Get the Size of a Postgres Table
+--------------------------------
+
+
+.. code-block:: bash
+
+    postgres@ubuntu:~$ psql -d database_name -c "select pg_size_pretty(pg_relation_size('table_name'));"
 
 
 Quit from psql

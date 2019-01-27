@@ -234,3 +234,4 @@ Django
 
 https://docs.citusdata.com/en/v8.1/develop/migration_mt_django.html#django-migration
 
+https://github.com/omidraha/citus-exp
