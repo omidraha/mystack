@@ -66,6 +66,21 @@ If DISTRIBUTE BY is not specified, columns with UNIQUE constraint will be chosen
 https://www.postgres-xl.org/documentation/sql-createtable.html
 
 
+
+Shard limitation
+-----------------
+
+
+* (...) in distributed tables, UNIQUE constraints must include the distribution column of the table
+* (...) the distribution column must be included in PRIMARY KEY
+* (...) column with REFERENCES (FK) should be the distribution column.
+* (...) PRIMARY KEY must be the distribution column as well.
+
+https://stackoverflow.com/questions/28547437/migrating-from-postgresql-to-postgres-xl-distributed-tables-design
+
+https://www.postgres-xl.org/documentation/upgrading.html
+
+
 Download
 --------
 
@@ -314,20 +329,6 @@ Ansible
 -------
 
 https://gitlab.com/ansible-postgres-xl/postgres-xl-cluster/tree/master
-
-
-Shard
------
-
-
-* "(...) in distributed tables, UNIQUE constraints must include the distribution column of the table"
-* "(...) the distribution column must be included in PRIMARY KEY"
-* "(...) column with REFERENCES (FK) should be the distribution column. (...) PRIMARY KEY must be the distribution column as well."
-
-https://stackoverflow.com/questions/28547437/migrating-from-postgresql-to-postgres-xl-distributed-tables-design
-
-
-https://www.postgres-xl.org/documentation/upgrading.html
 
 
 Links
