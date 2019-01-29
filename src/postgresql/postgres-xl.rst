@@ -3,8 +3,8 @@ Postgres-XL
 
 
 
-Concept
--------
+Nodes Concept
+-------------
 
 Postgres-XL is composed of three major components called the GTM, Coordinator and Datanode.
 
@@ -30,6 +30,41 @@ you should configure them to avoid resource conflict. It is very important to as
 
 
 https://www.postgres-xl.org/documentation/tutorial-arch.html
+
+
+Table distributing concept
+--------------------------
+
+.. code-block:: bash
+
+    CREATE TABLE DISTRIBUTE BY ...
+
+
+REPLICATION
+
+    Each row of the table will be replicated to all the Datanode of the Postgres-XL database cluster.
+
+ROUNDROBIN
+
+    Each row of the table will be placed in one of the Datanodes in a round-robin manner. The value of the row will not be needed to determine what Datanode to go.
+
+HASH ( column_name )
+
+        Each row of the table will be placed based on the hash value of the specified column. Following type is allowed as distribution column: INT8, INT2, OID, INT4, BOOL, INT2VECTOR, OIDVECTOR, CHAR, NAME, TEXT, BPCHAR, BYTEA, VARCHAR, NUMERIC, MONEY, ABSTIME, RELTIME, DATE, TIME,TIMESTAMP, TIMESTAMPTZ, INTERVAL, and TIMETZ.
+        Please note that floating point is not allowed as a basis of the distribution column.
+
+
+MODULO ( column_name )
+
+    Each row of the table will be placed based on the modulo of the specified column. Following type is allowed as distribution column: INT8, INT2, INT4, BOOL, ABSTIME, RELTIME, DATE.
+
+    Please note that floating point is not allowed as a basis of the distribution column.
+
+If DISTRIBUTE BY is not specified, columns with UNIQUE constraint will be chosen as the distribution key. If no such column is specified, distribution column is the first eligible column in the definition. If no such column is found, then the table will be distributed by ROUNDROBIN.
+
+
+https://www.postgres-xl.org/documentation/sql-createtable.html
+
 
 Download
 --------
