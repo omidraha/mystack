@@ -10,7 +10,7 @@ Welcome to MyStack's documentation!
 
     I'm Omid Raha,
 
-    Here i am gathering some notes from the net, that i often refer to them as my stack.
+    Here i am gathering some notes from my experience on some subjects that I worked on them.
 
 
 Contents:
