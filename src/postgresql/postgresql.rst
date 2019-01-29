@@ -9,3 +9,4 @@ Contents:
 
    tips
    backups
+   postgres-xl
