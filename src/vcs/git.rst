@@ -312,8 +312,8 @@ Working on github API
     repo = = g.repos.get('django','django')
 
 
-How can one find good forks on GitHub?
---------------------------------------
+Find good forks on GitHub
+--------------------------
 
 http://forked.yannick.io
 

@@ -76,6 +76,37 @@ Shard limitation
 * (...) column with REFERENCES (FK) should be the distribution column.
 * (...) PRIMARY KEY must be the distribution column as well.
 
+In Postgres-XL, in distributed tables, UNIQUE constraints must include the distribution column of the table.
+This is because Postgres-XL currently only allows that it can push down to the Datanodes to be enforced locally.
+If we include the distribution column in unique constraints, it stands to reason that it can be enforced locally.
+If a table is distributed by ROUNDROBIN, we cannot enforce UNIQUE constraints because it does not have a distribution column;
+it is possible that the same value for a column exists on multiple nodes.
+There's no restriction in UNIQUE constraint in replicated tables. When an expression is used on a UNIQUE constraint,
+this expression must contain the distribution column of its parent table. It cannot use other columns as well.
+
+As mentioned when discussing UNIQUE constraint, the distribution column must be included in PRIMARY KEY.
+Other restrictions apply to the PRIMARY KEY as well. When an expression is used on a PRIMARY KEY constraint,
+this expression must contain the distribution column of its parent table. It cannot use other columns as well.
+
+Please note that column with REFERENCES should be the distribution column.
+This limitation is introduced because constraints are enforced only locally in each Datanode.
+
+In Postgres-XL, you cannot specify both PRIMARY KEY and REFERENCES key for different columns.
+
+In Postgres-XL, you cannot omit the column name in REFERENCES clause.
+
+In Postgres-XL, you cannot specify more than one foreign key constraints.
+
+Postgres-XL does not support exclusion constraints.
+
+Postgres-XL does not allow to modify the value of distribution column.
+
+
+https://www.postgres-xl.org/documentation/ddl-constraints.html
+
+https://www.postgres-xl.org/documentation/dml-update.html
+
+
 https://stackoverflow.com/questions/28547437/migrating-from-postgresql-to-postgres-xl-distributed-tables-design
 
 https://www.postgres-xl.org/documentation/upgrading.html
@@ -329,6 +360,12 @@ Ansible
 -------
 
 https://gitlab.com/ansible-postgres-xl/postgres-xl-cluster/tree/master
+
+
+Django
+------
+
+https://github.com/omidraha/django-postgres-xl-example
 
 
 Links
