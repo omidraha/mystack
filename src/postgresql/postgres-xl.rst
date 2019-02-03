@@ -63,9 +63,11 @@ MODULO ( column_name )
 If DISTRIBUTE BY is not specified, columns with UNIQUE constraint will be chosen as the distribution key. If no such column is specified, distribution column is the first eligible column in the definition. If no such column is found, then the table will be distributed by ROUNDROBIN.
 
 
+You could Alter a replicated table to make it a distributed table.
+
 https://www.postgres-xl.org/documentation/sql-createtable.html
 
-
+https://www.postgres-xl.org/documentation/tutorial-createcluster.html
 
 Shard limitation
 -----------------
@@ -110,6 +112,22 @@ https://www.postgres-xl.org/documentation/dml-update.html
 https://stackoverflow.com/questions/28547437/migrating-from-postgresql-to-postgres-xl-distributed-tables-design
 
 https://www.postgres-xl.org/documentation/upgrading.html
+
+High Availability
+-----------------
+
+You can add slaves for each node analogous to PostgreSQL’s streaming replication.   In addition, the cluster can be configured such that the Global Transaction Manager (GTM) can have a GTM Standby.
+
+In terms of automatic failover, it is currently not part of the core project, but Corosync/Pacemaker has been used for this purpose.
+
+
+https://www.postgres-xl.org/documentation/warm-standby-failover.html
+
+https://www.postgres-xl.org/faq/
+
+https://github.com/ClusterLabs/PAF
+
+https://github.com/bitnine-oss/postgres-xl-ha
 
 
 Download
