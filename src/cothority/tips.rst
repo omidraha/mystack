@@ -463,3 +463,88 @@ https://github.com/dedis/cothority/blob/master/evoting/README.md
 
 https://github.com/dedis/cothority/tree/master/evoting/evoting-admin
 
+
+
+CISC
+++++
+
+.. code-block:: bash
+
+    $ cisc --help
+
+     link, ln       create and use links with admin privileges
+     skipchain, sc  work with the underlying skipchain
+     data, cfg      updating and voting on data
+     keyvalue, kv   storing and retrieving key/value pairs
+     ssh            interacting with the ssh-keys stored in the skipchain
+     follow, f      follow skipchains
+     web, w         add a web-site to a skipchain
+     cert, c        create and use links with admin privileges
+     help, h        Shows a list of commands or help for one command
+
+
+
+Connecting to one conode:
+
+.. code-block:: bash
+
+    $ cisc link pin 192.168.0.180:6879
+
+        Please read PIN in server-log
+
+Output of ``192.168.0.180`` conode server:
+
+.. code-block:: bash
+
+    2 : (onet.wsHandler.ServeHTTP: 178) - ws request from 192.168.0.107:37832: Identity/PinRequest
+    3 : (identity.(*Service).PinRequest: 117) - PinRequest tls://192.168.0.180:6879
+    I : (identity.(*Service).PinRequest: 121) - PIN: 494777
+    3 : (onet.wsHandler.ServeHTTP: 188) - Got an error while executing Identity/PinRequest: Read PIN in server-log
+
+.. code-block:: bash
+
+    $ cisc link pin 192.168.0.180:6879 494777
+
+        Successfully linked with tcp://192.168.0.180:6879
+
+.. code-block:: bash
+
+    $ ls  ~/.cisc/
+
+    config.bin
+
+Creating an identity:
+
+.. code-block:: bash
+
+    $ cisc skipchain create group.toml
+
+        Found full link to conode: 192.168.0.180:6879 44251bc84a7fe20a2fe0064b4ff858a01a5c14a3d4196239ea5d29e8b5cde354
+        Creating new blockchain-identity for omid in roster [tls://192.168.0.180:6879 tls://192.168.0.181:6879 tls://192.168.0.182:6879]
+        New cisc-id is: c1d0e4ab9b91781101406687c8d72992039955b653dfdc037fbf5758ccbd2a8d
+
+Storing a key/value pair
+
+.. code-block:: bash
+
+    $ cisc keyvalue add name omid
+
+        Stored key-value pair
+
+    $ cisc keyvalue add family raha
+
+    Stored key-value pair
+
+.. code-block:: bash
+
+    $ cisc  keyvalue list
+
+        family: raha
+        name: omid
+
+    $ cisc  keyvalue list c1d0e4ab9b91781101406687c8d72992039955b653dfdc037fbf5758ccbd2a8d
+
+        family: raha
+        name: omid
+
+https://github.com/dedis/cothority/blob/master/cisc/CLI.md
