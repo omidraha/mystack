@@ -338,27 +338,8 @@ Install kubectl binary via curl
 https://kubernetes.io/docs/tasks/kubectl/install/
 
 
-Working with kubectl
---------------------
-
-.. code-block:: bash
-
-    $ kubectl config view
-    $ kubectl cluster-info
-    $ kubectl get nodes
-    $ kubectl get events
-    $ kubectl get services
-    $ kubectl get pods
-    $ kubectl get pods --namespace=kube-system
-
-
-
 Interactive K8S starting guide
 ------------------------------
-
-https://kubernetes.io/docs/tutorials/
-
-https://kubernetes.io/docs/tutorials/kubernetes-basics/
 
 
 .. code-block:: bash
@@ -383,6 +364,10 @@ https://kubernetes.io/docs/tutorials/kubernetes-basics/
         NAME                                  READY     STATUS    RESTARTS   AGE
         kubernetes-bootcamp-390780338-rpcw8   1/1       Running   0          12m
 
+
+https://kubernetes.io/docs/tutorials/
+
+https://kubernetes.io/docs/tutorials/kubernetes-basics/
 
 https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/
 
@@ -459,9 +444,110 @@ Labels are key/value pairs attached to objects and can be used in any number of 
     $ kubectl describe services/kubernetes-bootcamp
 
 
-Toturials
+Tutorials
 ---------
 
 
 https://www.digitalocean.com/community/tutorials/modernizing-applications-for-kubernetes
 
+
+Working with kubectl
+--------------------
+
+
+.. code-block:: bash
+
+    $ kubectl version
+    "
+        Client Version: version.Info{Major:"1", Minor:"13", GitVersion:"v1.13.1", GitCommit:"eec55b9ba98609a46fee712359c7b5b365bdd920", GitTreeState:"clean", BuildDate:"2018-12-13T10:39:04Z", GoVersion:"go1.11.2", Compiler:"gc", Platform:"linux/amd64"}
+        Server Version: version.Info{Major:"1", Minor:"11", GitVersion:"v1.11.6", GitCommit:"b1d75deca493a24a2f87eb1efde1a569e52fc8d9", GitTreeState:"clean", BuildDate:"2018-12-16T04:30:10Z", GoVersion:"go1.10.3", Compiler:"gc", Platform:"linux/amd64"}
+    "
+
+    $ kubectl cluster-info
+    "
+        Kubernetes master is running at https://192.168.0.190/k8s/clusters/c-bmbj9
+        KubeDNS is running at https://192.168.0.190/k8s/clusters/c-bmbj9/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+        To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+    "
+    $ kubectl config view
+    "
+        apiVersion: v1
+        clusters:
+        - cluster:
+            certificate-authority-data: DATA+OMITTED
+            server: https://192.168.0.190/k8s/clusters/c-bmbj9
+          name: sample-cluster
+        contexts:
+        - context:
+            cluster: sample-cluster
+            user: user-c8kmt
+          name: sample-cluster
+        current-context: sample-cluster
+        kind: Config
+        preferences: {}
+        users:
+        - name: user-c8kmt
+          user:
+            token: kubeconfig-user-c8kmt:7nlsm6vxwrtp9bl79whg42sp7k5vrtc86qskqg9ksvm6xb5dbc558n
+    "
+
+    $ kubectl get nodes
+    "
+        NAME         STATUS   ROLES               AGE   VERSION
+        ubuntu-190   Ready    controlplane,etcd   27m   v1.11.6
+        ubuntu-191   Ready    worker              12m   v1.11.6
+    "
+
+    $ kubectl get events
+
+    $ kubectl get services
+    "
+        NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+        kubernetes   ClusterIP   10.43.0.1    <none>        443/TCP   29m
+    "
+
+    $ kubectl describe services
+    "
+        Name:              kubernetes
+        Namespace:         default
+        Labels:            component=apiserver
+                           provider=kubernetes
+        Annotations:       <none>
+        Selector:          <none>
+        Type:              ClusterIP
+        IP:                10.43.0.1
+        Port:              https  443/TCP
+        TargetPort:        6443/TCP
+        Endpoints:         192.168.0.190:6443
+        Session Affinity:  None
+        Events:            <none>
+    "
+    $ kubectl get pods
+
+    $ kubectl get pods --namespace=kube-system
+    "
+        NAME                                      READY   STATUS      RESTARTS   AGE
+        canal-f9zgh                               3/3     Running     0          45m
+        canal-q2955                               3/3     Running     0          31m
+        kube-dns-7588d5b5f5-drhqd                 3/3     Running     0          45m
+        kube-dns-autoscaler-5db9bbb766-5jn5b      1/1     Running     0          45m
+        metrics-server-97bc649d5-qbkdf            1/1     Running     0          45m
+        rke-ingress-controller-deploy-job-pf6ks   0/1     Completed   0          45m
+        rke-kubedns-addon-deploy-job-lgmxs        0/1     Completed   0          45m
+        rke-metrics-addon-deploy-job-5swcc        0/1     Completed   0          45m
+        rke-network-plugin-deploy-job-sbzbs       0/1     Completed   0          45m
+    "
+    $ kubectl run example-app --image=nginx:latest
+    "
+        kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+        deployment.apps/example-app created
+    "
+    $ kubectl expose deployment example-app --port=80 --target-port=8000
+    "
+        service/example-app exposed
+    "
+
+https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/
+
+https://kubernetes.io/docs/tasks/access-application-cluster/service-access-application-cluster/
