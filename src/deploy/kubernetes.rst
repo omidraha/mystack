@@ -500,30 +500,125 @@ Working with kubectl
     "
 
     $ kubectl get events
-
-    $ kubectl get services
     "
-        NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-        kubernetes   ClusterIP   10.43.0.1    <none>        443/TCP   29m
+        LAST    SEEN   FIRST SEEN   COUNT   NAME  KIND     SUBOBJECT       TYPE    REASON      SOURCE      MESSAGE
+        ...
+    "
+
+
+    $ kubectl get namespaces
+    "
+        NAME            STATUS   AGE
+        cattle-system   Active   5d
+        default         Active   5d
+        ingress-nginx   Active   5d
+        kube-public     Active   5d
+        kube-system     Active   5d
+    "
+
+    $ kubectl create namespace sample-ns
+
+    "
+        namespace/sample-ns created
+    "
+
+    $ kubectl config get-contexts
+    "
+        CURRENT   NAME             CLUSTER          AUTHINFO     NAMESPACE
+        *         sample-cluster   sample-cluster   user-c8kmt
+    "
+
+    $ kubectl config current-context
+    "
+        sample-cluster
+    "
+
+    $ kubectl config set-context sample-cluster --namespace=sample-ns
+    "
+        Context "sample-cluster" modified.
+    "
+
+    $ kubectl config get-contexts
+    "
+        CURRENT   NAME             CLUSTER          AUTHINFO     NAMESPACE
+        *         sample-cluster   sample-cluster   user-c8kmt   sample-ns
+    "
+
+
+    $ kubectl run example-app --image=nginx:latest --port=80
+    "
+        kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+        deployment.apps/example-app created
+    "
+
+    $ kubectl expose deployment example-app --type=NodePort
+    "
+        service/example-app exposed
+    "
+
+    $ kubectl run sample-app --image=nginx:latest
+    "
+        kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+        deployment.apps/example-app created
+    "
+
+    $ kubectl expose deployment sample-app  --type=NodePort --port=80 --name=sample-service
+    "
+        service/sample-service exposed
+    "
+
+    $ kubectl get services  --all-namespaces
+    "
+        NAMESPACE       NAME                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)         AGE
+        default         kubernetes             ClusterIP   10.43.0.1       <none>        443/TCP         1h
+        ingress-nginx   default-http-backend   ClusterIP   10.43.233.93    <none>        80/TCP          5d
+        kube-system     kube-dns               ClusterIP   10.43.0.10      <none>        53/UDP,53/TCP   5d
+        kube-system     metrics-server         ClusterIP   10.43.126.84    <none>        443/TCP         5d
+        sample-ns       example-app            NodePort    10.43.146.159   <none>        80:31525/TCP    16m
+        sample-ns       sample-service         NodePort    10.43.144.129   <none>        80:30033/TCP    5m
     "
 
     $ kubectl describe services
     "
-        Name:              kubernetes
-        Namespace:         default
-        Labels:            component=apiserver
-                           provider=kubernetes
-        Annotations:       <none>
-        Selector:          <none>
-        Type:              ClusterIP
-        IP:                10.43.0.1
-        Port:              https  443/TCP
-        TargetPort:        6443/TCP
-        Endpoints:         192.168.0.190:6443
-        Session Affinity:  None
-        Events:            <none>
+        Name:                     example-app
+        Namespace:                default
+        Labels:                   run=example-app
+        Annotations:              field.cattle.io/publicEndpoints:
+                                    [{"addresses":["192.168.0.191"],"port":32093,"protocol":"TCP","serviceName":"default:example-app","allNodes":true}]
+        Selector:                 run=example-app
+        Type:                     NodePort
+        IP:                       10.43.6.186
+        Port:                     <unset>  80/TCP
+        TargetPort:               80/TCP
+        NodePort:                 <unset>  32093/TCP
+        Endpoints:                10.42.1.41:80
+        Session Affinity:         None
+        External Traffic Policy:  Cluster
+        Events:                   <none>
+
+        Name:                     sample-service
+        Namespace:                default
+        Labels:                   run=sample-app
+        Annotations:              field.cattle.io/publicEndpoints:
+                                    [{"addresses":["192.168.0.191"],"port":32134,"protocol":"TCP","serviceName":"default:sample-service","allNodes":true}]
+        Selector:                 run=sample-app
+        Type:                     NodePort
+        IP:                       10.43.167.187
+        Port:                     <unset>  80/TCP
+        TargetPort:               80/TCP
+        NodePort:                 <unset>  32134/TCP
+        Endpoints:                10.42.1.42:80
+        Session Affinity:         None
+        External Traffic Policy:  Cluster
+        Events:                   <none>
+
     "
     $ kubectl get pods
+    "
+        NAME                          READY   STATUS    RESTARTS   AGE
+        example-app-75967bd4d-b4v7g   1/1     Running   0          16m
+        sample-app-7d77dc8bbc-xhrjh   1/1     Running   0          6m
+    "
 
     $ kubectl get pods --namespace=kube-system
     "
@@ -538,16 +633,65 @@ Working with kubectl
         rke-metrics-addon-deploy-job-5swcc        0/1     Completed   0          45m
         rke-network-plugin-deploy-job-sbzbs       0/1     Completed   0          45m
     "
-    $ kubectl run example-app --image=nginx:latest
+
+    $ kubectl get pods --all-namespaces
     "
-        kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
-        deployment.apps/example-app created
+        NAMESPACE       NAME                                      READY   STATUS      RESTARTS   AGE
+        cattle-system   cattle-cluster-agent-57458fc9b9-lvzsx     1/1     Running     1          5d
+        cattle-system   cattle-node-agent-8tqv2                   1/1     Running     0          5d
+        cattle-system   cattle-node-agent-fd2wh                   1/1     Running     0          5d
+        ingress-nginx   default-http-backend-797c5bc547-q2w62     1/1     Running     0          5d
+        ingress-nginx   nginx-ingress-controller-7szwb            1/1     Running     0          5d
+        kube-system     canal-f9zgh                               3/3     Running     0          5d
+        kube-system     canal-q2955                               3/3     Running     0          5d
+        kube-system     kube-dns-7588d5b5f5-drhqd                 3/3     Running     0          5d
+        kube-system     kube-dns-autoscaler-5db9bbb766-5jn5b      1/1     Running     0          5d
+        kube-system     metrics-server-97bc649d5-qbkdf            1/1     Running     0          5d
+        kube-system     rke-ingress-controller-deploy-job-pf6ks   0/1     Completed   0          5d
+        kube-system     rke-kubedns-addon-deploy-job-lgmxs        0/1     Completed   0          5d
+        kube-system     rke-metrics-addon-deploy-job-5swcc        0/1     Completed   0          5d
+        kube-system     rke-network-plugin-deploy-job-sbzbs       0/1     Completed   0          5d
+        sample-ns       example-app-75967bd4d-clmfb               1/1     Running     0          42m
+        sample-ns       sample-app-7d77dc8bbc-wkdxt               1/1     Running     0          30m
     "
-    $ kubectl expose deployment example-app --port=80 --target-port=8000
+
+    $ kubectl get deployments
     "
-        service/example-app exposed
+        NAME          DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+        example-app   1         1         1            1           16m
+        sample-app    1         1         1            1           6m
     "
+
+    $ kubectl get deployments  --all-namespaces
+    "
+        NAMESPACE       NAME                   DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+        cattle-system   cattle-cluster-agent   1         1         1            1           5d
+        ingress-nginx   default-http-backend   1         1         1            1           5d
+        kube-system     kube-dns               1         1         1            1           5d
+        kube-system     kube-dns-autoscaler    1         1         1            1           5d
+        kube-system     metrics-server         1         1         1            1           5d
+        sample-ns       example-app            1         1         1            1           43m
+        sample-ns       sample-app             1         1         1            1           31m
+    "
+
+    $ kubectl delete deployments --all
+    "
+        deployment.extensions "example-app" deleted
+        deployment.extensions "sample-app" deleted
+    "
+
+    $ kubectl delete services --all
+    "
+        service "example-app" deleted
+        service "sample-service" deleted
+    "
+
+
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/
 
 https://kubernetes.io/docs/tasks/access-application-cluster/service-access-application-cluster/
+
+https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough/#understand-the-default-namespace
