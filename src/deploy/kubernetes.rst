@@ -499,6 +499,13 @@ Working with kubectl
         ubuntu-191   Ready    worker              12m   v1.11.6
     "
 
+    $ kubectl top node
+    "
+        NAME         CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
+        ubuntu-190   107m         5%     1943Mi          50%
+        ubuntu-191   40m          2%     786Mi           20%
+    "
+
     $ kubectl get events
     "
         LAST    SEEN   FIRST SEEN   COUNT   NAME  KIND     SUBOBJECT       TYPE    REASON      SOURCE      MESSAGE
@@ -620,6 +627,13 @@ Working with kubectl
         sample-app-7d77dc8bbc-xhrjh   1/1     Running   0          6m
     "
 
+    $ kubectl get pods --show-labels
+    "
+        NAME                          READY   STATUS    RESTARTS   AGE   LABELS
+        example-app-75967bd4d-ph256   1/1     Running   0          8m    pod-template-hash=315236808,run=sample-app
+        sample-app-7d77dc8bbc-2h77g   1/1     Running   0          20m   pod-template-hash=3833874667,run=sample-app
+    "
+
     $ kubectl get pods --namespace=kube-system
     "
         NAME                                      READY   STATUS      RESTARTS   AGE
@@ -695,3 +709,65 @@ https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deplo
 https://kubernetes.io/docs/tasks/access-application-cluster/service-access-application-cluster/
 
 https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough/#understand-the-default-namespace
+
+
+Difference between targetPort and port in kubernetes Service definition
+-----------------------------------------------------------------------
+
+
+Port: Port is the port number which makes a service visible to other services running within the same K8s cluster.
+In other words, in case a service wants to invoke another service running within the same Kubernetes cluster,
+it will be able to do so using port specified against “port” in the service spec file.
+port is the port your service listens on inside the cluster.
+
+
+
+Target Port: Target port is the port on the POD where the service is running.
+Taget Port is also by default the same value as port if not specified otherwise.
+
+Nodeport: Node port is the port on which the service can be accessed from external users using Kube-Proxy.
+nodePort is the port that a client outside of the cluster will "see".
+nodePort is opened on every node in your cluster via kube-proxy.
+With iptables magic Kubernetes (k8s) then routes traffic from that port to a matching service pod (even if that pod is running on a completely different node).
+nodePort is unique, so two different services cannot have the same nodePort assigned.
+Once declared, the k8s master reserves that nodePort for that service.
+nodePort is then opened on EVERY node (master and worker), also the nodes that do not run a pod of that service
+k8s iptables magic takes care of the routing.
+That way you can make your service request from outside your k8s cluster to any node on nodePort without worrying whether a pod is scheduled there or not.
+
+
+.. code-block:: bash
+
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: test-service
+        spec:
+          ports:
+          - port: 8080
+            targetPort: 8170
+            nodePort: 33333
+            protocol: TCP
+          selector:
+            component: test-service-app
+
+
+The port is 8080 which represents that test-service can be accessed by other services in the cluster at port 8080.
+
+The targetPort is 8170 which represents the test-service is actually running on port 8170 on pods
+
+The nodePort is 33333 which represents that test-service can be accessed via kube-proxy on port 33333.
+
+https://stackoverflow.com/a/49982009
+
+https://stackoverflow.com/a/41963878
+
+
+Sample Project
+--------------
+
+https://github.com/testdrivenio/flask-vue-kubernetes
+
+https://github.com/hnarayanan/kubernetes-django
+
+https://github.com/wildfish/kubernetes-django-starter/tree/master/k8s

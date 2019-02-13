@@ -363,6 +363,21 @@ Configure data nodes:
         Running: datanode master dn2
         """
 
+    # To stop
+    PGXC stop gtm master
+    PGXC stop  coordinator master cr1
+    PGXC stop coordinator master cr2
+    PGXC stop datanode master dn1
+    PGXC stop datanode master dn2
+
+    # To start
+    PGXC start gtm master
+    PGXC start  coordinator master cr1
+    PGXC start coordinator master cr2
+    PGXC start datanode master dn1
+    PGXC start datanode master dn2
+
+
 https://stackoverflow.com/questions/29225743/installing-postgres-xl-in-linux-in-distributed-environment
 
 https://ruihaijiang.wordpress.com/2015/09/17/postgres-xl-installation-example-on-linux/
