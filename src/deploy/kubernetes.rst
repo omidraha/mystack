@@ -768,6 +768,9 @@ Sample Project
 
 https://github.com/testdrivenio/flask-vue-kubernetes
 
+https://testdriven.io/blog/running-flask-on-kubernetes/
+
+
 https://github.com/hnarayanan/kubernetes-django
 
 https://github.com/wildfish/kubernetes-django-starter/tree/master/k8s
