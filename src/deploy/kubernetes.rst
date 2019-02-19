@@ -884,7 +884,7 @@ Configure docker service to use local insecure registry
 
 Add ``--insecure-registry registry.me:80`` to ``docker.service`` file:
 
-.. code-block::bash
+.. code-block:: bash
 
     $ sudo vim  /lib/systemd/system/docker.service
 
