@@ -917,6 +917,10 @@ Add tag same as ``registry.me:80`` registry name to one image and push it to loc
     $ docker tag nginx:1.10.2 registry.me:80/nginx
     $ docker push registry.me:80/nginx
 
+Now repo is available:
+
+    http://registry.me/v2/nginx/tags/list
+
 
 Deploy a new ``nginx`` pod from ``registry.me:80/nginx`` local registry on kubernetes:
 
