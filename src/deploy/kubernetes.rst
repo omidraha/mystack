@@ -826,12 +826,12 @@ in one file called ``docker-registry-deployment.yaml``:
             - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
               value: "/var/lib/registry"
             volumeMounts:
-              - name: image-store
+              - name: docker-registry-mount
                 mountPath: "/var/lib/registry"
           volumes:
-            - name: image-store
-              emptyDir: {}
-
+          - name: docker-registry-mount
+            persistentVolumeClaim:
+              claimName: docker-registry-pvc
 
     ---
 
@@ -868,7 +868,42 @@ in one file called ``docker-registry-deployment.yaml``:
               servicePort: 5000
             path: /
 
+    ---
 
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: docker-registry-pv
+      labels:
+        type: local
+      namespace: docker-registry
+    spec:
+      capacity:
+        storage: 1Gi
+      storageClassName: standard
+      accessModes:
+        - ReadWriteOnce
+      hostPath:
+        path: "/data/docker-registry-pv"
+
+
+    ---
+
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: docker-registry-pvc
+      labels:
+        type: local
+      namespace: docker-registry
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
+      volumeName: docker-registry-pv
+      storageClassName: standard
 
 
 Deploy on kubernetes:
