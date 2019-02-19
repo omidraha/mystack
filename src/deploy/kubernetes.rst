@@ -774,3 +774,162 @@ https://testdriven.io/blog/running-flask-on-kubernetes/
 https://github.com/hnarayanan/kubernetes-django
 
 https://github.com/wildfish/kubernetes-django-starter/tree/master/k8s
+
+
+Deploy a docker registry in the kubernetes cluster and configure Ingress with Let's Encrypt
+-------------------------------------------------------------------------------------------
+
+
+https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples/docker-registry
+
+
+
+
+Deploy a docker registry without TLS is the kubernetes cluster
+--------------------------------------------------------------
+
+Define ``namespace``, ``deployment``, ``service``  and ``ingress``
+in one file called ``docker-registry-deployment.yaml``:
+
+.. code-block:: bash
+
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: docker-registry
+
+    ---
+
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    metadata:
+      name: docker-registry
+      labels:
+        name: docker-registry
+      namespace: docker-registry
+    spec:
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: docker-registry
+        spec:
+          containers:
+          - name: docker-registry
+            image: registry:2
+            imagePullPolicy: Always
+            ports:
+            - containerPort: 5000
+            env:
+            - name: REGISTRY_HTTP_ADDR
+              value: ":5000"
+            - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
+              value: "/var/lib/registry"
+            volumeMounts:
+              - name: image-store
+                mountPath: "/var/lib/registry"
+          volumes:
+            - name: image-store
+              emptyDir: {}
+
+
+    ---
+
+    kind: Service
+    apiVersion: v1
+    metadata:
+      name: docker-registry
+      namespace: docker-registry
+    spec:
+      selector:
+        app: docker-registry
+      ports:
+        - port: 5000
+          targetPort: 5000
+
+    ---
+
+    apiVersion: extensions/v1beta1
+    kind: Ingress
+    metadata:
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-body-size: "0"
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+        nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+      name: docker-registry
+      namespace: docker-registry
+    spec:
+      rules:
+      - host: registry.me
+        http:
+          paths:
+          - backend:
+              serviceName: docker-registry
+              servicePort: 5000
+            path: /
+
+
+
+
+Deploy on kubernetes:
+
+
+.. code-block:: bash
+
+    $ kubectl create -f docker-registry-deployment.yaml
+
+
+Configure docker service to use local insecure registry
+-------------------------------------------------------
+
+Add ``--insecure-registry registry.me:80`` to ``docker.service`` file:
+
+.. code-block::bash
+
+    $ sudo vim  /lib/systemd/system/docker.service
+
+        ExecStart=/usr/bin/dockerd  --max-concurrent-downloads 1 --insecure-registry registry.me:80 -H fd://
+
+
+Or add to ``daemon.json`` file:
+
+.. code-block:: bash
+
+    $ vim /etc/docker/daemon.json
+
+     {
+            "insecure-registries" : ["registry.me:80"]
+     }
+
+
+And then restart docker:
+
+.. code-block:: bash
+
+    $ systemctl daemon-reload
+    $ service docker restart
+
+
+Add tag same as ``registry.me:80`` registry name to one image and push it to local registry:
+
+.. code-block:: bash
+
+    $ docker tag nginx:1.10.2 registry.me:80/nginx
+    $ docker push registry.me:80/nginx
+
+
+Deploy a new ``nginx`` pod from ``registry.me:80/nginx`` local registry on kubernetes:
+
+
+.. code-block:: bash
+
+    $ kubectl run nginx --image=registry.me:80/nginx
+
+
+Note:
+
+    You need to update DNS for `registry.me` on host and nodes.
+
+
+
+https://github.com/Juniper/contrail-docker/wiki/Configure-docker-service-to-use-insecure-registry
