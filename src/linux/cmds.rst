@@ -1506,3 +1506,23 @@ If you are fine with UTC:
 
     $ DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
 
+
+
+Inotify Watches Limit
+----------------------
+
+Error:
+
+External file changes sync slow: The current inotify limit is too low
+
+Fixed:
+
+.. code-block:: bash
+
+    $ vim /etc/sysctl.conf
+
+        fs.inotify.max_user_watches = 524288
+
+    $ sudo sysctl -p --system
+
+https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
