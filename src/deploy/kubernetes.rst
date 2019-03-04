@@ -793,11 +793,14 @@ in one file called ``docker-registry-deployment.yaml``:
 
 .. code-block:: bash
 
+    #
+    # Local docker registry without TLS
+    # kubectl create -f docker-registry.yaml
+    #
     apiVersion: v1
     kind: Namespace
     metadata:
       name: docker-registry
-
     ---
 
     apiVersion: extensions/v1beta1
@@ -820,7 +823,10 @@ in one file called ``docker-registry-deployment.yaml``:
             imagePullPolicy: Always
             ports:
             - containerPort: 5000
+    #        @note: we enable delete image API
             env:
+            - name: REGISTRY_STORAGE_DELETE_ENABLED
+              value: "true"
             - name: REGISTRY_HTTP_ADDR
               value: ":5000"
             - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
@@ -868,6 +874,7 @@ in one file called ``docker-registry-deployment.yaml``:
               servicePort: 5000
             path: /
 
+
     ---
 
     apiVersion: v1
@@ -879,12 +886,13 @@ in one file called ``docker-registry-deployment.yaml``:
       namespace: docker-registry
     spec:
       capacity:
-        storage: 1Gi
+        storage: 20Gi
       storageClassName: standard
       accessModes:
         - ReadWriteOnce
       hostPath:
         path: "/data/docker-registry-pv"
+
 
 
     ---
@@ -901,7 +909,7 @@ in one file called ``docker-registry-deployment.yaml``:
         - ReadWriteOnce
       resources:
         requests:
-          storage: 1Gi
+          storage: 20Gi
       volumeName: docker-registry-pv
       storageClassName: standard
 
@@ -972,3 +980,43 @@ Note:
 
 
 https://github.com/Juniper/contrail-docker/wiki/Configure-docker-service-to-use-insecure-registry
+
+
+Delete images from a private local docker registry
+---------------------------------------------------
+
+.. code-block:: bash
+
+
+    $ curl --head -XGET -H "Accept: application/vnd.docker.distribution.manifest.v2+json" http://registry.me:80/v2/nginx/manifests/latest
+
+        HTTP/1.1 200 OK
+        Server: nginx/1.13.12
+        Date: Mon, 04 Mar 2019 08:51:01 GMT
+        Content-Type: application/vnd.docker.distribution.manifest.v2+json
+        Content-Length: 3237
+        Connection: keep-alive
+        Docker-Content-Digest: sha256:6298d62cef5e82170501d4d9f9b3d7549b8c272fae787f1b93829edd472f894a
+        Docker-Distribution-Api-Version: registry/2.0
+        Etag: "sha256:6298d62cef5e82170501d4d9f9b3d7549b8c272fae787f1b93829edd472f894a"
+        X-Content-Type-Options: nosniff
+
+
+
+    $ curl -X DELETE -H "Accept: application/vnd.docker.distribution.manifest.v2+json" http://registry.me:80/v2/nginx/manifests/sha256:6298d62cef5e82170501d4d9f9b3d7549b8c272fae787f1b93829edd472f894a
+
+
+https://docs.docker.com/registry/spec/api/#/deleting-an-image
+
+By default delete is disable, and you will see this error:
+
+.. code-block:: bash
+
+    {"errors":[{"code":"UNSUPPORTED","message":"The operation is unsupported."}]}
+
+
+to enable it you need to set ``REGISTRY_STORAGE_DELETE_ENABLED=true`` env.
+
+https://github.com/docker/distribution/issues/1573
+
+
