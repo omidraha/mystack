@@ -964,6 +964,10 @@ Now repo is available:
 
     http://registry.me/v2/nginx/tags/list
 
+List of images on local docker registry:
+
+    http://registry.me/v2/_catalog
+
 
 Deploy a new ``nginx`` pod from ``registry.me:80/nginx`` local registry on kubernetes:
 
