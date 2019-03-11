@@ -17,6 +17,15 @@ Rancher 2.x:
 
 https://github.com/rancher/rancher#quick-start
 
+Minimum System
+++++++++++++++
+
+For install ``etcd`` and ``Control Plane`` on one node:
+
+    Ram: 2GB
+
+    CPU: 1 core
+
 
 Vagrant
 +++++++
