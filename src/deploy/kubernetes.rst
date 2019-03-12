@@ -1024,3 +1024,42 @@ to enable it you need to set ``REGISTRY_STORAGE_DELETE_ENABLED=true`` env.
 https://github.com/docker/distribution/issues/1573
 
 
+Assigning Pods to Nodes
+-----------------------
+
+
+Attach label to the node:
+
+
+.. code-block:: bash
+
+    $ kubectl get nodes
+    '
+    NAME         STATUS   ROLES               AGE   VERSION
+    ubuntu-190   Ready    controlplane,etcd   33d   v1.11.6
+    ubuntu-191   Ready    worker              34m   v1.11.6
+    ubuntu-192   Ready    worker              38s   v1.11.6
+    ubuntu-193   Ready    worker              9s    v1.11.6
+    '
+    # kubectl label nodes <node-name> <label-key>=<label-value>
+    $ kubectl label nodes ubuntu-191 workerType=Storage
+
+Add a ``nodeSelector`` field to pod configuration:
+
+.. code-block:: yaml
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: postgres
+      labels:
+        env: test
+    spec:
+      containers:
+      - name: postgres
+        image: postgres
+        imagePullPolicy: IfNotPresent
+      nodeSelector:
+        workerType=Storage
+
+https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
