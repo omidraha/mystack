@@ -426,20 +426,20 @@ Clear log history
 
     $ vim docker-logs-clean.sh
 
-        #!/bin/bash
+    #!/bin/bash
 
-        for container_id in $(docker ps -a --filter="name=$name" -q);
+    for container_id in $(docker ps -a --filter="name=$name" -q);
 
-            do file=$(docker inspect $container_id | grep -G '"LogPath": "*"' | sed -e 's/.*"LogPath": "//g' | sed -e 's/",//g');
+        do file=$(docker inspect $container_id | grep -G '"LogPath": "*"' | sed -e 's/.*"LogPath": "//g' | sed -e 's/",//g');
 
-            if [ -f $file ]
-              then
-                  rm $file;
-            fi
+        if [ -f $file ]
+          then
+              rm $file;
+        fi
 
-        done
-    $ chmod +x docker-logs-clean.sh
-    $ sudo ./docker-logs-clean.sh
+    done
+$ chmod +x docker-logs-clean.sh
+$ sudo ./docker-logs-clean.sh
 
 https://github.com/docker/compose/issues/1083#issuecomment-216540808
 

@@ -338,27 +338,8 @@ Install kubectl binary via curl
 https://kubernetes.io/docs/tasks/kubectl/install/
 
 
-Working with kubectl
---------------------
-
-.. code-block:: bash
-
-    $ kubectl config view
-    $ kubectl cluster-info
-    $ kubectl get nodes
-    $ kubectl get events
-    $ kubectl get services
-    $ kubectl get pods
-    $ kubectl get pods --namespace=kube-system
-
-
-
 Interactive K8S starting guide
 ------------------------------
-
-https://kubernetes.io/docs/tutorials/
-
-https://kubernetes.io/docs/tutorials/kubernetes-basics/
 
 
 .. code-block:: bash
@@ -383,6 +364,10 @@ https://kubernetes.io/docs/tutorials/kubernetes-basics/
         NAME                                  READY     STATUS    RESTARTS   AGE
         kubernetes-bootcamp-390780338-rpcw8   1/1       Running   0          12m
 
+
+https://kubernetes.io/docs/tutorials/
+
+https://kubernetes.io/docs/tutorials/kubernetes-basics/
 
 https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/
 
@@ -459,9 +444,622 @@ Labels are key/value pairs attached to objects and can be used in any number of 
     $ kubectl describe services/kubernetes-bootcamp
 
 
-Toturials
+Tutorials
 ---------
 
 
 https://www.digitalocean.com/community/tutorials/modernizing-applications-for-kubernetes
 
+
+Working with kubectl
+--------------------
+
+
+.. code-block:: bash
+
+    $ kubectl version
+    "
+        Client Version: version.Info{Major:"1", Minor:"13", GitVersion:"v1.13.1", GitCommit:"eec55b9ba98609a46fee712359c7b5b365bdd920", GitTreeState:"clean", BuildDate:"2018-12-13T10:39:04Z", GoVersion:"go1.11.2", Compiler:"gc", Platform:"linux/amd64"}
+        Server Version: version.Info{Major:"1", Minor:"11", GitVersion:"v1.11.6", GitCommit:"b1d75deca493a24a2f87eb1efde1a569e52fc8d9", GitTreeState:"clean", BuildDate:"2018-12-16T04:30:10Z", GoVersion:"go1.10.3", Compiler:"gc", Platform:"linux/amd64"}
+    "
+
+    $ kubectl cluster-info
+    "
+        Kubernetes master is running at https://192.168.0.190/k8s/clusters/c-bmbj9
+        KubeDNS is running at https://192.168.0.190/k8s/clusters/c-bmbj9/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+        To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+    "
+    $ kubectl config view
+    "
+        apiVersion: v1
+        clusters:
+        - cluster:
+            certificate-authority-data: DATA+OMITTED
+            server: https://192.168.0.190/k8s/clusters/c-bmbj9
+          name: sample-cluster
+        contexts:
+        - context:
+            cluster: sample-cluster
+            user: user-c8kmt
+          name: sample-cluster
+        current-context: sample-cluster
+        kind: Config
+        preferences: {}
+        users:
+        - name: user-c8kmt
+          user:
+            token: kubeconfig-user-c8kmt:7nlsm6vxwrtp9bl79whg42sp7k5vrtc86qskqg9ksvm6xb5dbc558n
+    "
+
+    $ kubectl get nodes
+    "
+        NAME         STATUS   ROLES               AGE   VERSION
+        ubuntu-190   Ready    controlplane,etcd   27m   v1.11.6
+        ubuntu-191   Ready    worker              12m   v1.11.6
+    "
+
+    $ kubectl top node
+    "
+        NAME         CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
+        ubuntu-190   107m         5%     1943Mi          50%
+        ubuntu-191   40m          2%     786Mi           20%
+    "
+
+    $ kubectl get events
+    "
+        LAST    SEEN   FIRST SEEN   COUNT   NAME  KIND     SUBOBJECT       TYPE    REASON      SOURCE      MESSAGE
+        ...
+    "
+
+
+    $ kubectl get namespaces
+    "
+        NAME            STATUS   AGE
+        cattle-system   Active   5d
+        default         Active   5d
+        ingress-nginx   Active   5d
+        kube-public     Active   5d
+        kube-system     Active   5d
+    "
+
+    $ kubectl create namespace sample-ns
+
+    "
+        namespace/sample-ns created
+    "
+
+    $ kubectl config get-contexts
+    "
+        CURRENT   NAME             CLUSTER          AUTHINFO     NAMESPACE
+        *         sample-cluster   sample-cluster   user-c8kmt
+    "
+
+    $ kubectl config current-context
+    "
+        sample-cluster
+    "
+
+    $ kubectl config set-context sample-cluster --namespace=sample-ns
+    "
+        Context "sample-cluster" modified.
+    "
+
+    $ kubectl config get-contexts
+    "
+        CURRENT   NAME             CLUSTER          AUTHINFO     NAMESPACE
+        *         sample-cluster   sample-cluster   user-c8kmt   sample-ns
+    "
+
+
+    $ kubectl run example-app --image=nginx:latest --port=80
+    "
+        kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+        deployment.apps/example-app created
+    "
+
+    $ kubectl expose deployment example-app --type=NodePort
+    "
+        service/example-app exposed
+    "
+
+    $ kubectl run sample-app --image=nginx:latest
+    "
+        kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+        deployment.apps/example-app created
+    "
+
+    $ kubectl expose deployment sample-app  --type=NodePort --port=80 --name=sample-service
+    "
+        service/sample-service exposed
+    "
+
+    $ kubectl get services  --all-namespaces
+    "
+        NAMESPACE       NAME                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)         AGE
+        default         kubernetes             ClusterIP   10.43.0.1       <none>        443/TCP         1h
+        ingress-nginx   default-http-backend   ClusterIP   10.43.233.93    <none>        80/TCP          5d
+        kube-system     kube-dns               ClusterIP   10.43.0.10      <none>        53/UDP,53/TCP   5d
+        kube-system     metrics-server         ClusterIP   10.43.126.84    <none>        443/TCP         5d
+        sample-ns       example-app            NodePort    10.43.146.159   <none>        80:31525/TCP    16m
+        sample-ns       sample-service         NodePort    10.43.144.129   <none>        80:30033/TCP    5m
+    "
+
+    $ kubectl describe services
+    "
+        Name:                     example-app
+        Namespace:                default
+        Labels:                   run=example-app
+        Annotations:              field.cattle.io/publicEndpoints:
+                                    [{"addresses":["192.168.0.191"],"port":32093,"protocol":"TCP","serviceName":"default:example-app","allNodes":true}]
+        Selector:                 run=example-app
+        Type:                     NodePort
+        IP:                       10.43.6.186
+        Port:                     <unset>  80/TCP
+        TargetPort:               80/TCP
+        NodePort:                 <unset>  32093/TCP
+        Endpoints:                10.42.1.41:80
+        Session Affinity:         None
+        External Traffic Policy:  Cluster
+        Events:                   <none>
+
+        Name:                     sample-service
+        Namespace:                default
+        Labels:                   run=sample-app
+        Annotations:              field.cattle.io/publicEndpoints:
+                                    [{"addresses":["192.168.0.191"],"port":32134,"protocol":"TCP","serviceName":"default:sample-service","allNodes":true}]
+        Selector:                 run=sample-app
+        Type:                     NodePort
+        IP:                       10.43.167.187
+        Port:                     <unset>  80/TCP
+        TargetPort:               80/TCP
+        NodePort:                 <unset>  32134/TCP
+        Endpoints:                10.42.1.42:80
+        Session Affinity:         None
+        External Traffic Policy:  Cluster
+        Events:                   <none>
+
+    "
+    $ kubectl get pods
+    "
+        NAME                          READY   STATUS    RESTARTS   AGE
+        example-app-75967bd4d-b4v7g   1/1     Running   0          16m
+        sample-app-7d77dc8bbc-xhrjh   1/1     Running   0          6m
+    "
+
+    $ kubectl get pods --show-labels
+    "
+        NAME                          READY   STATUS    RESTARTS   AGE   LABELS
+        example-app-75967bd4d-ph256   1/1     Running   0          8m    pod-template-hash=315236808,run=sample-app
+        sample-app-7d77dc8bbc-2h77g   1/1     Running   0          20m   pod-template-hash=3833874667,run=sample-app
+    "
+
+    $ kubectl get pods --namespace=kube-system
+    "
+        NAME                                      READY   STATUS      RESTARTS   AGE
+        canal-f9zgh                               3/3     Running     0          45m
+        canal-q2955                               3/3     Running     0          31m
+        kube-dns-7588d5b5f5-drhqd                 3/3     Running     0          45m
+        kube-dns-autoscaler-5db9bbb766-5jn5b      1/1     Running     0          45m
+        metrics-server-97bc649d5-qbkdf            1/1     Running     0          45m
+        rke-ingress-controller-deploy-job-pf6ks   0/1     Completed   0          45m
+        rke-kubedns-addon-deploy-job-lgmxs        0/1     Completed   0          45m
+        rke-metrics-addon-deploy-job-5swcc        0/1     Completed   0          45m
+        rke-network-plugin-deploy-job-sbzbs       0/1     Completed   0          45m
+    "
+
+    $ kubectl get pods --all-namespaces
+    "
+        NAMESPACE       NAME                                      READY   STATUS      RESTARTS   AGE
+        cattle-system   cattle-cluster-agent-57458fc9b9-lvzsx     1/1     Running     1          5d
+        cattle-system   cattle-node-agent-8tqv2                   1/1     Running     0          5d
+        cattle-system   cattle-node-agent-fd2wh                   1/1     Running     0          5d
+        ingress-nginx   default-http-backend-797c5bc547-q2w62     1/1     Running     0          5d
+        ingress-nginx   nginx-ingress-controller-7szwb            1/1     Running     0          5d
+        kube-system     canal-f9zgh                               3/3     Running     0          5d
+        kube-system     canal-q2955                               3/3     Running     0          5d
+        kube-system     kube-dns-7588d5b5f5-drhqd                 3/3     Running     0          5d
+        kube-system     kube-dns-autoscaler-5db9bbb766-5jn5b      1/1     Running     0          5d
+        kube-system     metrics-server-97bc649d5-qbkdf            1/1     Running     0          5d
+        kube-system     rke-ingress-controller-deploy-job-pf6ks   0/1     Completed   0          5d
+        kube-system     rke-kubedns-addon-deploy-job-lgmxs        0/1     Completed   0          5d
+        kube-system     rke-metrics-addon-deploy-job-5swcc        0/1     Completed   0          5d
+        kube-system     rke-network-plugin-deploy-job-sbzbs       0/1     Completed   0          5d
+        sample-ns       example-app-75967bd4d-clmfb               1/1     Running     0          42m
+        sample-ns       sample-app-7d77dc8bbc-wkdxt               1/1     Running     0          30m
+    "
+
+    $ kubectl get deployments
+    "
+        NAME          DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+        example-app   1         1         1            1           16m
+        sample-app    1         1         1            1           6m
+    "
+
+    $ kubectl get deployments  --all-namespaces
+    "
+        NAMESPACE       NAME                   DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+        cattle-system   cattle-cluster-agent   1         1         1            1           5d
+        ingress-nginx   default-http-backend   1         1         1            1           5d
+        kube-system     kube-dns               1         1         1            1           5d
+        kube-system     kube-dns-autoscaler    1         1         1            1           5d
+        kube-system     metrics-server         1         1         1            1           5d
+        sample-ns       example-app            1         1         1            1           43m
+        sample-ns       sample-app             1         1         1            1           31m
+    "
+
+    $ kubectl delete deployments --all
+    "
+        deployment.extensions "example-app" deleted
+        deployment.extensions "sample-app" deleted
+    "
+
+    $ kubectl delete services --all
+    "
+        service "example-app" deleted
+        service "sample-service" deleted
+    "
+
+
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/
+
+https://kubernetes.io/docs/tasks/access-application-cluster/service-access-application-cluster/
+
+https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough/#understand-the-default-namespace
+
+
+Difference between targetPort and port in kubernetes Service definition
+-----------------------------------------------------------------------
+
+
+Port: Port is the port number which makes a service visible to other services running within the same K8s cluster.
+In other words, in case a service wants to invoke another service running within the same Kubernetes cluster,
+it will be able to do so using port specified against “port” in the service spec file.
+port is the port your service listens on inside the cluster.
+
+
+
+Target Port: Target port is the port on the POD where the service is running.
+Taget Port is also by default the same value as port if not specified otherwise.
+
+Nodeport: Node port is the port on which the service can be accessed from external users using Kube-Proxy.
+nodePort is the port that a client outside of the cluster will "see".
+nodePort is opened on every node in your cluster via kube-proxy.
+With iptables magic Kubernetes (k8s) then routes traffic from that port to a matching service pod (even if that pod is running on a completely different node).
+nodePort is unique, so two different services cannot have the same nodePort assigned.
+Once declared, the k8s master reserves that nodePort for that service.
+nodePort is then opened on EVERY node (master and worker), also the nodes that do not run a pod of that service
+k8s iptables magic takes care of the routing.
+That way you can make your service request from outside your k8s cluster to any node on nodePort without worrying whether a pod is scheduled there or not.
+
+
+.. code-block:: bash
+
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: test-service
+        spec:
+          ports:
+          - port: 8080
+            targetPort: 8170
+            nodePort: 33333
+            protocol: TCP
+          selector:
+            component: test-service-app
+
+
+The port is 8080 which represents that test-service can be accessed by other services in the cluster at port 8080.
+
+The targetPort is 8170 which represents the test-service is actually running on port 8170 on pods
+
+The nodePort is 33333 which represents that test-service can be accessed via kube-proxy on port 33333.
+
+https://stackoverflow.com/a/49982009
+
+https://stackoverflow.com/a/41963878
+
+
+Sample Project
+--------------
+
+https://github.com/testdrivenio/flask-vue-kubernetes
+
+https://testdriven.io/blog/running-flask-on-kubernetes/
+
+
+https://github.com/hnarayanan/kubernetes-django
+
+https://github.com/wildfish/kubernetes-django-starter/tree/master/k8s
+
+
+Deploy a docker registry in the kubernetes cluster and configure Ingress with Let's Encrypt
+-------------------------------------------------------------------------------------------
+
+
+https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples/docker-registry
+
+
+
+
+Deploy a docker registry without TLS is the kubernetes cluster
+--------------------------------------------------------------
+
+Define ``namespace``, ``deployment``, ``service``  and ``ingress``
+in one file called ``docker-registry-deployment.yaml``:
+
+.. code-block:: bash
+
+    #
+    # Local docker registry without TLS
+    # kubectl create -f docker-registry.yaml
+    #
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: docker-registry
+    ---
+
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    metadata:
+      name: docker-registry
+      labels:
+        name: docker-registry
+      namespace: docker-registry
+    spec:
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: docker-registry
+        spec:
+          containers:
+          - name: docker-registry
+            image: registry:2
+            imagePullPolicy: Always
+            ports:
+            - containerPort: 5000
+    #        @note: we enable delete image API
+            env:
+            - name: REGISTRY_STORAGE_DELETE_ENABLED
+              value: "true"
+            - name: REGISTRY_HTTP_ADDR
+              value: ":5000"
+            - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
+              value: "/var/lib/registry"
+            volumeMounts:
+              - name: docker-registry-mount
+                mountPath: "/var/lib/registry"
+          volumes:
+          - name: docker-registry-mount
+            persistentVolumeClaim:
+              claimName: docker-registry-pvc
+
+    ---
+
+    kind: Service
+    apiVersion: v1
+    metadata:
+      name: docker-registry
+      namespace: docker-registry
+    spec:
+      selector:
+        app: docker-registry
+      ports:
+        - port: 5000
+          targetPort: 5000
+
+    ---
+
+    apiVersion: extensions/v1beta1
+    kind: Ingress
+    metadata:
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-body-size: "0"
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+        nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+      name: docker-registry
+      namespace: docker-registry
+    spec:
+      rules:
+      - host: registry.me
+        http:
+          paths:
+          - backend:
+              serviceName: docker-registry
+              servicePort: 5000
+            path: /
+
+
+    ---
+
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: docker-registry-pv
+      labels:
+        type: local
+      namespace: docker-registry
+    spec:
+      capacity:
+        storage: 20Gi
+      storageClassName: standard
+      accessModes:
+        - ReadWriteOnce
+      hostPath:
+        path: "/data/docker-registry-pv"
+
+
+
+    ---
+
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: docker-registry-pvc
+      labels:
+        type: local
+      namespace: docker-registry
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 20Gi
+      volumeName: docker-registry-pv
+      storageClassName: standard
+
+
+Deploy on kubernetes:
+
+
+.. code-block:: bash
+
+    $ kubectl create -f docker-registry-deployment.yaml
+
+
+Configure docker service to use local insecure registry
+-------------------------------------------------------
+
+Add ``--insecure-registry registry.me:80`` to ``docker.service`` file:
+
+.. code-block:: bash
+
+    $ sudo vim  /lib/systemd/system/docker.service
+
+        ExecStart=/usr/bin/dockerd  --max-concurrent-downloads 1 --insecure-registry registry.me:80 -H fd://
+
+
+Or add to ``daemon.json`` file:
+
+.. code-block:: bash
+
+    $ vim /etc/docker/daemon.json
+
+     {
+            "insecure-registries" : ["registry.me:80"]
+     }
+
+
+And then restart docker:
+
+.. code-block:: bash
+
+    $ systemctl daemon-reload
+    $ service docker restart
+
+
+Add tag same as ``registry.me:80`` registry name to one image and push it to local registry:
+
+.. code-block:: bash
+
+    $ docker tag nginx:1.10.2 registry.me:80/nginx
+    $ docker push registry.me:80/nginx
+
+Now repo is available:
+
+    http://registry.me/v2/nginx/tags/list
+
+List of images on local docker registry:
+
+    http://registry.me/v2/_catalog
+
+
+Deploy a new ``nginx`` pod from ``registry.me:80/nginx`` local registry on kubernetes:
+
+
+.. code-block:: bash
+
+    $ kubectl run nginx --image=registry.me:80/nginx
+
+
+Note:
+
+    You need to update DNS for `registry.me` on host and nodes.
+
+
+
+https://github.com/Juniper/contrail-docker/wiki/Configure-docker-service-to-use-insecure-registry
+
+
+Delete images from a private local docker registry
+---------------------------------------------------
+
+.. code-block:: bash
+
+
+    $ curl --head -XGET -H "Accept: application/vnd.docker.distribution.manifest.v2+json" http://registry.me:80/v2/nginx/manifests/latest
+
+        HTTP/1.1 200 OK
+        Server: nginx/1.13.12
+        Date: Mon, 04 Mar 2019 08:51:01 GMT
+        Content-Type: application/vnd.docker.distribution.manifest.v2+json
+        Content-Length: 3237
+        Connection: keep-alive
+        Docker-Content-Digest: sha256:6298d62cef5e82170501d4d9f9b3d7549b8c272fae787f1b93829edd472f894a
+        Docker-Distribution-Api-Version: registry/2.0
+        Etag: "sha256:6298d62cef5e82170501d4d9f9b3d7549b8c272fae787f1b93829edd472f894a"
+        X-Content-Type-Options: nosniff
+
+
+
+    $ curl -X DELETE -H "Accept: application/vnd.docker.distribution.manifest.v2+json" http://registry.me:80/v2/nginx/manifests/sha256:6298d62cef5e82170501d4d9f9b3d7549b8c272fae787f1b93829edd472f894a
+
+
+https://docs.docker.com/registry/spec/api/#/deleting-an-image
+
+By default delete is disable, and you will see this error:
+
+.. code-block:: bash
+
+    {"errors":[{"code":"UNSUPPORTED","message":"The operation is unsupported."}]}
+
+
+to enable it you need to set ``REGISTRY_STORAGE_DELETE_ENABLED=true`` env.
+
+https://github.com/docker/distribution/issues/1573
+
+
+Assigning Pods to Nodes
+-----------------------
+
+
+Attach label to the node:
+
+
+.. code-block:: bash
+
+    $ kubectl get nodes
+    '
+    NAME         STATUS   ROLES               AGE   VERSION
+    ubuntu-190   Ready    controlplane,etcd   33d   v1.11.6
+    ubuntu-191   Ready    worker              34m   v1.11.6
+    ubuntu-192   Ready    worker              38s   v1.11.6
+    ubuntu-193   Ready    worker              9s    v1.11.6
+    '
+    # kubectl label nodes <node-name> <label-key>=<label-value>
+    $ kubectl label nodes ubuntu-191 workerType=Storage
+
+Add a ``nodeSelector`` field to pod configuration:
+
+.. code-block:: yaml
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: postgres
+      labels:
+        env: test
+    spec:
+      containers:
+      - name: postgres
+        image: postgres
+        imagePullPolicy: IfNotPresent
+      nodeSelector:
+        workerType=Storage
+
+https://kubernetes.io/docs/concepts/configuration/assign-pod-node/

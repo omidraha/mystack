@@ -2,6 +2,87 @@ Cmds
 ====
 
 
+Add User
+--------
+
+.. code-block:: bash
+
+    $ sudo adduser <username>
+
+Delete a User
+-------------
+
+.. code-block:: bash
+
+    $ sudo deluser <username>
+    $ sudo userdel <username>
+
+If, instead, you want to delete the user's home directory when the user is deleted,
+you can issue the following command as root:
+
+.. code-block:: bash
+
+    $ sudo deluser --remove-home <username>
+    $ sudo deluser -r <username>
+    $ sudo userdel -r <username>
+
+Changing User Password
+----------------------
+
+.. code-block:: bash
+
+    $ sudo passwd <username>
+
+
+Allowing other users to run sudo
+--------------------------------
+
+.. code-block:: bash
+
+    $ sudo adduser <username> sudo
+    $ sudo visudo
+    # $ vim /etc/sudoers
+        # User privilege specification
+        root	ALL=(ALL:ALL) ALL
+        or      ALL=(ALL:ALL) ALL
+        # Allow members of group sudo to execute any command
+        %sudo	ALL=(ALL:ALL) ALL
+
+http://askubuntu.com/questions/7477/how-can-i-add-a-new-user-as-sudoer-using-the-command-line
+
+https://help.ubuntu.com/community/RootSudo#Allowing_other_users_to_run_sudo
+
+Delete a user from one group
+-----------------------------
+
+.. code-block:: bash
+
+    $ groupdel group
+
+
+http://www.computerhope.com/unix/groupdel.htm
+
+Remove sudo privileges from a user (without deleting the user)
+--------------------------------------------------------------
+
+.. code-block:: bash
+
+    $ sudo deluser username sudo
+
+
+http://askubuntu.com/a/335989
+
+Users and Groups name list
+--------------------------
+
+.. code-block:: bash
+
+    getent passwd | awk -F':' '{ print $1}'
+    getent passwd | awk -F: '{print $1}' | while read name; do groups $name; done
+    kuser (KDE User Manager)
+
+
+
 apt-file search
 ---------------
 
@@ -59,17 +140,6 @@ rfkill
 .. code-block:: bash
 
     # ifconfig wlan0 up
-
-
-Users and Groups name list
---------------------------
-
-.. code-block:: bash
-
-    getent passwd | awk -F':' '{ print $1}'
-    getent passwd | awk -F: '{print $1}' | while read name; do groups $name; done
-    kuser (KDE User Manager)
-
 
 Run wireshark with capture packets privilege
 --------------------------------------------
@@ -978,76 +1048,6 @@ Operation not permitted on file with root access
     -------------e-- /etc/resolv.conf
 
 
-How To Add User
----------------
-
-.. code-block:: bash
-
-    $ sudo adduser <username>
-
-How To Delete a User
---------------------
-
-.. code-block:: bash
-
-    $ sudo deluser <username>
-    $ sudo userdel <username>
-
-If, instead, you want to delete the user's home directory when the user is deleted,
-you can issue the following command as root:
-
-.. code-block:: bash
-
-    $ sudo deluser --remove-home <username>
-    $ sudo deluser -r <username>
-    $ sudo userdel -r <username>
-
-Changing User Password
-----------------------
-
-.. code-block:: bash
-
-    $ sudo passwd <username>
-
-
-Allowing other users to run sudo
---------------------------------
-
-.. code-block:: bash
-
-    $ sudo adduser <username> sudo
-    $ sudo visudo
-    # $ vim /etc/sudoers
-        # User privilege specification
-        root	ALL=(ALL:ALL) ALL
-        or      ALL=(ALL:ALL) ALL
-        # Allow members of group sudo to execute any command
-        %sudo	ALL=(ALL:ALL) ALL
-
-http://askubuntu.com/questions/7477/how-can-i-add-a-new-user-as-sudoer-using-the-command-line
-
-https://help.ubuntu.com/community/RootSudo#Allowing_other_users_to_run_sudo
-
-How to delete a user from one group
------------------------------------
-
-.. code-block:: bash
-
-    $ groupdel group
-
-
-http://www.computerhope.com/unix/groupdel.htm
-
-Remove sudo privileges from a user (without deleting the user)
---------------------------------------------------------------
-
-.. code-block:: bash
-
-    $ sudo deluser username sudo
-
-
-http://askubuntu.com/a/335989
-
 rsync and sudo over SSH
 -----------------------
 
@@ -1506,3 +1506,23 @@ If you are fine with UTC:
 
     $ DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
 
+
+
+Inotify Watches Limit
+----------------------
+
+Error:
+
+External file changes sync slow: The current inotify limit is too low
+
+Fixed:
+
+.. code-block:: bash
+
+    $ vim /etc/sysctl.conf
+
+        fs.inotify.max_user_watches = 524288
+
+    $ sudo sysctl -p --system
+
+https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit

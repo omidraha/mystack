@@ -72,6 +72,23 @@ Or:
     netmask 255.255.255.0
     broadcast 192.168.1.255
     gateway 192.168.1.115
+    dns-nameservers 8.8.8.8 8.8.4.4
+
+Set a static IP
+---------------
+
+.. code-block:: bash
+
+    $ vim /etc/network/interfaces
+
+    allow-hotplug eth0
+    iface eth0 inet static
+    address 192.168.1.119
+    netmask 255.255.255.0
+    broadcast 192.168.1.255
+    gateway 192.168.1.115
+    dns-nameservers 8.8.8.8 8.8.4.4
+
 
 
 How do I install dig?

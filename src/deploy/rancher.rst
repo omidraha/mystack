@@ -1,32 +1,34 @@
 Rancher
 =======
 
+
+Install
+--------
+
+
+Docker
+++++++
+
+Rancher 2.x:
+
 .. code-block:: bash
 
-    $ docker run -d --restart=unless-stopped -p 1010:8080 rancher/server
+    $ docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
 
-http://rancher.com/kubernetes/
+https://github.com/rancher/rancher#quick-start
 
-http://rancher.com/comparing-rancher-orchestration-engine-options/
+Minimum System
+++++++++++++++
 
-https://orchestration.io/2016/06/30/deploying-kubernetes-with-rancher/
+For install ``etcd`` and ``Control Plane`` on one node:
 
-http://blog.kubernetes.io/2016/07/kubernetes-in-rancher-further-evolution.html
+    Ram: 2GB
 
-http://rancher.com/cattle-swarm-kubernetes-side-side/
-
-http://docs.rancher.com/rancher/v1.5/en/installing-rancher/installing-server/#single-container
-
-http://docs.rancher.com/rancher/v1.5/en/hosts/#supported-docker-versions
+    CPU: 1 core
 
 
-https://github.com/rancher/rancher/wiki/Kubernetes-Management
-
-https://kubernetes.io/docs/user-guide/walkthrough/
-
-http://cdn2.hubspot.net/hubfs/468859/Comparing%20Rancher%20Orchestration%20Engine%20Options.pdf
-
-https://cdn2.hubspot.net/hubfs/468859/Deploying%20and%20Scaling%20Kubernetes%20with%20Rancher%20-%202nd%20ed.pdf
+Vagrant
++++++++
 
 .. code-block:: bash
 
@@ -48,6 +50,7 @@ https://cdn2.hubspot.net/hubfs/468859/Deploying%20and%20Scaling%20Kubernetes%20w
 
 
 Now go to:
+
     http://192.168.10.119:1010/env/1a5/infra/hosts/add?driver=custom
 
 
@@ -134,3 +137,30 @@ Backup Rancher server data
 
 
 https://docs.rancher.com/rancher/v1.5/en/upgrading/#single-container
+
+
+Links
+------
+
+http://rancher.com/kubernetes/
+
+http://rancher.com/comparing-rancher-orchestration-engine-options/
+
+https://orchestration.io/2016/06/30/deploying-kubernetes-with-rancher/
+
+http://blog.kubernetes.io/2016/07/kubernetes-in-rancher-further-evolution.html
+
+http://rancher.com/cattle-swarm-kubernetes-side-side/
+
+http://docs.rancher.com/rancher/v1.5/en/installing-rancher/installing-server/#single-container
+
+http://docs.rancher.com/rancher/v1.5/en/hosts/#supported-docker-versions
+
+
+https://github.com/rancher/rancher/wiki/Kubernetes-Management
+
+https://kubernetes.io/docs/user-guide/walkthrough/
+
+http://cdn2.hubspot.net/hubfs/468859/Comparing%20Rancher%20Orchestration%20Engine%20Options.pdf
+
+https://cdn2.hubspot.net/hubfs/468859/Deploying%20and%20Scaling%20Kubernetes%20with%20Rancher%20-%202nd%20ed.pdf

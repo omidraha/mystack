@@ -184,5 +184,23 @@ Make apt-get not prompt for replacement of configuration files
 https://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/
 
 
+Upgrade from Ubuntu 16.0.4 to Ubuntu Linux 18.04
+------------------------------------------------
 
+    $ lsb_release -a
 
+        No LSB modules are available.
+        Distributor ID:	Ubuntu
+        Description:	Ubuntu 16.04.5 LTS
+        Release:	16.04
+        Codename:	xenial
+
+    $ sudo do-release-upgrade
+
+    $ lsb_release -a
+
+        No LSB modules are available.
+        Distributor ID:	Ubuntu
+        Description:	Ubuntu 18.04.1 LTS
+        Release:	18.04
+        Codename:	bionic

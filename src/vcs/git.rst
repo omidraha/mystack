@@ -312,8 +312,8 @@ Working on github API
     repo = = g.repos.get('django','django')
 
 
-How can one find good forks on GitHub?
---------------------------------------
+Find good forks on GitHub
+--------------------------
 
 http://forked.yannick.io
 
@@ -753,7 +753,7 @@ Related error: Git: cannot checkout branch - error: pathspec  did not match any 
 
 
 Fix git remote fatal: index-pack failed
------------------------------
+---------------------------------------
 
 Traceback:
 
@@ -761,13 +761,13 @@ Traceback:
 
 
     or@omid:~/ws$ git clone git@bitbucket.org:example/example.git
-    Cloning into 'example'...
-    remote: Counting objects: 39831, done.
-    remote: Compressing objects: 100% (16929/16929), done.
-    Connection to bitbucket.org closed by remote host. 163.00 KiB/s
-    fatal: The remote end hung up unexpectedly
-    fatal: early EOFs:  99% (39758/39831), 19.57 MiB | 166.00 KiB/s
-    fatal: index-pack failed
+        Cloning into 'example'...
+        remote: Counting objects: 39831, done.
+        remote: Compressing objects: 100% (16929/16929), done.
+        Connection to bitbucket.org closed by remote host. 163.00 KiB/s
+        fatal: The remote end hung up unexpectedly
+        fatal: early EOFs:  99% (39758/39831), 19.57 MiB | 166.00 KiB/s
+        fatal: index-pack failed
 
 Solution:
 

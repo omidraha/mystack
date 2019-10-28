@@ -88,6 +88,13 @@ Add or create a user account and grant permission for database
     postgres=# \q
 
 
+Get the Size of a Postgres Table
+--------------------------------
+
+
+.. code-block:: bash
+
+    postgres@ubuntu:~$ psql -d database_name -c "select pg_size_pretty(pg_relation_size('table_name'));"
 
 
 Quit from psql
@@ -156,15 +163,6 @@ Data Directories:
 
 https://hub.docker.com/_/postgres/
 
-
-
-High Availability and Load Balancing
-------------------------------------
-
-
-http://www.postgresql.org/docs/8.2/static/high-availability.html
-
-There are basic 3 types of replication in postgresql i.e  Warm, hot standby and Streaming Replication.
 
 
 Warm Standby
@@ -1631,9 +1629,36 @@ Postgres DB Size Command
 
 https://gist.github.com/next2you/628866#file-postgres-long-running-queries-sql
 
+
+High Availability and Load Balancing
+------------------------------------
+
+
+http://www.postgresql.org/docs/8.2/static/high-availability.html
+
+There are basic 3 types of replication in postgresql i.e  Warm, hot standby and Streaming Replication.
+
+
+https://github.com/zalando/patroni
+
+https://github.com/sorintlab/stolon
+
+https://github.com/CrunchyData/crunchy-containers
+
+
+Replication
+-----------
+
+https://www.2ndquadrant.com/en/resources/pglogical/
+
+
 Multi-master replication
 ------------------------
 
 http://stackoverflow.com/questions/19657514/multi-master-replication-in-postgresql
 
 https://en.wikipedia.org/wiki/Multi-master_replication
+
+https://wiki.postgresql.org/wiki/Replication,_Clustering,_and_Connection_Pooling#Comparison_matrix
+
+https://www.cybertec-postgresql.com/en/postgresql-affiliate-projects-for-horizontal-multi-terabyte-scaling/

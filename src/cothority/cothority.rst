@@ -1,5 +1,5 @@
-PostgreSQL
-==========
+Cothority
+=========
 
 
 Contents:
@@ -8,5 +8,4 @@ Contents:
    :maxdepth: 2
 
    tips
-   backups
-   postgres-xl
+
