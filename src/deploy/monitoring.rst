@@ -140,6 +140,8 @@ Real-time web log analyzer and interactive viewer
 
     $ goaccess -f nginx.log
 
+    $ goaccess -f nginx.log --log-format="%h %^[%d:%^] \"%r\" %s %b \"%R\" \"%u\"" --date-format="%d/%b/%Y" --time-format="%T" -a > report.html
+
 
 https://github.com/allinurl/goaccess
 
