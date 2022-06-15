@@ -45,3 +45,10 @@ First Steps with Sphinx
 
 http://www.sphinx-doc.org/en/stable/tutorial.html
 
+
+Build docs
+-----------
+
+.. code-block:: bash
+
+    $ sphinx-build -b html . build
