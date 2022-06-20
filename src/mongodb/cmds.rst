@@ -66,3 +66,25 @@ View the size of the data allocated for the orders.$_id_ index with the followin
 	use test
 	db.orders.$_id_.stats().indexSizes
 
+
+Connect to your remote MongoDB server
+--------------------------------------------
+
+
+Install `mongo` client package:
+
+
+ .. code-block:: bash
+
+    $ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+    $ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+    $ sudo apt-get update
+    $ sudo apt-get install -y mongodb-org-shell
+
+
+Connect to db:
+
+ .. code-block:: bash
+
+    $ mongo -u USERNAME -p PASSWORD IP/COLLECTION_NAME
+

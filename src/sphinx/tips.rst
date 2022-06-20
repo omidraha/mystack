@@ -33,7 +33,7 @@ Generating Code Documentation With Pycco
 https://realpython.com/blog/python/generating-code-documentation-with-pycco/
 
 
-First Steps with Sphinx
+First steps with Sphinx
 -----------------------
 
 
