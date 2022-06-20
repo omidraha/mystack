@@ -70,8 +70,21 @@ View the size of the data allocated for the orders.$_id_ index with the followin
 Connect to your remote MongoDB server
 --------------------------------------------
 
+By using `mongosh` client:
 
-Install `mongo` client package:
+ .. code-block:: bash
+
+    $ sudo apt-get install -y mongodb-mongosh
+
+
+Connect to db:
+
+ .. code-block:: bash
+
+    $ mongosh -u USERNAME -p PASSWORD IP/COLLECTION_NAME
+
+
+By using `mongo` client:
 
 
  .. code-block:: bash
@@ -87,4 +100,7 @@ Connect to db:
  .. code-block:: bash
 
     $ mongo -u USERNAME -p PASSWORD IP/COLLECTION_NAME
+
+
+https://www.mongodb.com/docs/mongodb-shell/install/
 
