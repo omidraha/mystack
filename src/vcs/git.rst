@@ -781,3 +781,11 @@ Solution:
     $ git fetch --depth=2147483647
     $ git pull --all
 
+
+Get current revision
+--------------------
+
+.. code-block:: bash
+
+    $ git rev-parse HEAD
+
