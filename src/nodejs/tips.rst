@@ -60,3 +60,20 @@ Upgrade Node
     sudo npm install -g n
     sudo n stable
     sudo n latest
+
+
+ِYarn error
+----------
+
+
+.. code-block:: bash
+
+    Error: error:0308010C:digital envelope routines::unsupported
+
+Fixed by:
+
+
+.. code-block:: bash
+
+    $ export NODE_OPTIONS=--openssl-legacy-provider
+    $ yarn start
