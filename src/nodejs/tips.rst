@@ -77,3 +77,12 @@ Fixed by:
 
     $ export NODE_OPTIONS=--openssl-legacy-provider
     $ yarn start
+
+
+ِYarn change default port
+------------------------
+
+
+.. code-block:: bash
+
+    $ export PORT=3001
