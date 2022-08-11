@@ -1340,34 +1340,38 @@ https://github.com/luckydonald/pytg/issues/64
 Convert Socks into an HTTP proxy
 --------------------------------
 
+.. code-block:: bash
 
-    	 .. code-block:: bash
+    $ sudo pip install pproxy[accelerated
+    $ pproxy -l http://0.0.0.0:8080 -r socks5://socks5.proxy.ip.or.domain:port
 
 
-		$ sudo apt-get install polipo
-		$ sudo service polipo stop
+.. code-block:: bash
 
-		$ sudo vim  /etc/polipo/config
+    $ sudo apt-get install polipo
+    $ sudo service polipo stop
 
-			logSyslog = true
-			logFile = /var/log/polipo/polipo.log
+    $ sudo vim  /etc/polipo/config
 
-			# HTTP Proxy
-			proxyAddress = "0.0.0.0"
-			proxyPort=8080
+        logSyslog = true
+        logFile = /var/log/polipo/polipo.log
 
-			# Socks Proxy
-			socksParentProxy = "127.0.0.1:9150"
-			socksProxyType = socks5
+        # HTTP Proxy
+        proxyAddress = "0.0.0.0"
+        proxyPort=8080
 
-			chunkHighMark = 50331648
-			objectHighMark = 16384
+        # Socks Proxy
+        socksParentProxy = "127.0.0.1:9150"
+        socksProxyType = socks5
 
-			serverMaxSlots = 64
-			serverSlots = 16
-			serverSlots1 = 32
+        chunkHighMark = 50331648
+        objectHighMark = 16384
 
-		$ sudo service polipo restart
+        serverMaxSlots = 64
+        serverSlots = 16
+        serverSlots1 = 32
+
+    $ sudo service polipo restart
 
 How to use sshuttle
 -------------------
