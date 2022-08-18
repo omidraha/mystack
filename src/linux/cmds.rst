@@ -1340,11 +1340,15 @@ https://github.com/luckydonald/pytg/issues/64
 Convert Socks into an HTTP proxy
 --------------------------------
 
+By using `pproxy`:
+
 .. code-block:: bash
 
     $ sudo pip install pproxy[accelerated
-    $ pproxy -l http://0.0.0.0:8080 -r socks5://socks5.proxy.ip.or.domain:port
+    $ pproxy -l http://0.0.0.0:8118 -r socks5://0.0.0.0:9150 -vvvvv
 
+
+1By using `polipo` (Deprecated):
 
 .. code-block:: bash
 
