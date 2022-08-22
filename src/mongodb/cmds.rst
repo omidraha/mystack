@@ -83,6 +83,11 @@ Connect to db:
 
     $ mongosh -u USERNAME -p PASSWORD IP/COLLECTION_NAME
 
+    show dbs
+    use My_DB_NAME
+    show collections
+    db.My_COLLECTIONS_NAME.find()
+
 
 By using `mongo` client:
 
