@@ -185,3 +185,15 @@ Output:
       1 SYN_SENT
       1 Foreign
       1 CLOSE_WAIT
+
+
+Port forwarding
+---------------
+
+Forward all TCP/UDP from local host port 80 to the remote server at port 80
+
+.. code-block:: bash
+
+    sudo socat -dd TCP4-LISTEN:80,fork,reuseaddr TCP4:1.2.3.4:80 &
+    sudo socat -dd UDP-LISTEN:80,fork,reuseaddr UDP:1.2.3.4:80 &
+

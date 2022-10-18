@@ -512,6 +512,13 @@ SSH
     $ ssh -N user@remote_host -L 8080:localhost:8888
 
 
+Force ssh client to use only password authentication
+----------------------------------------------------
+
+.. code-block:: bash
+
+    ssh  -o PreferredAuthentications=password -o PubkeyAuthentication=no user@remote_host
+
 Secure copy
 -----------
 
