@@ -2,12 +2,20 @@ API gateway
 ===========
 
 
+Kubernetes Gateway API
+----------------------
+
+https://kubernetes.io/blog/2022/07/13/gateway-api-graduates-to-beta/
+
 https://gateway-api.sigs.k8s.io/implementations/
 
 https://kubernetes.io/blog/2021/04/22/evolving-kubernetes-networking-with-the-gateway-api/
 
 https://gateway-api.sigs.k8s.io/
 
+https://gateway-api.sigs.k8s.io/implementations/#kong
+
+https://github.com/kong/kubernetes-ingress-controller
 
 https://konghq.com/install#kong-community
 
