@@ -110,4 +110,5 @@ https://www.gravitee.io/comparison/gravitee-vs-kong
 
 https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern
 
+https://medium.com/axons/why-i-switched-kong-for-traefik-b997b9948878
 
