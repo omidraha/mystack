@@ -33,6 +33,15 @@ https://konghq.com/install#kong-community
 
 https://github.com/Kong/kong
 
+traefik
+-------
+
+https://github.com/traefik/traefik
+
+https://traefik.io/
+
+https://doc.traefik.io/traefik/providers/kubernetes-gateway/
+
 consul
 ------
 
