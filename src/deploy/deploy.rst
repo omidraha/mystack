@@ -24,10 +24,7 @@ Contents:
    patroni
    ignite
    faas
-   api_gateway
-
-
-
+   gateway_api
 
 
 

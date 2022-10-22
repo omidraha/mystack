@@ -1,4 +1,4 @@
-API gateway
+Gateway API
 ===========
 
 
@@ -16,6 +16,18 @@ https://gateway-api.sigs.k8s.io/
 https://gateway-api.sigs.k8s.io/implementations/#kong
 
 https://github.com/kong/kubernetes-ingress-controller
+
+Top 10 Gateway API
+------------------
+
+https://www.tecmint.com/open-source-api-gateways-and-management-tools/
+
+https://www.alibabacloud.com/knowledge/hot/best-open-source-api-gateways-to-consider
+
+https://geekflare.com/api-gateway/
+
+Links
+-----
 
 https://konghq.com/install#kong-community
 
@@ -64,3 +76,10 @@ https://apisix.apache.org/blog/
 https://github.com/apache/apisix
 
 https://github.com/Netflix/zuul
+
+Compare Gateway API
+---------------------
+
+https://tyk.io/alternatives-kong/
+
+https://www.gravitee.io/comparison/gravitee-vs-kong
