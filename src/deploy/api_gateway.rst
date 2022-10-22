@@ -4,6 +4,10 @@ API gateway
 
 https://gateway-api.sigs.k8s.io/implementations/
 
+https://kubernetes.io/blog/2021/04/22/evolving-kubernetes-networking-with-the-gateway-api/
+
+https://gateway-api.sigs.k8s.io/
+
 
 https://konghq.com/install#kong-community
 
