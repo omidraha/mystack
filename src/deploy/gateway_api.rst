@@ -121,3 +121,9 @@ https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-mi
 
 https://medium.com/axons/why-i-switched-kong-for-traefik-b997b9948878
 
+
+
+Comparison of Kubernetes Ingress controllers
+----------------------------------------------
+
+https://docs.google.com/spreadsheets/d/191WWNpjJ2za6-nbG4ZoUMXMpUK8KlCIosvQB0f-oq3k/edit#gid=907731238
