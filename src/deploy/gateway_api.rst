@@ -1,6 +1,7 @@
 Gateway API
 ===========
 
+About Gateway API
 
 Kubernetes Gateway API
 ----------------------
@@ -17,6 +18,11 @@ https://gateway-api.sigs.k8s.io/implementations/#kong
 
 https://github.com/kong/kubernetes-ingress-controller
 
+Comparison of Kubernetes Ingress controllers
+----------------------------------------------
+
+https://docs.google.com/spreadsheets/d/191WWNpjJ2za6-nbG4ZoUMXMpUK8KlCIosvQB0f-oq3k/edit#gid=907731238
+
 Top 10 Gateway API
 ------------------
 
@@ -25,6 +31,17 @@ https://www.tecmint.com/open-source-api-gateways-and-management-tools/
 https://www.alibabacloud.com/knowledge/hot/best-open-source-api-gateways-to-consider
 
 https://geekflare.com/api-gateway/
+
+Compare Gateway API
+---------------------
+
+https://tyk.io/alternatives-kong/
+
+https://www.gravitee.io/comparison/gravitee-vs-kong
+
+https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern
+
+https://medium.com/axons/why-i-switched-kong-for-traefik-b997b9948878
 
 konghq
 ------
@@ -109,21 +126,3 @@ zuul
 ----
 
 https://github.com/Netflix/zuul
-
-Compare Gateway API
----------------------
-
-https://tyk.io/alternatives-kong/
-
-https://www.gravitee.io/comparison/gravitee-vs-kong
-
-https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern
-
-https://medium.com/axons/why-i-switched-kong-for-traefik-b997b9948878
-
-
-
-Comparison of Kubernetes Ingress controllers
-----------------------------------------------
-
-https://docs.google.com/spreadsheets/d/191WWNpjJ2za6-nbG4ZoUMXMpUK8KlCIosvQB0f-oq3k/edit#gid=907731238
