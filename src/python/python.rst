@@ -21,6 +21,7 @@ Contents:
    pyinstaller
    selenium
    robotframework
+   pypi
 
 
 
