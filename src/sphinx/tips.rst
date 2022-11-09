@@ -52,3 +52,19 @@ Build docs
 .. code-block:: bash
 
     $ sphinx-build -b html . build
+
+
+bitbucket ReadMe Markdown
+--------------------------
+
+Bitbucket Supported Markdown for READMEs, comments, and Wiki
+
+https://support.atlassian.com/bitbucket-cloud/docs/use-wikis-to-store-documents/
+
+https://bitbucket.org/tutorials/markdowndemo/src/master/
+
+https://support.atlassian.com/bitbucket-cloud/docs/add-a-table-of-contents-to-a-wiki/
+
+https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html
+
+https://gist.github.com/jordeu/5275092
