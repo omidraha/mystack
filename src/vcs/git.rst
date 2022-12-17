@@ -175,14 +175,14 @@ To set your username and email for every repository on your computer
 
     Set your username and email with the following command.
 
-    .. code-block:: bash
+.. code-block:: bash
 
         $ git config --global user.name "Billy Everyteen"
         $ git config --global user.email "your_email@example.com"
 
     Confirm that you have set your username and email correctly with the following command.
 
-    .. code-block:: bash
+.. code-block:: bash
 
         $ git config --global user.name
         # Billy Everyteen
@@ -197,14 +197,14 @@ To set your username and email for a single repository
 
     Set your username and email with the following command.
 
-    .. code-block:: bash
+.. code-block:: bash
 
         $ git config user.name "Billy Everyteen"
         $ git config user.email "your_email@example.com"
 
     Confirm that you have set your username and email correctly with the following command.
 
-    .. code-block:: bash
+.. code-block:: bash
 
         $ git config user.name
         # Billy Everyteen

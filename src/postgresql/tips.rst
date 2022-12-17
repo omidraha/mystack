@@ -1152,7 +1152,7 @@ according to the Replication best practices recipe.
 2. Configure replication security. Create or confirm the existence of the replication user
 on the master node:
 
-    .. code-block:: bash
+.. code-block:: bash
 
         CREATE USER repuser
         SUPERUSER
@@ -1164,7 +1164,7 @@ on the master node:
 any IP address using MD5-encrypted password authentication; you may wish to
 consider other options. Add the following line to pg_hba.conf :
 
-    .. code-block:: bash
+.. code-block:: bash
 
         Host  replication repuser 127.0.0.1/0 md5
 
@@ -1172,14 +1172,14 @@ consider other options. Add the following line to pg_hba.conf :
 so that you can get more information regarding replication connection attempts and
 associated failures:
 
-    .. code-block:: bash
+.. code-block:: bash
 
         log_connections = on
 
 5. Set max_wal_senders on the master in postgresql.conf , or increase it if the
 value is already nonzero:
 
-    .. code-block:: bash
+.. code-block:: bash
 
         max_wal_senders = 2
         wal_level = 'archive'
@@ -1190,7 +1190,7 @@ value no higher than the amount of free space on the drive on which the pg_xlog
 directory is mounted, divided by 16 MB. If pg_xlog isn't mounted on a separate
 drive, then don't assume that all of the current free space is available for transaction log files.
 
-    .. code-block:: bash
+.. code-block:: bash
 
         wal_keep_segments = 10000 # e.g. 160 GB
 
@@ -1203,20 +1203,20 @@ for taking a physical backup:
 
     1. Start the backup:
 
-    .. code-block:: bash
+.. code-block:: bash
 
         psql -c "select pg_start_backup('base backup for streaming rep')"
 
     2. Copy the data files (excluding the pg_xlog directory):
 
-    .. code-block:: bash
+.. code-block:: bash
 
         rsync -cva --inplace --exclude=*pg_xlog* \
         ${PGDATA}/ $STANDBYNODE:$PGDATA
 
     3. Stop the backup:
 
-    .. code-block:: bash
+.. code-block:: bash
 
         psql -c "select pg_stop_backup(), current_timestamp"
 
@@ -1225,7 +1225,7 @@ must not specify a database name, though it can contain any other PostgreSQL
 connection option. Note also that all options in recovery.conf are enclosed in
 quotes, whereas the postgresql.conf parameters need not be:
 
-    .. code-block:: bash
+.. code-block:: bash
 
         standby_mode = 'on'
         primary_conninfo = 'host=alpha user=repuser'
@@ -1253,7 +1253,7 @@ PostgreSQL 9.4 or later, use Replication Slots (see later recipe).
 
 4.Take a base backup:
 
-    .. code-block:: bash
+.. code-block:: bash
 
         pg_basebackup -d 'connection string' -D /path/to_data_dir
 
@@ -1263,7 +1263,7 @@ PostgreSQL 9.4 or later, use Replication Slots (see later recipe).
     improving the startup time on larger databases, without the need to fuss over large
     settings of ``wal_keep_segments`` (as seen in step 6 of the previous procedure):
 
-    .. code-block:: bash
+.. code-block:: bash
 
         --xlog-method=stream
 
@@ -1272,7 +1272,7 @@ PostgreSQL 9.4 or later, use Replication Slots (see later recipe).
     using the following additional option on the pg_basebackup command line. The
     RATE value is specified in kB/s by default:
 
-    .. code-block:: bash
+.. code-block:: bash
 
         --max-rate=RATE
 
@@ -1282,7 +1282,7 @@ connection option. Note also that all options in recovery.conf are enclosed in
 quotes, whereas the postgresql.conf parameters need not be. For PostgreSQL
 9.4 and later versions, you can skip this step if you wish by specifying the --write-recovery-conf option on pg_basebackup :
 
-    .. code-block:: bash
+.. code-block:: bash
 
         standby_mode = 'on'
         primary_conninfo = 'host=192.168.0.1 user=repuser'

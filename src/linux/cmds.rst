@@ -1355,7 +1355,7 @@ By using `pproxy`:
     $ pproxy -l http://0.0.0.0:8118 -r socks5://0.0.0.0:9150 -vvvvv
 
 
-1By using `polipo` (Deprecated):
+By using `polipo` (Deprecated):
 
 .. code-block:: bash
 
@@ -1387,7 +1387,7 @@ By using `pproxy`:
 How to use sshuttle
 -------------------
 
-    .. code-block:: bash
+.. code-block:: bash
 
         $ sshuttle -r username@sshserver 0.0.0.0/0
 
@@ -1397,7 +1397,7 @@ http://sshuttle.readthedocs.io/en/stable/usage.html#usage
 locale.Error: unsupported locale setting
 ----------------------------------------
 
-    .. code-block:: bash
+.. code-block:: bash
 
         $ export LC_ALL="en_US.UTF-8"
         $ export LC_CTYPE="en_US.UTF-8"
@@ -1408,7 +1408,7 @@ https://stackoverflow.com/a/36257050
 Shadowsocks
 -----------
 
-    .. code-block:: bash
+.. code-block:: bash
 
         $ sudo pip install shadowsocks
         $ sudo ssserver -c ~/ws/shadowproxy.json --user nobody -d start
@@ -1421,7 +1421,7 @@ https://xuri.me/2014/08/14/shadowsocks-setup-guide.html
 V2ray
 -----
 
-    .. code-block:: bash
+.. code-block:: bash
 
     $ sudo bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 
@@ -1432,7 +1432,7 @@ Capture and recording screen
 ----------------------------
 
 
-    .. code-block:: bash
+.. code-block:: bash
 
         $ sudo apt-get install byzanz
         $ byzanz-record -d 60 record.gif
@@ -1441,7 +1441,7 @@ Capture and recording screen
 Inotify Watches Limit
 ---------------------
 
-    .. code-block:: bash
+.. code-block:: bash
 
      $ vim /etc/sysctl.conf
         fs.inotify.max_user_watches = 524288
