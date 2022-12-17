@@ -1414,6 +1414,20 @@ Shadowsocks
         $ sudo ssserver -c ~/ws/shadowproxy.json --user nobody -d start
 
 
+https://github.com/shadowsocks/shadowsocks
+
+https://xuri.me/2014/08/14/shadowsocks-setup-guide.html
+
+V2ray
+-----
+
+    .. code-block:: bash
+
+    $ sudo bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+
+    $ v2ray  run --config=s.json
+    $ v2ray  run --config=c.json
+
 Capture and recording screen
 ----------------------------
 

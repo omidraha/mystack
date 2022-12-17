@@ -175,6 +175,6 @@ Pip install from git repo branch
 
 .. code-block:: bash
 
-    $ pip install git+https https://github.com/ansible/ansible
+    $ pip install git+https://github.com/ansible/ansible
 
 

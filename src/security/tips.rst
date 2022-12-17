@@ -709,13 +709,6 @@ http://en.wikipedia.org/wiki/Extended_Validation_Certificate
 http://stackoverflow.com/questions/8455113/firefox-ssl-you-are-connected-to-whatever-com-which-is-run-by-unknown
 
 
-Using shadowsocks
------------------
-
-https://github.com/shadowsocks/shadowsocks
-
-https://xuri.me/2014/08/14/shadowsocks-setup-guide.html
-
 JSON Web Token
 --------------
 
