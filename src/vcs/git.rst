@@ -442,20 +442,29 @@ Revert to specific commit
     git push
 
 
-19 Tips For Everyday Git Use
-----------------------------
+Squash last N commits after pushed
+-----------------------------------
 
-http://www.alexkras.com/19-git-tips-for-everyday-use/
+Squash last N commits after they have been pushed
 
+.. code-block:: bash
 
-How to Write a Git Commit Message
----------------------------------
+    git rebase -i HEAD~5
 
-http://chris.beams.io/posts/git-commit/
+Pick first commit and squash others:
 
-https://gist.github.com/adeekshith/cd4c95a064977cdc6c50
+.. code-block:: bash
 
+    pick   123 F1
+    squash 456 F2
+    squash 789 F2
 
+Push it;
+.. code-block:: bash
+
+    git push --force
+
+Note that we use force option.
 
 Adding an existing project to GitHub using the command line
 -----------------------------------------------------------
@@ -535,7 +544,6 @@ Tag an older commit in Git?
     git tag -a v1.2 9fceb02 -m "Message here"
 
 
-
 Push a tag to a remote repository
 ---------------------------------
 
@@ -555,16 +563,6 @@ Remove (delete) a tag
     #  delete the local tag
     $ git tag --delete tag_name
 
-
-Github “fatal: remote origin already exists”
---------------------------------------------
-
-
-http://stackoverflow.com/a/10904450
-
-.. code-block:: bash
-
-    $ git remote set-url origin git@github.com:ppreyer/first_app.git
 
 Install specific git commit with pip
 ------------------------------------
@@ -647,67 +645,6 @@ Add tag and merge dev to mater
     git checkout dev
 
 
-Warning: push.default is unset; its implicit value is changing in Git 2.0
--------------------------------------------------------------------------
-
-warning: push.default is unset; its implicit value is changing in
-Git 2.0 from 'matching' to 'simple'. To squelch this message
-and maintain the current behavior after the default changes, use:
-
-.. code-block:: bash
-
-  git config --global push.default matching
-
-To squelch this message and adopt the new behavior now, use:
-
-.. code-block:: bash
-
-  git config --global push.default simple
-
-
-matching means git push will push all your local branches to the ones with the same name on the remote.
-This makes it easy to accidentally push a branch you didn't intend to.
-
-simple means git push will push only the current branch to the one that git pull would pull from,
-and also checks that their names match. This is a more intuitive behavior, which is why the default is getting changed to this.
-
-
-
-https://stackoverflow.com/a/13148313
-
-Fatal: The upstream branch of your current branch does not match the name of your current branch.
--------------------------------------------------------------------------------------------------
-
-.. code-block:: bash
-
-    git checkout rc
-    git push
-
-fatal: The upstream branch of your current branch does not match
-the name of your current branch.  To push to the upstream branch
-on the remote, use
-
-.. code-block:: bash
-
-    git push origin HEAD:v1.1
-
-To push to the branch of the same name on the remote, use
-
-.. code-block:: bash
-
-    git push origin v0.2
-
-Git keeps track of which local branch goes with which remote branch. When you renamed the remote branch,
-git lost track of which remote goes with your local rc branch.
-You can fix this using the --set-upstream-to or -u flag for the branch command.
-
-.. code-block:: bash
-
-    git branch -u origin/rc
-
-https://stackoverflow.com/a/27261804
-
-
 Abort the merge
 ---------------
 
@@ -751,9 +688,69 @@ Related error: Git: cannot checkout branch - error: pathspec  did not match any 
         rc
         dev
 
+Get current revision
+--------------------
+
+.. code-block:: bash
+
+    $ git rev-parse HEAD
+
+Change git default editor
+-------------------------
+
+Change git default editor to `vim`
+
+.. code-block:: bash
+
+    $ git config --global core.editor "vim"
+
+
+Git fatal
+---------
+
+Github “fatal: remote origin already exists”
+
+http://stackoverflow.com/a/10904450
+
+.. code-block:: bash
+
+    $ git remote set-url origin git@github.com:ppreyer/first_app.git
+
+Git Warning
+-----------
+
+Warning: push.default is unset; its implicit value is changing in Git 2.0
+
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+.. code-block:: bash
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+.. code-block:: bash
+
+  git config --global push.default simple
+
+
+matching means git push will push all your local branches to the ones with the same name on the remote.
+This makes it easy to accidentally push a branch you didn't intend to.
+
+simple means git push will push only the current branch to the one that git pull would pull from,
+and also checks that their names match. This is a more intuitive behavior, which is why the default is getting changed to this.
+
+
+
+https://stackoverflow.com/a/13148313
+
+
+Git error
+---------
 
 Fix git remote fatal: index-pack failed
----------------------------------------
 
 Traceback:
 
@@ -782,10 +779,51 @@ Solution:
     $ git pull --all
 
 
-Get current revision
---------------------
+
+Git error
+---------
+
+Fatal: The upstream branch of your current branch does not match the name of your current branch
 
 .. code-block:: bash
 
-    $ git rev-parse HEAD
+    git checkout rc
+    git push
+
+fatal: The upstream branch of your current branch does not match
+the name of your current branch.  To push to the upstream branch
+on the remote, use
+
+.. code-block:: bash
+
+    git push origin HEAD:v1.1
+
+To push to the branch of the same name on the remote, use
+
+.. code-block:: bash
+
+    git push origin v0.2
+
+Git keeps track of which local branch goes with which remote branch. When you renamed the remote branch,
+git lost track of which remote goes with your local rc branch.
+You can fix this using the --set-upstream-to or -u flag for the branch command.
+
+.. code-block:: bash
+
+    git branch -u origin/rc
+
+https://stackoverflow.com/a/27261804
+
+19 Tips For Everyday Git Use
+----------------------------
+
+http://www.alexkras.com/19-git-tips-for-everyday-use/
+
+
+How to Write a Git Commit Message
+---------------------------------
+
+http://chris.beams.io/posts/git-commit/
+
+https://gist.github.com/adeekshith/cd4c95a064977cdc6c50
 
