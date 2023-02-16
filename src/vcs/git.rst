@@ -459,7 +459,8 @@ Pick first commit and squash others:
     squash 456 F2
     squash 789 F2
 
-Push it;
+Push it:
+
 .. code-block:: bash
 
     git push --force
