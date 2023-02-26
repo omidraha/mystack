@@ -76,3 +76,14 @@ and access to events (touches, timers, etc.) and services (location, camera, etc
 
 
 https://hackernoon.com/why-native-app-developers-should-take-a-serious-look-at-flutter-e97361a1c073
+
+
+Flutter SDK releases
+---------------------
+
+https://docs.flutter.dev/development/tools/sdk/releases?tab=linux
+
+Flutter release notes
+---------------------
+
+https://docs.flutter.dev/development/tools/sdk/release-notes
