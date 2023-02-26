@@ -1555,3 +1555,15 @@ Fixed:
     $ sudo sysctl -p --system
 
 https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
+
+
+The following packages will be upgraded
+---------------------------------------
+
+The following packages will be upgraded:
+  grub-efi-amd64-bin grub-efi-amd64-signed shim-signed
+
+.. code-block:: bash
+
+    $ sudo apt-get install <list of packages kept back>
+    $ sudo apt-get update ; sudo apt-get dist-upgrade
