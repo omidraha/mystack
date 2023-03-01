@@ -197,3 +197,12 @@ Forward all TCP/UDP from local host port 80 to the remote server at port 80
     sudo socat -dd TCP4-LISTEN:80,fork,reuseaddr TCP4:1.2.3.4:80 &
     sudo socat -dd UDP-LISTEN:80,fork,reuseaddr UDP:1.2.3.4:80 &
 
+
+
+Open port
+----------
+
+.. code-block:: bash
+
+    $ ufw allow 80
+    $ ufw allow 80/udp
