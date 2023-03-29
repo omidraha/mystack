@@ -61,9 +61,7 @@ Create new git project in bitbucket
 Remove local (untracked) files from current Git branch
 ------------------------------------------------------
 
-http://git-scm.com/docs/git-clean
-
-http://stackoverflow.com/questions/61212/remove-local-untracked-files-from-my-current-git-branch
+The following untracked working tree files would be overwritten by merge
 
 .. code-block:: bash
 
@@ -79,6 +77,12 @@ http://stackoverflow.com/questions/61212/remove-local-untracked-files-from-my-cu
     # Remove only files ignored by Git.
     # This may be useful to rebuild everything from scratch, but keep manually created files
     $ git clean -f -X  #  git clean -fX
+
+
+http://git-scm.com/docs/git-clean
+
+http://stackoverflow.com/questions/61212/remove-local-untracked-files-from-my-current-git-branch
+
 
 Install Git
 -----------
@@ -786,10 +790,10 @@ Git error
 
 Fatal: The upstream branch of your current branch does not match the name of your current branch
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    git checkout rc
-    git push
+        git checkout rc
+        git push
 
 fatal: The upstream branch of your current branch does not match
 the name of your current branch.  To push to the upstream branch

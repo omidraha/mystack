@@ -128,3 +128,13 @@ https://console.cloud.google.com/cloud-build/settings
 
 
 https://stackoverflow.com/a/67001143
+
+
+Configuration
+-------------
+
+https://cloud.google.com/appengine/docs/standard/configuration-files
+
+https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values
+
+https://cloud.google.com/build/docs/build-config-file-schema
