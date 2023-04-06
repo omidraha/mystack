@@ -56,3 +56,32 @@ Configures the default Java compiler
 
 
     $ sudo update-alternatives --config javac
+
+
+
+The $JAVA_HOME is empty
+-----------------------
+
+.. code-block:: bash
+
+    $ whereis java
+    java: /usr/bin/java /usr/share/java /usr/share/man/man1/java.1.gz
+
+
+.. code-block:: bash
+
+    $ ls -l /usr/bin/java
+    /usr/bin/java -> /etc/alternatives/java
+
+.. code-block:: bash
+
+    $ ls -la /etc/alternatives/java
+    /etc/alternatives/java -> /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+
+.. code-block:: bash
+
+    $ sudo vim /etc/environment
+
+    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+    JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
+    export JAVA_HOME
