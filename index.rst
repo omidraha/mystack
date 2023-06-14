@@ -64,6 +64,7 @@ Contents:
    src/piano/piano
    src/postgresql/postgresql
    src/python/python
+   src/pulumi/pulumi
    src/rabbitmq/rabbitmq
    src/redmine/redmine
    src/research/research
