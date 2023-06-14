@@ -1,5 +1,5 @@
-Amazon
-======
+Tips
+====
 
 https://github.com/boto/boto
 
@@ -12,6 +12,7 @@ https://pypi.python.org/pypi/ddbmock
 http://boto.readthedocs.org/en/latest/dynamodb2_tut.html
 
 Amazon upload
+-------------
 
 http://stackoverflow.com/questions/670442/asynchronous-file-upload-to-amazon-s3-with-django
 
@@ -28,18 +29,21 @@ https://aws.amazon.com/items/1434?externalID=1434
 https://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html
 
 Django S3
+----------
 
 https://github.com/etianen/django-s3-storage
 
 https://django-storages.readthedocs.org/en/latest/index.html
 
 Time Limited Signed UR
+----------------------
 
 http://www.bucketexplorer.com/documentation/amazon-s3--how-to-generate-url-for-amazon-s3-files.html
 
 http://stackoverflow.com/questions/17831535/how-to-generate-file-link-without-expiry
 
 AWS SDK for Python (Boto)
+-------------------------
 
 http://aws.amazon.com/sdk-for-python/
 
@@ -54,6 +58,7 @@ http://sendapatch.se/projects/simples3/
 http://stackoverflow.com/questions/11026719/is-there-a-way-to-serve-s3-files-directly-to-the-user-with-a-url-that-cant-be-s
 
 sign URLs with an IP
+--------------------
 
 CloudFront
 
@@ -78,6 +83,7 @@ https://pypi.python.org/pypi/Ax_Handoff/1.1.3
 https://pypi.python.org/pypi/s3url/0.1.6
 
 Boto
+-----
 
 http://boto.readthedocs.org/en/latest/index.html
 
@@ -90,12 +96,14 @@ http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-conten
 
 
 Amazon EC2
+----------
 
 Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud.
 
 It is designed to make web-scale cloud computing easier for developers.
 
 Amazon EBS
+----------
 
 Amazon Elastic Block Store (Amazon EBS) provides persistent block level storage volumes
 
@@ -111,7 +119,7 @@ With Amazon EBS, you can scale your usage up or down within minutes –
 
 all while paying a low price for only what you provision.
 
-###
+
 
 http://alestic.com/2012/01/ec2-ebs-boot-recommended
 
@@ -119,7 +127,7 @@ http://tiger-fish.com/blog/how-boot-amazon-ec2-instance-ebs-volume
 
 http://thomas.broxrost.com/2008/08/21/persistent-django-on-amazon-ec2-and-ebs-the-easy-way/
 
-###
+
 
 http://stackoverflow.com/questions/10390244/how-to-set-up-a-django-project-with-django-storages-and-amazon-s3-but-with-diff
 
@@ -155,28 +163,20 @@ http://django-storages.readthedocs.org/en/latest/
 
 https://docs.djangoproject.com/en/1.7/howto/static-files/deployment/#staticfiles-from-cdn
 
-###
 http://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
-###
 
-###
 http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html
 
 http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html
 
 http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html
-###
-
-###
 
 http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingHTTPPOST.html
 
 https://aws.amazon.com/items/1434?externalID=1434
 
-###
-
-###
 AWS RDS Postgres DB instance
+----------------------------
 
 http://aws.amazon.com/rds/postgresql/
 
@@ -210,41 +210,32 @@ http://stackoverflow.com/questions/25740502/aws-can-a-beanstalk-instance-be-depl
 
 http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html
 
-###
-
 https://github.com/tornadoweb/tornado/wiki/Links
 
 http://stackoverflow.com/questions/11638135/amazon-aws-python-webframework-dynamodb
 
-###
-
 http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.loggingS3.title.html
 
-###
 http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html#command-options-python
 
 http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Python_custom_container.html
-
-###
 
 http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html
 
 http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.concepts.architecture.html
 
-###
 http://docs.aws.amazon.com/general/latest/gr/rande.html?r=1166
-###
+
 http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html
 
 http://docs.aws.amazon.com/general/latest/gr/getting-aws-sec-creds.html
 
 http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html
 
-###
 http://aws.amazon.com/code/6752709412171743
-###
 
 Deploying a Django app on Amazon EC2 instance
+---------------------------------------------
 
 http://agiliq.com/blog/2014/08/deploying-a-django-app-on-amazon-ec2-instance/
 
@@ -257,13 +248,14 @@ https://ashokfernandez.wordpress.com/2014/03/11/deploying-a-django-app-to-amazon
 https://github.com/ashokfernandez/Django-Fabric-AWS---amazon_app
 
 http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Python_flask.html
-###
 
 Amazon ECS
+----------
 
 http://docs.aws.amazon.com/AmazonECS/latest/developerguide/get-set-up-for-amazon-ecs.html
 
 Identity and Access Management
+------------------------------
 
 https://console.aws.amazon.com/iam/home#home
 
@@ -314,12 +306,16 @@ http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_GetStarted.html
 
 https://us-west-2.console.aws.amazon.com/ecs/home?region=us-west-2#/firstRun
 
-# Virginia
+Virginia
+---------
+
 https://console.aws.amazon.com/ecs/home?region=us-east-1#/firstRun
 
 https://aws.amazon.com/ecr/getting-started/
 
 ECR
+---
+
 http://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_GetStarted.html
 
 https://console.aws.amazon.com/ecs/home?region=us-east-1#/repositories
@@ -468,3 +464,36 @@ In fact, you’ll want to make sure you run at least one less task than the numb
 Task definitions are versioned, and Services are configured to use a specific version of a task definition.
 
 https://blog.codeship.com/easy-blue-green-deployments-on-amazon-ec2-container-service/#comments
+
+Kubernetes groups containers into units called pods, which run on physical or virtual hosts called nodes. Collections of nodes that work together to support a pod deployment, and its associated applications, are called clusters.
+
+he core components of Kubernetes
+
+Kubernetes master components include:
+
+    Kube-apiserver. The front end of the control plane that exposes Kubernetes APIs to cluster nodes and applications.
+    Etcd. The Kubernetes data plane, in the form of a key-value store that manages cluster-specific but not application data.
+    Kube-scheduler. Monitors resource usage on a cluster and assigns workloads, in the form of Kubernetes pods, to one or more worker nodes based on specified policies about hardware usage, node-pod affinity, security and workload priority.
+    Kube-controller-manager. Runs the controller processes responsible for node monitoring, replication, container deployment and security policy enforcement.
+    Cloud-controller-manager. A feature that primarily service providers use to run cloud-specific control processes.
+
+Kubernetes worker node components include:
+
+    Kubelet. An agent that runs on each worker node.
+    Kube-proxy. Manages network communication between cluster nodes.
+    Container runtime. The engine that runs containers and maintains workload isolation within the OS.
+
+
+https://www.techtarget.com/searchitoperations/tip/Ensure-Kubernetes-high-availability-with-master-node-planning
+
+https://www.techtarget.com/searchaws/tip/2-options-to-deploy-Kubernetes-on-AWS-EKS-vs-self-managed
+
+https://medium.com/the-programmer/aws-eks-fundamentals-core-components-for-absolute-beginners-part1-9b16e19cedb3
+
+https://bluexp.netapp.com/blog/aws-cvo-blg-aws-eks-architecture-clusters-nodes-and-networks
+
+https://spacelift.io/blog/kubernetes-secrets
+
+https://github.com/shuaibiyy/awesome-terraform
+
+https://github.com/bregman-arie/devops-exercises/blob/master/topics/terraform/README.md

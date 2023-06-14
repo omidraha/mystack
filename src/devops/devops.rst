@@ -8,7 +8,6 @@ Contents:
    :maxdepth: 2
 
    openshift
-   amazon
    cm
    tips
    vagrant
@@ -25,6 +24,7 @@ Contents:
    ignite
    faas
    gateway_api
+   ias
 
 
 

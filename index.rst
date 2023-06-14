@@ -23,6 +23,7 @@ Contents:
    src/apple/apple
    src/astronomy/astronomy
    src/atlassian/atlassian
+   src/aws/aws
    src/benchmark/benchmark
    src/blockchain/blockchain
    src/browser/browser
@@ -32,7 +33,7 @@ Contents:
    src/cothority/cothority
    src/crypto_currency/crypto_currency
    src/ctf/ctf
-   src/deploy/deploy
+   src/devops/devops
    src/dictionary/dictionary
    src/django/django
    src/encryption/encryption
