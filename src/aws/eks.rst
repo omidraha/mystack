@@ -1,6 +1,10 @@
 EKS
 ===
 
+Applications running on
+Amazon EKS are fully compatible with applications running on any standard Kubernetes environment,
+whether running in on-premises data centers or public clouds, easing porting from other Kubernetes environments to EKS.
+
 Install kubectl
 ---------------
 
