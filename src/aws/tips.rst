@@ -497,3 +497,10 @@ https://spacelift.io/blog/kubernetes-secrets
 https://github.com/shuaibiyy/awesome-terraform
 
 https://github.com/bregman-arie/devops-exercises/blob/master/topics/terraform/README.md
+
+aws instance types
+------------------
+
+https://aws.amazon.com/ec2/instance-types/
+
+https://instances.vantage.sh/

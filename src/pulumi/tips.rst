@@ -35,13 +35,30 @@ package using the following command.
 
     sudo apt install python3.10-venv
 
-
 Installing aws-python
 ----------------------
 
 .. code-block:: bash
 
     pulumi new aws-python
+
+
+Configure Python virtual environment
+------------------------------------
+
+https://www.pulumi.com/docs/languages-sdks/python/
+
+The `Pulumi.yaml` file
+
+.. code-block:: yaml
+
+    name: devops
+    runtime:
+      name: python
+      options:
+        virtualenv: /home/or/ws/tools/env/devops
+    description: A minimal AWS Python Pulumi program
+
 
 Setup AWS Credentials
 ---------------------
@@ -65,3 +82,50 @@ https://www.pulumi.com/docs/clouds/aws/guides/eks/
 https://www.learnaws.org/2021/06/22/aws-eks-alb-controller-pulumi/
 
 https://www.learnaws.org/2021/06/23/python-app-eks-cluster/
+
+
+Diagnostics
+------------
+
+
+Unable to validate AWS credentials
+-----------------------------------
+
+.. code-block:: bash
+
+  aws:iam:Role (cluster-eksRole-role):
+    error: unable to validate AWS credentials.
+    Details: validating provider credentials:
+    retrieving caller identity from STS: operation error STS: GetCallerIdentity,
+    exceeded maximum number of attempts, 3, https response error StatusCode: 0, RequestID: ,
+    request send failed, Post "https://sts.us-east-1a.amazonaws.com/":
+    dial tcp: lookup sts.us-east-1a.amazonaws.com on 127.0.0.53:53: no such host
+    Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`.
+
+
+.. code-block:: bash
+
+    pulumi config set aws:region us-east-1a
+
+View the dependency graph
+-------------------------
+
+.. code-block:: bash
+
+    pulumi stack graph g.txt
+
+
+https://sketchviz.com/new
+
+
+.. code-block:: bash
+
+    pulumi stack output kubeconfig > kubeconfig.yml
+    export KUBECONFIG=./kubeconfig.yml
+    kubectl get nodes
+
+Pulumi Kubernetes: API Docs
+---------------------------
+
+https://www.pulumi.com/registry/packages/kubernetes/api-docs/
+
