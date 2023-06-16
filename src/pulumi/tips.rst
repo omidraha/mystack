@@ -107,6 +107,33 @@ Unable to validate AWS credentials
 
     pulumi config set aws:region us-east-1a
 
+
+Instance type is not supported in your requested Availability Zone
+------------------------------------------------------------------
+
+.. code-block:: bash
+
+  aws:autoscaling:Group (fixedNodeGroup):
+    error: 1 error occurred:
+    * updating urn:pulumi:dev::devops::eks:index:NodeGroupV2$aws:autoscaling/group:Group::fixedNodeGroup:
+    1 error occurred:
+    * waiting for Auto Scaling Group (fixedNodeGroup) capacity satisfied: 1 error occurred:
+    * Scaling activity (67962305-f219-b4e1-71a7-74c10480fb32):
+    Failed: Your requested instance type (t2.micro) is not supported in your requested Availability Zone (us-west-2d).
+    Please retry your request by not specifying an Availability Zone or choosing us-west-2a, us-west-2b, us-west-2c.
+    Launching EC2 instance failed.
+
+
+https://stackoverflow.com/questions/63047064/ec2-launch-failed-your-requested-instance-type-t2-micro-is-not-supported-in
+
+https://repost.aws/knowledge-center/ec2-instance-type-not-supported-az-error
+
+UnsupportedAvailabilityZoneException
+------------------------------------
+
+https://github.com/pulumi/pulumi-eks/issues/95#issuecomment-1595237039
+
+
 View the dependency graph
 -------------------------
 
