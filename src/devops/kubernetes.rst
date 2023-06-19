@@ -5,17 +5,102 @@ Kubernetes is a container orchestration tool that builds upon 15 years of experi
 combined with best-of-breed ideas and practices from the community.
 
 Although Kubernetes is a feature-rich project, a few key features caught our attention:
-namespaces, (http://kubernetes.io/docs/user-guide/namespaces/)
+
+namespaces (http://kubernetes.io/docs/user-guide/namespaces/)
+
 automated rollouts and rollbacks, (http://kubernetes.io/docs/user-guide/deployments/)
+
 service discovery via DNS, (http://kubernetes.io/docs/user-guide/services/)
+
 automated container scaling based on resource usage, (http://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/)
+
 and of course, the promise of a self-healing system. (http://kubernetes.io/docs/user-guide/pod-states/#container-probes)
+
 
 http://danielfm.me/posts/five-months-of-kubernetes.html
 
 .. image:: images/k8s_01.png
 .. image:: images/k8s_02.png
 .. image:: images/k8s_03.png
+
+Concept
+-------
+
+Pods
+++++
+
+Pods are the atomic unit on the Kubernetes platform.
+When we create a Deployment on Kubernetes,
+that Deployment creates Pods with containers inside them (as opposed to creating containers directly).
+Each Pod is tied to the Node where it is scheduled,
+and remains there until termination (according to restart policy) or deletion.
+In case of a Node failure, identical Pods are scheduled on other available Nodes in the cluster.
+
+
+.. image:: images/k8s_04.svg
+    :width: 480pt
+
+A Pod always runs on a Node. A Node is a worker machine in Kubernetes and may be either a virtual or a physical machine,
+depending on the cluster. Each Node is managed by the Master.
+A Node can have multiple pods,
+and the Kubernetes master automatically handles scheduling the pods across the Nodes in the cluster.
+The Master's automatic scheduling takes into account the available resources on each Node
+
+.. image:: images/k8s_05.svg
+    :width: 480pt
+
+
+.. code-block:: bash
+
+    # To view what containers are inside that Pod and what images are used to build those containers
+    $ kubectl describe pods
+    # Anything that the application would normally send to STDOUT becomes logs for the container within the Pod.
+    $ kubectl logs $POD_NAME
+    # We can execute commands directly on the container once the Pod is up and running.
+    $ kubectl exec $POD_NAME
+    # Start a bash session in the Pod’s container
+    $ kubectl exec -ti $POD_NAME bash
+
+
+Service
+++++++++
+
+A Service routes traffic across a set of Pods.
+Services are the abstraction that allow pods to die and replicate in Kubernetes without impacting your application.
+Discovery and routing among dependent Pods (such as the frontend and backend components in an application) is handled by Kubernetes Services.
+
+.. image:: images/k8s_06.svg
+    :width: 480pt
+
+
+
+A Service routes traffic across a set of Pods.
+Services are the abstraction that allow pods to die and replicate in Kubernetes without impacting your application.
+Discovery and routing among dependent Pods (such as the frontend and backend components in an application) is handled by Kubernetes Services.
+
+Services match a set of Pods using labels and selectors,
+a grouping primitive that allows logical operation on objects in Kubernetes.
+Labels are key/value pairs attached to objects and can be used in any number of ways:
+
+    Designate objects for development, test, and production
+
+    Embed version tags
+
+    Classify an object using tags
+
+
+.. image:: images/k8s_07.svg
+    :width: 480pt
+
+.. code-block:: bash
+
+    # List the current Services from our cluster
+    $ kubectl get services
+    $ kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+    $ kubectl get services
+    $ kubectl describe services/kubernetes-bootcamp
+
+
 
 Monitoring
 ----------
@@ -370,78 +455,6 @@ https://kubernetes.io/docs/tutorials/
 https://kubernetes.io/docs/tutorials/kubernetes-basics/
 
 https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/
-
-
-Pods are the atomic unit on the Kubernetes platform.
-When we create a Deployment on Kubernetes,
-that Deployment creates Pods with containers inside them (as opposed to creating containers directly).
-Each Pod is tied to the Node where it is scheduled,
-and remains there until termination (according to restart policy) or deletion.
-In case of a Node failure, identical Pods are scheduled on other available Nodes in the cluster.
-
-
-.. image:: images/k8s_04.svg
-    :width: 480pt
-
-A Pod always runs on a Node. A Node is a worker machine in Kubernetes and may be either a virtual or a physical machine,
-depending on the cluster. Each Node is managed by the Master.
-A Node can have multiple pods,
-and the Kubernetes master automatically handles scheduling the pods across the Nodes in the cluster.
-The Master's automatic scheduling takes into account the available resources on each Node
-
-
-
-.. image:: images/k8s_05.svg
-    :width: 480pt
-
-
-.. code-block:: bash
-
-    # To view what containers are inside that Pod and what images are used to build those containers
-    $ kubectl describe pods
-    # Anything that the application would normally send to STDOUT becomes logs for the container within the Pod.
-    $ kubectl logs $POD_NAME
-    # We can execute commands directly on the container once the Pod is up and running.
-    $ kubectl exec $POD_NAME
-    # Start a bash session in the Pod’s container
-    $ kubectl exec -ti $POD_NAME bash
-
-
-A Service routes traffic across a set of Pods.
-Services are the abstraction that allow pods to die and replicate in Kubernetes without impacting your application.
-Discovery and routing among dependent Pods (such as the frontend and backend components in an application) is handled by Kubernetes Services.
-
-.. image:: images/k8s_06.svg
-    :width: 480pt
-
-
-
-A Service routes traffic across a set of Pods.
-Services are the abstraction that allow pods to die and replicate in Kubernetes without impacting your application.
-Discovery and routing among dependent Pods (such as the frontend and backend components in an application) is handled by Kubernetes Services.
-
-Services match a set of Pods using labels and selectors,
-a grouping primitive that allows logical operation on objects in Kubernetes.
-Labels are key/value pairs attached to objects and can be used in any number of ways:
-
-    Designate objects for development, test, and production
-
-    Embed version tags
-
-    Classify an object using tags
-
-
-.. image:: images/k8s_07.svg
-    :width: 480pt
-
-
-.. code-block:: bash
-
-    # List the current Services from our cluster
-    $ kubectl get services
-    $ kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
-    $ kubectl get services
-    $ kubectl describe services/kubernetes-bootcamp
 
 
 Tutorials
