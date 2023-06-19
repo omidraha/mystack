@@ -148,9 +148,14 @@ https://sketchviz.com/new
 
 .. code-block:: bash
 
-    pulumi stack output kubeconfig > kubeconfig.yml
+    pulumi stack select
+    pulumi stack output kubeconfig
+    vim kubeconfig.yml
     export KUBECONFIG=./kubeconfig.yml
     kubectl get nodes
+    kubectl get pods
+    kubectl describe nodes
+    kubectl describe pods
 
 Pulumi Kubernetes: API Docs
 ---------------------------
