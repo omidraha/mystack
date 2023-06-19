@@ -152,9 +152,9 @@ https://sketchviz.com/new
     export PULUMI_CONFIG_PASSPHRASE=""
     pulumi stack output kubeconfig > kubeconfig.yml
     export KUBECONFIG=./kubeconfig.yml
-    kubectl get nodes
-    kubectl get pods
-    kubectl get service
+    kubectl get nodes -A -o wide
+    kubectl get pods -A -o wide
+    kubectl get service -A -o wide
     kubectl describe nodes
     kubectl describe pods
     kubectl describe service
