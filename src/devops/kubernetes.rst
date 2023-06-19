@@ -40,11 +40,15 @@ In case of a Node failure, identical Pods are scheduled on other available Nodes
 .. image:: images/k8s_04.svg
     :width: 480pt
 
-A Pod always runs on a Node. A Node is a worker machine in Kubernetes and may be either a virtual or a physical machine,
-depending on the cluster. Each Node is managed by the Master.
-A Node can have multiple pods,
-and the Kubernetes master automatically handles scheduling the pods across the Nodes in the cluster.
-The Master's automatic scheduling takes into account the available resources on each Node
+Nods
+++++
+
+A Pod always runs on a Node.
+A Node is a worker machine in Kubernetes and may be either a virtual or a physical machine, depending on the cluster.
+Each Node is managed by the control plane. A Node can have multiple pods,
+and the Kubernetes control plane automatically handles scheduling the pods across the Nodes in the cluster.
+The control plane's automatic scheduling takes into account the available resources on each Node.
+
 
 .. image:: images/k8s_05.svg
     :width: 480pt
@@ -67,7 +71,8 @@ Service
 
 A Service routes traffic across a set of Pods.
 Services are the abstraction that allow pods to die and replicate in Kubernetes without impacting your application.
-Discovery and routing among dependent Pods (such as the frontend and backend components in an application) is handled by Kubernetes Services.
+Discovery and routing among dependent Pods (such as the frontend and backend components in an application)
+is handled by Kubernetes Services.
 
 .. image:: images/k8s_06.svg
     :width: 480pt
