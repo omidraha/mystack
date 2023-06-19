@@ -149,13 +149,15 @@ https://sketchviz.com/new
 .. code-block:: bash
 
     pulumi stack select
-    pulumi stack output kubeconfig
-    vim kubeconfig.yml
+    export PULUMI_CONFIG_PASSPHRASE=""
+    pulumi stack output kubeconfig > kubeconfig.yml
     export KUBECONFIG=./kubeconfig.yml
     kubectl get nodes
     kubectl get pods
+    kubectl get service
     kubectl describe nodes
     kubectl describe pods
+    kubectl describe service
 
 Pulumi Kubernetes: API Docs
 ---------------------------
