@@ -6,15 +6,20 @@ combined with best-of-breed ideas and practices from the community.
 
 Although Kubernetes is a feature-rich project, a few key features caught our attention:
 
-namespaces (http://kubernetes.io/docs/user-guide/namespaces/)
+*   namespaces
+    (http://kubernetes.io/docs/user-guide/namespaces/)
 
-automated rollouts and rollbacks, (http://kubernetes.io/docs/user-guide/deployments/)
+*   automated rollouts and rollbacks
+    (http://kubernetes.io/docs/user-guide/deployments/)
 
-service discovery via DNS, (http://kubernetes.io/docs/user-guide/services/)
+*   service discovery via DNS
+    (http://kubernetes.io/docs/user-guide/services/)
 
-automated container scaling based on resource usage, (http://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/)
+*   automated container scaling based on resource usage
+    (http://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/)
 
-and of course, the promise of a self-healing system. (http://kubernetes.io/docs/user-guide/pod-states/#container-probes)
+*   and of course, the promise of a self-healing system.
+    (http://kubernetes.io/docs/user-guide/pod-states/#container-probes)
 
 
 http://danielfm.me/posts/five-months-of-kubernetes.html
