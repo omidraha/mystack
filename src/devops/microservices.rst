@@ -159,3 +159,8 @@ terraform
 ---------
 
 https://www.terraform.io/intro/
+
+Deciding When to Split or Join a Microservice
+----------------------------------------------
+
+https://basila.medium.com/when-to-split-or-join-two-microservices-4b2ab850f45e
