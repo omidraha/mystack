@@ -504,3 +504,27 @@ aws instance types
 https://aws.amazon.com/ec2/instance-types/
 
 https://instances.vantage.sh/
+
+
+Background Jobs with AWS
+------------------------
+
+https://joshmanderson.com/blog/serverless-background-jobs
+
+https://medium.com/fasal-engineering/background-job-processing-at-scale-using-aws-lambda-and-sqs-da7f512af767
+
+https://medium.com/cheesecake-labs/asynchronous-task-queue-with-django-celery-and-aws-sqs-d68733ccfdb
+
+https://www.yippeecode.com/topics/aws-sqs-message-broker-for-python-celery/
+
+https://www.yippeecode.com/topics/aws-sqs-message-broker-for-python-celery/
+
+https://www.unitygroup.com/blog/performing-saas-application-background-tasks-with-aws-batch-and-aws-step-functions-6/
+
+https://blog.datumbrain.com/2021/12/06/background-process-in-lambda-using-sqs.html
+
+https://stackoverflow.com/questions/67013095/what-is-the-best-practice-to-architect-tasks-processing-using-aws
+
+https://stackoverflow.com/questions/42637937/django-background-task-always-on#comment72427247_42637937
+
+https://learn.microsoft.com/en-us/azure/architecture/best-practices/background-jobs

@@ -24,6 +24,7 @@ Contents:
    src/astronomy/astronomy
    src/atlassian/atlassian
    src/aws/aws
+   src/azure/azure
    src/benchmark/benchmark
    src/blockchain/blockchain
    src/browser/browser
