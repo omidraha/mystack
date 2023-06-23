@@ -250,3 +250,22 @@ http://www.revsys.com/12days/front-end-performance/
 https://developers.google.com/speed/pagespeed/insights/?url=google.com
 
 https://developers.google.com/speed/docs/insights/rules#speed-rules
+
+Messaging
+----------
+
+https://seroter.com/2016/05/16/modern-open-source-messaging-apache-kafka-rabbitmq-and-nats-in-action/
+
+https://taskqueues.com/
+
+*   Delayed tasks
+
+*   schedule recurring tasks, like a crontab
+
+*   schedule tasks to execute at a given time, or after a given delay
+
+*   automatically retry tasks that fail
+
+*   Result storage
+
+*   Automatic retries

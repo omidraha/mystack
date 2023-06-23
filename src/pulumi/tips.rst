@@ -164,3 +164,26 @@ Pulumi Kubernetes: API Docs
 
 https://www.pulumi.com/registry/packages/kubernetes/api-docs/
 
+State
+------
+
+Manually delete a resource that no longer exists because of dependents
+
+.. code-block:: bash
+
+    pulumi refresh
+    pulumi stack export --file stack.json
+    # Lookup `urn:pulumi` in resources section
+    cat stack.json | grep -i urn:pulumi
+    pulumi state delete 'urn:pulumi:dev::****' --target-dependents -y
+
+.. code-block:: bash
+
+    # Get the current stack as json:
+    pulumi stack export --file stack.json
+    # Delete what you don't want from your stack file and then:
+    pulumi stack import --file stack.json
+
+https://www.pulumi.com/docs/cli/commands/pulumi_state_delete/
+
+https://stackoverflow.com/a/68651488

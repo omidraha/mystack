@@ -127,3 +127,38 @@ Links
 https://github.com/bottlerocket-os/bottlerocket
 
 https://docs.aws.amazon.com/eks/latest/userguide/eks-compute.html
+
+Auto Scaling groups
+-------------------
+
+
+.. code-block:: bash
+    aws configure
+        # AWS Access Key ID [****************]:
+        # AWS Secret Access Key [****************]:
+        # Default region name [None]: us-west-2
+        # Default output format [json]:
+    aws autoscaling describe-launch-configurations
+    aws autoscaling delete-launch-configuration --launch-configuration-name  eks-cluster-nodeLaunchConfiguration-example
+
+
+https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#AutoScalingGroups:
+
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html?icmpid=docs_ec2as_lc_banner
+
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html?icmpid=docs_ec2as_help_panel
+
+
+Traceback
+
+.. code-block:: bash
+
+    An error occurred (ResourceInUse) when calling the DeleteLaunchConfiguration operation:
+    Cannot delete launch configuration eks-cluster-nodeLaunchConfiguration-example
+    because it is attached to AutoScalingGroup eks-cluster-example-NodeGroup-EXAMPLE
+
+
+How to Set Up Ingress Controller in AWS EKS
+-------------------------------------------
+
+https://towardsdatascience.com/how-to-set-up-ingress-controller-in-aws-eks-d745d9107307
