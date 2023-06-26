@@ -172,3 +172,18 @@ from even the host worker node itself.
 https://towardsdatascience.com/how-to-set-up-ingress-controller-in-aws-eks-d745d9107307
 
 https://towardsdatascience.com/manage-your-aws-eks-load-balancer-like-a-pro-7ca599e081ca
+
+
+Creating an IAM OIDC provider for your cluster
+----------------------------------------------
+
+Your cluster has an OpenID Connect (OIDC) issuer URL associated with it.
+To use AWS Identity and Access Management (IAM) roles for service accounts,
+an IAM OIDC provider must exist for your cluster's OIDC issuer URL
+
+
+.. code-block:: bash
+
+    aws iam list-open-id-connect-providers
+
+https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html
