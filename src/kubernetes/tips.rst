@@ -1,5 +1,5 @@
-kubernetes
-==========
+Tips
+====
 
 Kubernetes is a container orchestration tool that builds upon 15 years of experience of running production workloads at Google,
 combined with best-of-breed ideas and practices from the community.
@@ -1114,3 +1114,21 @@ https://github.com/kubernetes-sigs/kubespray
 https://github.com/meshery/meshery
 
 https://github.com/meshery/meshery
+
+
+Kubernetes Secrets Management
+-----------------------------
+
+https://auth0.com/blog/kubernetes-secrets-management/
+
+https://github.com/bitnami-labs/sealed-secrets
+
+https://blog.knoldus.com/how-to-encrypt-kubernetes-secrets-with-sealed-secrets/
+
+https://blog.ediri.io/advanced-secret-management-on-kubernetes-with-pulumi-secrets-store-csi-driver
+
+https://controlplane.com/guest-content/post/6-best-practices-for-managing-kubernetes-secrets
+
+https://thenewstack.io/kubernetes-secrets-management-3-approaches-9-best-practices/
+
+https://developer.cyberark.com/blog/kubernetes-security-best-practices-for-kubernetes-secrets-management/

@@ -50,6 +50,7 @@ Contents:
    src/irc/irc
    src/java/java
    src/javascript/javascript
+   src/kubernetes/kubernetes
    src/latex/latex
    src/linux/linux
    src/machine_learning/machine_learning

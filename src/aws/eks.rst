@@ -161,4 +161,14 @@ Traceback
 How to Set Up Ingress Controller in AWS EKS
 -------------------------------------------
 
+When you try to create a Service with an Ingress to receive traffic from the internet.
+Your Service resource should be of type NodePort for the Ingress Controller
+to be able to create the TargetGroupBindings.
+It makes sense in AWS's world because if the Service is only exposed as a ClusterIP,
+the AWS Load Balancer cannot talk to that since it's only exposed inside the cluster and is effectively inaccessible
+from even the host worker node itself.
+
+
 https://towardsdatascience.com/how-to-set-up-ingress-controller-in-aws-eks-d745d9107307
+
+https://towardsdatascience.com/manage-your-aws-eks-load-balancer-like-a-pro-7ca599e081ca

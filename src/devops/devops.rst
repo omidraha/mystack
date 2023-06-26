@@ -14,9 +14,7 @@ Contents:
    monitoring
    ansible
    microservices
-   s3
    vps
-   kubernetes
    rancher
    rook
    etcd
