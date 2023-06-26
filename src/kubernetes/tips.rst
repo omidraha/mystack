@@ -1119,13 +1119,19 @@ https://github.com/meshery/meshery
 Kubernetes Secrets Management
 -----------------------------
 
-https://auth0.com/blog/kubernetes-secrets-management/
+*   Sealed Secrets https://github.com/bitnami-labs/sealed-secrets
+*   External Secrets Operator https://external-secrets.io/latest/
+*   Secrets Store CSI driver https://secrets-store-csi-driver.sigs.k8s.io/
 
-https://github.com/bitnami-labs/sealed-secrets
+https://auth0.com/blog/kubernetes-secrets-management/
 
 https://blog.knoldus.com/how-to-encrypt-kubernetes-secrets-with-sealed-secrets/
 
 https://blog.ediri.io/advanced-secret-management-on-kubernetes-with-pulumi-secrets-store-csi-driver
+
+https://verifa.io/blog/comparing-methods-for-accessing-secrets-in-vault-from-kubernetes/index.html
+
+https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator
 
 https://controlplane.com/guest-content/post/6-best-practices-for-managing-kubernetes-secrets
 
