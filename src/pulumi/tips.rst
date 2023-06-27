@@ -158,6 +158,7 @@ https://sketchviz.com/new
     kubectl describe nodes
     kubectl describe pods
     kubectl describe service
+    kubectl get namespaces
 
 Pulumi Kubernetes: API Docs
 ---------------------------
