@@ -155,10 +155,11 @@ https://sketchviz.com/new
     kubectl get nodes -A -o wide
     kubectl get pods -A -o wide
     kubectl get service -A -o wide
+    kubectl get namespaces -A -o wide
+    kubectl get deployment -A -o wide
     kubectl describe nodes
     kubectl describe pods
     kubectl describe service
-    kubectl get namespaces
 
 Pulumi Kubernetes: API Docs
 ---------------------------
