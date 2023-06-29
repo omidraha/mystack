@@ -1230,3 +1230,15 @@ What it boils down to is that Deployment will create Pods with spec taken from t
 It is rather unlikely that you will ever need to create Pods directly for a production use-case.
 
 https://stackoverflow.com/questions/41325087/what-is-the-difference-between-a-pod-and-a-deployment
+
+IngressClass
+************
+
+"kubernetes.io/ingress.class": "alb"
+
+*   nginx: Refers to the NGINX Ingress Controller.
+*   traefik: Refers to the Traefik Ingress Controller.
+*   alb: Refers to the AWS ALB (Application Load Balancer) Ingress Controller.
+*   gce: Refers to the Google Cloud GKE (Google Kubernetes Engine) Ingress Controller.
+*   contour: Refers to the Contour Ingress Controller.
+*   istio: Refers to the Istio Ingress Gateway.
