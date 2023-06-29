@@ -1242,3 +1242,9 @@ IngressClass
 *   gce: Refers to the Google Cloud GKE (Google Kubernetes Engine) Ingress Controller.
 *   contour: Refers to the Contour Ingress Controller.
 *   istio: Refers to the Istio Ingress Gateway.
+
+
+Helm aws-load-balancer-controller
+*********************************
+
+https://artifacthub.io/packages/helm/aws/aws-load-balancer-controller
