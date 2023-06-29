@@ -29,10 +29,10 @@ http://danielfm.me/posts/five-months-of-kubernetes.html
 .. image:: images/k8s_03.png
 
 Concept
--------
+*******
 
 Pods
-++++
+====
 
 Pods are the atomic unit on the Kubernetes platform.
 When we create a Deployment on Kubernetes,
@@ -46,7 +46,7 @@ In case of a Node failure, identical Pods are scheduled on other available Nodes
     :width: 480pt
 
 Nods
-++++
+====
 
 A Pod always runs on a Node.
 A Node is a worker machine in Kubernetes and may be either a virtual or a physical machine, depending on the cluster.
@@ -72,7 +72,7 @@ The control plane's automatic scheduling takes into account the available resour
 
 
 Service
-++++++++
+=======
 
 A Service routes traffic across a set of Pods.
 Services are the abstraction that allow pods to die and replicate in Kubernetes without impacting your application.
@@ -113,7 +113,7 @@ Labels are key/value pairs attached to objects and can be used in any number of 
 
 
 Monitoring
-----------
+==========
 
 https://kubernetes.io/docs/concepts/cluster-administration/resource-usage-monitoring/
 
@@ -123,12 +123,12 @@ https://github.com/google/cadvisor
 
 
 Running Kubernetes Locally via Minikube
----------------------------------------
+***************************************
 
 https://github.com/kubernetes/minikube/releases
 
 Installation
-++++++++++++
+************
 
 .. code-block:: bash
 
@@ -154,7 +154,7 @@ https://kubernetes.io/docs/getting-started-guides/minikube/#installation
 https://github.com/petervandenabeele/hello-kubernetes
 
 Minikube behind a proxy
-+++++++++++++++++++++++
+***********************
 
 .. code-block:: bash
 
@@ -220,7 +220,7 @@ container:
     This performs health checks on the pods.
 
 The environment variable
-++++++++++++++++++++++++
+************************
 
 KUBERNETES_PROVIDER
 
@@ -244,7 +244,7 @@ Node (formerly minions, Note that in v1.0, minion was renamed to node,)
 The pods include services for DNS, logging, and pod health checks.
 
 Pods
-++++
+****
 
 Pods essentially allow you to logically group containers and pieces of our application stacks together.
 While pods may run one or more containers inside, the pod itself may be one of many that
@@ -281,14 +281,14 @@ By default, this runs a command in the first container it finds, but you can sel
 one using the -c argument.
 
 Labels
-++++++
+******
 
 Labels are just simple key-value pairs. You will see them on pods, replication controllers,
 services, and so on. The label acts as a selector and tells Kubernetes which resources to
 work with for a variety of operations. Think of it as a filtering option.
 
 Services
-++++++++
+********
 
 Services and replication controllers give us the ability to
 keep our applications running with little interruption and graceful recovery.
@@ -302,7 +302,7 @@ proxy. As the name suggests, kube-proxy’s job is to proxy communication from a
 endpoint back to the corresponding pod that is running the actual application.
 
 Replication controllers (RCs)
-+++++++++++++++++++++++++++++
+*****************************
 
 As the name suggests, manage the number of nodes that a
 pod and included container images run on. They ensure that an instance of an image is
@@ -392,7 +392,7 @@ https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html
 # docker run -d --net=host --privileged gcr.io/google_containers/hyperkube:v0.21.2 /hyperkube proxy --master=http://127.0.0.1:8080 --v=2
 
 Install manually
-++++++++++++++++
+****************
 
 .. code-block:: bash
 
@@ -407,20 +407,20 @@ Install manually
 
 
 Guestbook Example
------------------
+*****************
 
 https://github.com/kubernetes/kubernetes/tree/master/examples/guestbook
 
 
 Service Discovery
------------------
+*****************
 
 There are two ways Kubernetes can implement service discovery:
 through environment variables and through DNS.
 
 
 Install kubectl binary via curl
--------------------------------
+*******************************
 
 .. code-block:: bash
 
@@ -434,7 +434,7 @@ https://kubernetes.io/docs/tasks/kubectl/install/
 
 
 Interactive K8S starting guide
-------------------------------
+******************************
 
 
 .. code-block:: bash
@@ -468,14 +468,14 @@ https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/
 
 
 Tutorials
----------
+*********
 
 
 https://www.digitalocean.com/community/tutorials/modernizing-applications-for-kubernetes
 
 
 Working with kubectl
---------------------
+********************
 
 
 .. code-block:: bash
@@ -735,7 +735,7 @@ https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough/#unde
 
 
 Difference between targetPort and port in kubernetes Service definition
------------------------------------------------------------------------
+***********************************************************************
 
 
 Port: Port is the port number which makes a service visible to other services running within the same K8s cluster.
@@ -787,7 +787,7 @@ https://stackoverflow.com/a/41963878
 
 
 Sample Project
---------------
+**************
 
 https://github.com/testdrivenio/flask-vue-kubernetes
 
@@ -800,7 +800,7 @@ https://github.com/wildfish/kubernetes-django-starter/tree/master/k8s
 
 
 Deploy a docker registry in the kubernetes cluster and configure Ingress with Let's Encrypt
--------------------------------------------------------------------------------------------
+********************************************************************************************
 
 
 https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples/docker-registry
@@ -809,7 +809,7 @@ https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples/docker-reg
 
 
 Deploy a docker registry without TLS is the kubernetes cluster
---------------------------------------------------------------
+**************************************************************
 
 Define ``namespace``, ``deployment``, ``service``  and ``ingress``
 in one file called ``docker-registry-deployment.yaml``:
@@ -946,7 +946,7 @@ Deploy on kubernetes:
 
 
 Configure docker service to use local insecure registry
--------------------------------------------------------
+*******************************************************
 
 Add ``--insecure-registry registry.me:80`` to ``docker.service`` file:
 
@@ -1010,7 +1010,7 @@ https://github.com/Juniper/contrail-docker/wiki/Configure-docker-service-to-use-
 
 
 Delete images from a private local docker registry
----------------------------------------------------
+**************************************************
 
 .. code-block:: bash
 
@@ -1048,7 +1048,7 @@ https://github.com/docker/distribution/issues/1573
 
 
 Assigning Pods to Nodes
------------------------
+***********************
 
 
 Attach label to the node:
@@ -1089,7 +1089,7 @@ https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 
 
 Self-managed Kubernetes Vs Managed Kubernetes
----------------------------------------------
+*********************************************
 
 https://dinarys.com/blog/kubernetes-vs-aws-eks
 
@@ -1101,7 +1101,7 @@ https://www.infoworld.com/article/3614850/no-one-wants-to-manage-kubernetes-anym
 
 
 Kubernetes manager
-------------------
+******************
 
 https://github.com/kubernetes/kops
 
@@ -1117,7 +1117,7 @@ https://github.com/meshery/meshery
 
 
 Kubernetes Secrets Management
------------------------------
+******************************
 
 *   Sealed Secrets https://github.com/bitnami-labs/sealed-secrets
 *   External Secrets Operator https://external-secrets.io/latest/
@@ -1138,3 +1138,76 @@ https://controlplane.com/guest-content/post/6-best-practices-for-managing-kubern
 https://thenewstack.io/kubernetes-secrets-management-3-approaches-9-best-practices/
 
 https://developer.cyberark.com/blog/kubernetes-security-best-practices-for-kubernetes-secrets-management/
+
+Ingress
+*******
+
+.. code-block:: bash
+
+    kubectl get ingress -A
+    kubectl describe ingress -A
+    kubectl get ingress -A -o json
+    kubectl get ing -o=custom-columns='NAME:.metadata.name,SVCs:..service.name'
+
+.. code-block:: bash
+
+    kubectl get ingress -A
+        NAMESPACE   NAME                         CLASS    HOSTS   ADDRESS   PORTS   AGE
+        default     app-ingress-dev-1-313614b6   <none>   *                 80      21h
+
+    kubectl delete ingress app-ingress-dev-1-**
+        ingress.networking.k8s.io "app-ingress-dev-1-313614b6" deleted
+
+    kubectl patch ingress app-ingress-dev-1-**  -n default -p '{"metadata":{"finalizers":[]}}' --type=merge
+
+
+.. code-block:: bash
+
+    kubectl get ingress -A
+        NAMESPACE                 NAME                 CLASS    HOSTS         ADDRESS         PORTS   AGE
+        aws-lb-controller-dev-1 ingress-name-dev-1 <none>  example.com   k8s-awslbcon-ingressn-**.us-west-2.elb.amazonaws.com   80      17m
+
+    kubectl get ingress/ingress-name-dev-1 -n aws-lb-controller-dev-1
+        NAME                 CLASS   HOSTS        ADDRESS                                               PORTS   AGE
+        ingress-name-dev-1   <none>  example.com  k8s-awslbcon-ingressn-**.us-west-2.elb.amazonaws.com   80      13m
+
+    kubectl describe ingress  ingress-name-dev-1 -n aws-lb-controller-dev-1
+
+
+Ingress namespace
+=================
+
+Ingress rule needs to be created in the same namespace as the service rule(s) its referencing.
+Or else, as discussed in the same thread,
+one must find a way to include the namespace as part of the reference to that service.
+
+https://stackoverflow.com/a/68837345
+
+https://stackoverflow.com/questions/59844622/ingress-configuration-for-k8s-in-different-namespaces/59845018#59845018
+
+https://stackoverflow.com/questions/59844622/ingress-configuration-for-k8s-in-different-namespaces/59845018#59845018
+
+.. code-block:: bash
+
+    kubectl describe ingress  ingress-name-dev-1 -n aws-lb-controller-dev-1
+        Name:             ingress-name-dev-1
+        Labels:           app=ingress-name-dev-1
+                          app.kubernetes.io/managed-by=pulumi
+        Namespace:        aws-lb-controller-dev-1
+        Address:          k8s-awslbcon-ingressn-63280fface-1203401682.us-west-2.elb.amazonaws.com
+        Ingress Class:    <none>
+        Default backend:  <default>
+        Rules:
+          Host         Path  Backends
+          ----         ----  --------
+          example.com
+                       /app1   eks-service-01-dev-1-443996a5:80 (10.0.18.89:80)
+        Annotations:   alb.ingress.kubernetes.io/scheme: internet-facing
+                       alb.ingress.kubernetes.io/target-type: instance
+                       kubernetes.io/ingress.class: alb
+        Events:
+          Type    Reason                  Age                From     Message
+          ----    ------                  ----               ----     -------
+          Normal  SuccessfullyReconciled  13m (x2 over 70m)  ingress  Successfully reconciled
+
+    curl -v http://k8s-awslbcon-ingressn-63280fface-1203401682.us-west-2.elb.amazonaws.com/app1  -H 'Host: example.com' > index.html

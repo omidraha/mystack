@@ -68,3 +68,19 @@ https://support.atlassian.com/bitbucket-cloud/docs/add-a-table-of-contents-to-a-
 https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html
 
 https://gist.github.com/jordeu/5275092
+
+
+Heading
+*******
+
+# with overline, for parts
+
+* with overline, for chapters
+
+= for sections
+
+- for subsections
+
+^ for subsubsections
+
+" for paragraphs
