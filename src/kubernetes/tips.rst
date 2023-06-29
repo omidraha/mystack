@@ -1211,3 +1211,22 @@ https://stackoverflow.com/questions/59844622/ingress-configuration-for-k8s-in-di
           Normal  SuccessfullyReconciled  13m (x2 over 70m)  ingress  Successfully reconciled
 
     curl -v http://k8s-awslbcon-ingressn-63280fface-1203401682.us-west-2.elb.amazonaws.com/app1  -H 'Host: example.com' > index.html
+
+
+The difference between a pod and a deployment
+*********************************************
+
+The create command can be used to create a pod directly,
+or it can create a pod or pods through a Deployment.
+It is highly recommended that you use a Deployment to create your pods.
+It watches for failed pods and will start up new pods as required to maintain the specified number.
+If you don’t want a Deployment
+to monitor your pod (e.g. your pod is writing non-persistent data which won’t survive a restart,
+or your pod is intended to be very short-lived), you can create a pod directly with the create command.
+
+Both Pod and Deployment are full-fledged objects in the Kubernetes API.
+Deployment manages creating Pods by means of ReplicaSets.
+What it boils down to is that Deployment will create Pods with spec taken from the template.
+It is rather unlikely that you will ever need to create Pods directly for a production use-case.
+
+https://stackoverflow.com/questions/41325087/what-is-the-difference-between-a-pod-and-a-deployment
