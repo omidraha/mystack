@@ -1248,3 +1248,11 @@ Helm aws-load-balancer-controller
 *********************************
 
 https://artifacthub.io/packages/helm/aws/aws-load-balancer-controller
+
+
+matchLabels
+***********
+
+The `spec.selector.matchLabels` in a `Deployment` yaml means control `replicaSet/Pods` which have this label,
+and `spec.template.metadata.labels` in this same `Deployment` yaml means
+Assigns this `label` when creating a `ReplicaSet/Pod` (it must match `spec.selector.matchLabels`).
