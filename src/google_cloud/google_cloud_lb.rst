@@ -6,17 +6,17 @@ Google cloud load balancer
 Links
 -----
 
-https://console.cloud.google.com/networking/addresses/list?project=sso-idmelon-dev
+https://console.cloud.google.com/networking/addresses/list?project=example
 
-https://console.cloud.google.com/net-services/loadbalancing/list?project=sso-idmelon-dev
-
-
-https://console.cloud.google.com/networking/addresses/list?project=sso-idmelon-dev
+https://console.cloud.google.com/net-services/loadbalancing/list?project=example
 
 
-https://console.cloud.google.com/net-services/loadbalancing/advanced/sslCertificates/list?_ga=2.125741386.1526449259.1655094178-286473084.1655094178&project=sso-idmelon-dev
+https://console.cloud.google.com/networking/addresses/list?project=example
 
-https://console.cloud.google.com/net-services/loadbalancing/advanced/sslCertificates/list?project=sso-idmelon-dev
+
+https://console.cloud.google.com/net-services/loadbalancing/advanced/sslCertificates/list?_ga=2.125741386.1526449259.1655094178-286473084.1655094178&project=example
+
+https://console.cloud.google.com/net-services/loadbalancing/advanced/sslCertificates/list?project=example
 
 https://console.cloud.google.com/net-services/loadbalancing/add
 

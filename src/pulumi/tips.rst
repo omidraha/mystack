@@ -189,3 +189,145 @@ Manually delete a resource that no longer exists because of dependents
 https://www.pulumi.com/docs/cli/commands/pulumi_state_delete/
 
 https://stackoverflow.com/a/68651488
+
+https://artifacthub.io/packages/helm/bitnami/external-dns
+
+
+aws Load balancer
+-----------------
+
+.. code-block:: python
+
+The `Load balancer` file:
+
+    kubernetes.helm.v3.Chart(
+            "lb",
+            kubernetes.helm.v3.ChartOpts(
+                chart="aws-load-balancer-controller",
+                fetch_opts=kubernetes.helm.v3.FetchOpts(
+                    repo="https://aws.github.io/eks-charts"
+                ),
+                namespace=namespace.metadata["name"],
+                values={
+                    "logLevel": "debug",
+                    "region": "us-west-2",
+                    "replicaCount": "1",
+                    "serviceAccount": {
+                        "name": "aws-lb-controller-serviceaccount",
+                        "create": False,
+                    },
+                    "vpcId": vpc.vpc_id,
+                    "clusterName": cluster_name,
+                    "podLabels": {
+                        "app": "aws-lb-controller"
+                    },
+                    "autoDiscoverAwsRegion": "true",
+                    "autoDiscoverAwsVpcID": "true",
+                    "keepTLSSecret": True,
+                },
+            ),
+            pulumi.ResourceOptions(
+                provider=provider,
+                parent=namespace
+            )
+        )
+
+The `Ingress` file:
+
+.. code-block:: python
+
+    kubernetes.networking.v1.Ingress(
+        "ingress",
+        metadata=kubernetes.meta.v1.ObjectMetaArgs(
+            name='ingress',
+            namespace=namespace.metadata["name"],
+            annotations={
+                "kubernetes.io/ingress.class": "alb",
+                "alb.ingress.kubernetes.io/target-type": "instance",
+                "alb.ingress.kubernetes.io/scheme": "internet-facing",
+                'external-dns.alpha.kubernetes.io/hostname': 'app1.example.com,app2.example.com',
+                # 'alb.ingress.kubernetes.io/listen-ports': '[{"HTTPS":443}, {"HTTP":80}]',
+            },
+            labels={
+                'app': 'ingress'
+            },
+        ),
+        spec=kubernetes.networking.v1.IngressSpecArgs(
+            rules=[
+                kubernetes.networking.v1.IngressRuleArgs(
+                    host='app1.example.com',
+                    http=kubernetes.networking.v1.HTTPIngressRuleValueArgs(
+                        paths=[
+                            kubernetes.networking.v1.HTTPIngressPathArgs(
+                                path="/",
+                                path_type="Prefix",
+                                backend=kubernetes.networking.v1.IngressBackendArgs(
+                                    service=kubernetes.networking.v1.IngressServiceBackendArgs(
+                                        name=service_app_01.metadata.name,
+                                        port=kubernetes.networking.v1.ServiceBackendPortArgs(
+                                            number=80,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                    ),
+                ),
+                kubernetes.networking.v1.IngressRuleArgs(
+                    host='app2.example.com',
+                    http=kubernetes.networking.v1.HTTPIngressRuleValueArgs(
+                        paths=[
+                            kubernetes.networking.v1.HTTPIngressPathArgs(
+                                path="/",
+                                path_type="Prefix",
+                                backend=kubernetes.networking.v1.IngressBackendArgs(
+                                    service=kubernetes.networking.v1.IngressServiceBackendArgs(
+                                        name=service_app_02.metadata.name,
+                                        port=kubernetes.networking.v1.ServiceBackendPortArgs(
+                                            number=80,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                    ),
+                )
+            ],
+        ),
+        opts=pulumi.ResourceOptions(provider=provider)
+    )
+
+The `External dns` file:
+
+.. code-block:: python
+
+    kubernetes.helm.v3.Chart(
+        "external-dns",
+        kubernetes.helm.v3.ChartOpts(
+            chart="external-dns",
+            fetch_opts=kubernetes.helm.v3.FetchOpts(
+                repo="https://charts.bitnami.com/bitnami"
+            ),
+            namespace=namespace.metadata["name"],
+            values={
+                "logLevel": "debug",
+                'provider': 'cloudflare',
+                'sources': ['ingress'],
+                'domainFilters': ['example.com'],
+                "cloudflare": {
+                    "apiToken": 'token',
+                    "email": 'email',
+                    'cloudflare-dns-records-per-page': '5000',
+                    'proxied': False,
+                },
+                "replicaCount": "1",
+                "region": "us-west-2",
+            },
+        ),
+        pulumi.ResourceOptions(
+            provider=provider,
+            parent=namespace
+        )
+    )
+
+
