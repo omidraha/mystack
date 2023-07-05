@@ -395,3 +395,29 @@ Enter your passphrase to unlock config/secrets
 .. code-block:: bash
 
      export PULUMI_CONFIG_PASSPHRASE=''
+
+Custom timeout
+**************
+
+.. code-block:: bash
+
+    from pulumi import CustomTimeouts
+
+    kubernetes.helm.v3.Chart(
+        "lb",
+        kubernetes.helm.v3.ChartOpts(
+            chart="aws-load-balancer-controller",
+            fetch_opts=kubernetes.helm.v3.FetchOpts(
+                repo="https://aws.github.io/eks-charts"
+            ),
+            namespace=namespace.metadata["name"],
+            values={
+                "logLevel": "debug",
+            },
+        ),
+        pulumi.ResourceOptions(
+            provider=provider,
+            parent=namespace,
+            custom_timeouts=CustomTimeouts(create='3m')
+        )
+    )
