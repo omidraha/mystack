@@ -374,3 +374,13 @@ https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingres
 
 https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/tasks/ssl_redirect/
 
+
+Stack
+*****
+
+.. code-block:: bash
+
+    pulumi stack ls
+    pulumi stack select dev
+
+https://www.pulumi.com/docs/concepts/stack/
