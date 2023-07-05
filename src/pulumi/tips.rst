@@ -196,9 +196,9 @@ https://artifacthub.io/packages/helm/bitnami/external-dns
 aws Load balancer
 -----------------
 
-.. code-block:: python
-
 The `Load balancer` file:
+
+.. code-block:: bash
 
     kubernetes.helm.v3.Chart(
             "lb",
@@ -330,4 +330,47 @@ The `External dns` file:
         )
     )
 
+
+
+Create AWS Certificate Manager and DNS Validation with Cloud flare
+==================================================================
+
+
+.. code-block:: python
+
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_cloudflare as cloudflare
+
+    # Create Certificate for primary domain and wild subdomain
+    certificate = aws.acm.Certificate("cert",
+        domain_name="example.com",
+        validation_method="DNS",
+        subjectAlternativeNames=["*.example.com"])
+
+    # Create a Cloudflare Record
+    record = cloudflare.Record("record",
+        type="CNAME",
+        name="_example",
+        value=f"{certificate.domain_validation_options[0].resource_record_name}.cloudflare.com",
+        zone_id="abcdef")
+
+    # Create Certificate Validation
+    certificate_validation = aws.acm.CertificateValidation("certificateValidation",
+        certificate_arn=certificate.arn,
+        validation_record_fqdns=[])
+
+    # Export the ARN of the validation certificate
+    pulumi.export('certificateValidationArn', certificate_validation.certificate_arn)
+
+
+https://us-west-2.console.aws.amazon.com/acm/home
+
+https://www.pulumi.com/registry/packages/aws/api-docs/acm/certificatevalidation/
+
+https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/main/docs/guide/ingress/annotations.md
+
+https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/annotations/
+
+https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/tasks/ssl_redirect/
 
