@@ -384,3 +384,14 @@ Stack
     pulumi stack select dev
 
 https://www.pulumi.com/docs/concepts/stack/
+
+
+Set secret
+**********
+
+Enter your passphrase to unlock config/secrets
+    (set PULUMI_CONFIG_PASSPHRASE or PULUMI_CONFIG_PASSPHRASE_FILE to remember):
+
+.. code-block:: bash
+
+     export PULUMI_CONFIG_PASSPHRASE=''
