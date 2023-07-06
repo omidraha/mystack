@@ -195,3 +195,8 @@ Ingress vs Load balancer
 https://www.nginx.com/blog/aws-alb-vs-nginx-plus/
 
 https://stackoverflow.com/questions/45079988/ingress-vs-load-balancer/45084511#45084511
+
+NodePort vs ClusterIP for services using in Load balancer with ingress
+----------------------------------------------------------------------
+
+https://towardsdatascience.com/how-to-set-up-ingress-controller-in-aws-eks-d745d9107307
