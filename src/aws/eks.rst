@@ -202,3 +202,5 @@ NodePort vs ClusterIP for services using in Load balancer with ingress
 https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/annotations/#target-type
 
 https://towardsdatascience.com/how-to-set-up-ingress-controller-in-aws-eks-d745d9107307
+
+https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0
