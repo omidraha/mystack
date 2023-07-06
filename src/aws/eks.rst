@@ -189,7 +189,9 @@ an IAM OIDC provider must exist for your cluster's OIDC issuer URL
 https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html
 
 
-Choosing the Right Load Balancer on Amazon
-------------------------------------------
+Ingress vs Load balancer
+------------------------
 
 https://www.nginx.com/blog/aws-alb-vs-nginx-plus/
+
+https://stackoverflow.com/questions/45079988/ingress-vs-load-balancer/45084511#45084511
