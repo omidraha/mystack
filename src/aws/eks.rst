@@ -187,3 +187,9 @@ an IAM OIDC provider must exist for your cluster's OIDC issuer URL
     aws iam list-open-id-connect-providers
 
 https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html
+
+
+Choosing the Right Load Balancer on Amazon
+------------------------------------------
+
+https://www.nginx.com/blog/aws-alb-vs-nginx-plus/
