@@ -1287,3 +1287,16 @@ Ingress FailedBuildModel
       Type     Reason            Age                   From     Message
       ----     ------            ----                  ----     -------
       Warning  FailedBuildModel  6m55s (x18 over 17m)  ingress  Failed build model due to ingress: aws-lb-controller-*/ingress-*: prefix path shouldn't contain wildcards: /*
+
+
+Getting a shell to a container
+*******************************
+
+
+.. code-block:: bash
+
+    kubectl get pods -A -o wide
+    kubectl exec --stdin --tty eks-deployment-*** -n aws-lb-controller-*** --  sh
+
+
+https://kubernetes.io/docs/tasks/debug/debug-application/get-shell-running-container/
