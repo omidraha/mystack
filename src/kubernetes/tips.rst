@@ -1144,7 +1144,7 @@ Ingress
 
 .. code-block:: bash
 
-    kubectl get ingress -A
+    kubectl get ingress -A -o wide
     kubectl describe ingress -A
     kubectl get ingress -A -o json
     kubectl get ing -o=custom-columns='NAME:.metadata.name,SVCs:..service.name'
@@ -1273,3 +1273,17 @@ Ingress Controllers
 Kubernetes as a project supports and maintains AWS, GCE, and nginx ingress controllers.
 
 https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
+
+
+Ingress FailedBuildModel
+************************
+
+.. code-block:: bash
+
+    kubectl get ingress -A -o wide
+    kubectl describe ingress ingress-name-** -n aws-lb-controller-**
+
+    Events:
+      Type     Reason            Age                   From     Message
+      ----     ------            ----                  ----     -------
+      Warning  FailedBuildModel  6m55s (x18 over 17m)  ingress  Failed build model due to ingress: aws-lb-controller-*/ingress-*: prefix path shouldn't contain wildcards: /*
