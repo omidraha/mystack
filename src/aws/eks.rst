@@ -275,6 +275,7 @@ ALB Target type
 The AWS Load Balancer Controller supports the following traffic modes:
 
     `alb.ingress.kubernetes.io/target-type: instance`
+
     `alb.ingress.kubernetes.io/target-type: ip`
 
 Instance
