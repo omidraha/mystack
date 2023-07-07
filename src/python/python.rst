@@ -22,6 +22,7 @@ Contents:
    selenium
    robotframework
    pypi
+   websocket
 
 
 
