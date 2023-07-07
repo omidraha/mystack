@@ -296,3 +296,13 @@ IP
 
 
 https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html
+
+
+Describe network interfaces
+***************************
+
+.. code-block:: bash
+
+    aws ec2 describe-network-interfaces
+
+https://repost.aws/knowledge-center/vpc-find-owner-unknown-ip-addresses
