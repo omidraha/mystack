@@ -301,8 +301,23 @@ https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html
 Describe network interfaces
 ***************************
 
+MINIMUM_IP_TARGET guarantees minimum number of IPs provisioned on the worker node
+(these IPs can either be used by Pods or stay in the pool as available)
+where as WARM_IP_TARGET number guarantees those many IPs are available
+in the pool all the time (if there is enough IP space available in your subnet).
+
 .. code-block:: bash
 
     aws ec2 describe-network-interfaces
+    kubectl describe daemonset aws-node -n kube-system
+    kubectl set env daemonset aws-node -n kube-system WARM_IP_TARGET=5
+
 
 https://repost.aws/knowledge-center/vpc-find-owner-unknown-ip-addresses
+
+https://docs.amazonaws.cn/en_us/eks/latest/userguide/cni-increase-ip-addresses.html
+
+https://github.com/aws/amazon-vpc-cni-k8s/issues/853#issuecomment-591615159
+
+https://medium.com/@maartenfuchs/ip-address-allocation-for-aws-eks-cc046310cdda
+
