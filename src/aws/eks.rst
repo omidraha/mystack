@@ -298,8 +298,8 @@ IP
 https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html
 
 
-Describe network interfaces
-***************************
+Increase the amount of available IP addresses for your Amazon EC2 nodes
+************************************************************************
 
 MINIMUM_IP_TARGET guarantees minimum number of IPs provisioned on the worker node
 (these IPs can either be used by Pods or stay in the pool as available)
@@ -321,3 +321,4 @@ https://github.com/aws/amazon-vpc-cni-k8s/issues/853#issuecomment-591615159
 
 https://medium.com/@maartenfuchs/ip-address-allocation-for-aws-eks-cc046310cdda
 
+https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
