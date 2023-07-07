@@ -204,3 +204,63 @@ https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingres
 https://towardsdatascience.com/how-to-set-up-ingress-controller-in-aws-eks-d745d9107307
 
 https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0
+
+
+IngressGroup
+************
+
+https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/ingress/annotations/#ingressgroup
+
+https://repost.aws/questions/QUEyFKpZCBR_OTFMQlJNypaQ/ingress-annotations-only-for-a-specific-path
+
+https://github.com/kubernetes-sigs/aws-load-balancer-controller/issues/914
+
+
+use-annotation
+**************
+
+https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/ingress/annotations/
+
+.. code-block:: yaml
+
+    spec:
+      rules:
+      - http:
+          paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: ssl-redirect
+                port:
+                  name: use-annotation
+
+
+CustomResource
+***************
+
+.. code-block:: bash
+
+    $ kubectl get customresourcedefinition -A -o wide
+    $ kubectl get crd -A -o wide
+
+    NAME                                         CREATED AT
+    eniconfigs.crd.k8s.amazonaws.com             2023-07-05T20:38:05Z
+    securitygrouppolicies.vpcresources.k8s.aws   2023-07-05T20:38:08Z
+    targetgroupbindings.elbv2.k8s.aws            2023-07-06T19:23:52Z
+
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/delete-target-group.html
+
+https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#TargetGroups:
+
+https://stackoverflow.com/questions/52009124/not-able-to-completely-remove-kubernetes-customresource
+
+https://github.com/kubernetes/kubernetes/issues/60538
+
+
+CloudFormation
+**************
+
+
+https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2
