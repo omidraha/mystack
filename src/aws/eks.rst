@@ -294,3 +294,4 @@ IP
     The IP target type is required when target Pods are running on Fargate.
 
 
+https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html
