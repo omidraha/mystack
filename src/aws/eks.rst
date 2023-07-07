@@ -322,3 +322,5 @@ https://github.com/aws/amazon-vpc-cni-k8s/issues/853#issuecomment-591615159
 https://medium.com/@maartenfuchs/ip-address-allocation-for-aws-eks-cc046310cdda
 
 https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
+
+https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md
