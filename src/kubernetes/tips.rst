@@ -1265,3 +1265,11 @@ and `spec.template.metadata.labels` in this same `Deployment` yaml means
 Assigns this `label` when creating a `ReplicaSet/Pod` (it must match `spec.selector.matchLabels`).
 
 https://www.amazon.com/Kubernetes-Cookbook-Practical-solutions-orchestration-ebook/dp/B077FVKY8D
+
+
+Ingress Controllers
+********************
+
+Kubernetes as a project supports and maintains AWS, GCE, and nginx ingress controllers.
+
+https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/

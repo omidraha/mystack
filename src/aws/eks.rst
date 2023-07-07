@@ -215,6 +215,10 @@ https://repost.aws/questions/QUEyFKpZCBR_OTFMQlJNypaQ/ingress-annotations-only-f
 
 https://github.com/kubernetes-sigs/aws-load-balancer-controller/issues/914
 
+TargetGroupBinding
+******************
+
+https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/guide/targetgroupbinding/targetgroupbinding/
 
 use-annotation
 **************
