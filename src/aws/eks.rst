@@ -311,6 +311,7 @@ in the pool all the time (if there is enough IP space available in your subnet).
     aws ec2 describe-network-interfaces
     kubectl describe daemonset aws-node -n kube-system
     kubectl set env daemonset aws-node -n kube-system WARM_IP_TARGET=5
+    kubectl describe ds aws-node -n kube-system | grep -i WARM_IP_TARGET
 
 
 https://repost.aws/knowledge-center/vpc-find-owner-unknown-ip-addresses
@@ -324,3 +325,4 @@ https://medium.com/@maartenfuchs/ip-address-allocation-for-aws-eks-cc046310cdda
 https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
 
 https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md
+
