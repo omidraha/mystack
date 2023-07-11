@@ -269,3 +269,33 @@ https://taskqueues.com/
 *   Result storage
 
 *   Automatic retries
+
+Encrypting with Mozilla SOPS and AGE
+************************************
+
+
+Encrypting `yaml/json/text` file with Mozilla SOPS and AGE
+
+.. code-block:: bash
+
+    sudo apt install age
+    sudo dpkg -i sops.deb
+
+    age-keygen -o key.txt
+
+    ls
+    cat key.txt
+
+    echo "key: value" > config.yaml
+
+    sops --encrypt --age  $(cat key.txt | grep -oP "public key: \K(.*)") env.yaml
+    sops --encrypt --age  $(cat key.txt | grep -oP "public key: \K(.*)") env.yaml  > env.enc.yaml
+
+    export EDITOR=vim
+    export SOPS_AGE_KEY_FILE=key.txt
+
+    sops env.enc.yaml
+
+https://github.com/FiloSottile/age
+
+https://github.com/getsops/sops

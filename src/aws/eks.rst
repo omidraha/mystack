@@ -326,3 +326,8 @@ https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
 
 https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md
 
+
+Bitbucket Pipelines Pipe: AWS ECR push image
+*********************************************
+
+https://bitbucket.org/atlassian/aws-ecr-push-image/src/master/
