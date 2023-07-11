@@ -271,7 +271,7 @@ https://taskqueues.com/
 *   Automatic retries
 
 Encrypting with Mozilla SOPS and AGE
-************************************
+------------------------------------
 
 
 Encrypting `yaml/json/text` file with Mozilla SOPS and AGE
