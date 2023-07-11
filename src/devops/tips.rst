@@ -286,7 +286,7 @@ Encrypting `yaml/json/text` file with Mozilla SOPS and AGE
     ls
     cat key.txt
 
-    echo "key: value" > config.yaml
+    echo "key: value" > env.yaml
 
     sops --encrypt --age  $(cat key.txt | grep -oP "public key: \K(.*)") env.yaml
     sops --encrypt --age  $(cat key.txt | grep -oP "public key: \K(.*)") env.yaml  > env.enc.yaml
