@@ -314,6 +314,10 @@ https://stackoverflow.com/questions/55291850/kubernetes-how-to-copy-a-cfg-file-i
 
 https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
 
+https://www.thorsten-hans.com/encrypt-your-kubernetes-secrets-with-mozilla-sops/
+
+https://fluxcd.io/flux/guides/mozilla-sops/
+
 GitOps
 ------
 
