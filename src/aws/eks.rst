@@ -265,6 +265,30 @@ https://stackoverflow.com/questions/52009124/not-able-to-completely-remove-kuber
 https://github.com/kubernetes/kubernetes/issues/60538
 
 
+Custom resources with finalizers can "deadlock"
+***********************************************
+
+
+.. code-block:: bash
+
+    $ kubectl get customresourcedefinition -A -o wide
+    $ kubectl get crd -A -o wide
+
+    NAME                                         CREATED AT
+    eniconfigs.crd.k8s.amazonaws.com             2023-07-05T20:38:05Z
+    securitygrouppolicies.vpcresources.k8s.aws   2023-07-05T20:38:08Z
+    targetgroupbindings.elbv2.k8s.aws            2023-07-06T19:23:52Z
+
+    $ kubectl patch crd/targetgroupbindings.elbv2.k8s.aws -p '{"metadata":{"finalizers":[]}}' --type=merge
+    $ kubectl delete crd targetgroupbindings.elbv2.k8s.aws
+
+
+https://github.com/kubernetes/kubernetes/issues/60538
+
+https://stackoverflow.com/questions/52009124/not-able-to-completely-remove-kubernetes-customresource
+
+
+
 CloudFormation
 **************
 
