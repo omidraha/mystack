@@ -253,6 +253,8 @@ CustomResource
     securitygrouppolicies.vpcresources.k8s.aws   2023-07-05T20:38:08Z
     targetgroupbindings.elbv2.k8s.aws            2023-07-06T19:23:52Z
 
+    $ kubectl delete crd targetgroupbindings.elbv2.k8s.aws
+
 
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/delete-target-group.html
 
