@@ -299,3 +299,16 @@ Encrypting `yaml/json/text` file with Mozilla SOPS and AGE
 https://github.com/FiloSottile/age
 
 https://github.com/getsops/sops
+
+https://cloud.redhat.com/blog/a-guide-to-secrets-management-with-gitops-and-kubernetes
+
+https://medium.com/@argonaut.dev/secret-management-in-kubernetes-approaches-tools-and-best-practices-f1df77392060
+
+https://github.com/viaduct-ai/kustomize-sops
+
+
+GitOps
+------
+
+https://www.weave.works/blog/gitops-operations-by-pull-request
+
