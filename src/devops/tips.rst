@@ -306,6 +306,13 @@ https://medium.com/@argonaut.dev/secret-management-in-kubernetes-approaches-tool
 
 https://github.com/viaduct-ai/kustomize-sops
 
+https://github.com/isindir/sops-secrets-operator
+
+https://stackoverflow.com/questions/50012601/can-i-use-a-configmap-created-from-an-init-container-in-the-pod
+
+https://stackoverflow.com/questions/55291850/kubernetes-how-to-copy-a-cfg-file-into-container-before-contaner-running
+
+https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
 
 GitOps
 ------
