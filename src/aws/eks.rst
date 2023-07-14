@@ -381,3 +381,39 @@ Share single ALB with multiple Ingress
 
 https://catalog.workshops.aws/eks-immersionday/en-US/services-and-ingress/multi-ingress
 
+
+The "webidentityerr" error when using AWS Load Balancer Controller in Amazon EKS
+*********************************************************************************
+
+.. code-block:: bash
+
+    $ kubectl get  deploy -A
+    NAMESPACE                 NAME                                    READY   UP-TO-DATE   AVAILABLE   AGE
+    aws-lb-controller-dev-1   external-dns-dev-1                      1/1     1            1           47h
+    aws-lb-controller-dev-1   lb-dev-1-aws-load-balancer-controller   1/1     1            1           136m
+    aws-lb-controller-dev-1   sso-1ae40dfe                            1/1     1            1           23h
+    kube-system               coredns                                 2/2     2            2           47h
+
+    $ kubectl describe deploy lb-dev-1-aws-load-balancer-controller  -n aws-lb-controller-dev-1 | grep -i "Service Account"
+    Service Account:  aws-lb-controller-sa-dev-1-13d88aed
+
+    $ kubectl get serviceaccount -n aws-lb-controller-dev-1 -o wide
+    NAME                                  SECRETS   AGE
+    aws-lb-controller-sa-dev-1-13d88aed   0         7m4s
+    aws-load-balancer-controller          0         88m
+    default                               0         47h
+    external-dns-dev-1                    0         47h
+
+    $ kubectl describe sa  aws-lb-controller-sa-dev-1-13d88aed   -n aws-lb-controller-dev-1
+    Name:                aws-lb-controller-sa-dev-1-13d88aed
+    Namespace:           aws-lb-controller-dev-1
+    Labels:              app.kubernetes.io/managed-by=pulumi
+    Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::146899233417:role/aws-loadbalancer-controller-role-dev-1-ef33856
+                         pulumi.com/autonamed: true
+    Image pull secrets:  <none>
+    Mountable secrets:   <none>
+    Tokens:              <none>
+    Events:              <none>
+
+https://repost.aws/knowledge-center/eks-load-balancer-webidentityerr
+
