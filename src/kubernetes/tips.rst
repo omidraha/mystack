@@ -1150,24 +1150,6 @@ Ingress
     kubectl get ing -o=custom-columns='NAME:.metadata.name,SVCs:..service.name'
 
 
-Ingres resources are not getting deleted even though the alb ingress controller deployment is deleted
-======================================================================================================
-
-.. code-block:: bash
-
-    kubectl get ingress -A
-        NAMESPACE   NAME                         CLASS    HOSTS   ADDRESS   PORTS   AGE
-        default     app-ingress-dev-1-313614b6   <none>   *                 80      21h
-
-    kubectl delete ingress app-ingress-dev-1-**
-        ingress.networking.k8s.io "app-ingress-dev-1-313614b6" deleted
-
-    kubectl patch ingress app-ingress-dev-1-**  -n default -p '{"metadata":{"finalizers":[]}}' --type=merge
-
-
-https://github.com/kubernetes-sigs/aws-load-balancer-controller/issues/1629#issuecomment-731011683
-
-
 .. code-block:: bash
 
     kubectl get ingress -A
