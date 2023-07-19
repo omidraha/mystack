@@ -1289,5 +1289,6 @@ Provisioning status
 
 .. code-block:: bash
 
+    kubectl get pvc -A -o wide
     kubectl describe pvc -A
 
