@@ -1282,3 +1282,12 @@ Getting a shell to a container
 
 
 https://kubernetes.io/docs/tasks/debug/debug-application/get-shell-running-container/
+
+
+Provisioning status
+*******************
+
+.. code-block:: bash
+
+    kubectl describe pvc -A
+
