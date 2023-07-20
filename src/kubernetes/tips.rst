@@ -1299,3 +1299,17 @@ StatefulSet
 .. code-block:: bash
 
     kubectl get statefulset   -A -o wide
+
+Pod communication
+*****************
+
+A Pod can successfully resolve either service_name.namespace_name or service_name.namespace_name.svc.cluster.local
+
+
+    .. code-block:: bash
+
+        telnet service_name.namespace_name 6379
+        telnet service_name.namespace_name.svc.cluster.local 6379
+
+
+https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#namespaces-of-services
