@@ -1292,3 +1292,10 @@ Provisioning status
     kubectl get pvc -A -o wide
     kubectl describe pvc -A
 
+
+StatefulSet
+***********
+
+.. code-block:: bash
+
+    kubectl get statefulset   -A -o wide
