@@ -1313,3 +1313,22 @@ A Pod can successfully resolve either service_name.namespace_name or service_nam
 
 
 https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#namespaces-of-services
+
+
+Namespaces and DNS
+******************
+
+When you create a Service,
+it creates a corresponding DNS entry.
+This entry is of the form <service-name>.<namespace-name>.svc.cluster.local,
+which means that if a container only uses <service-name>,
+it will resolve to the service which is local to a namespace.
+
+This is useful for using the same configuration across multiple namespaces such as Development,
+Staging and Production. If you want to reach across namespaces,
+you need to use the fully qualified domain name (FQDN).
+
+
+https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/#namespaces-and-dns
+
+
