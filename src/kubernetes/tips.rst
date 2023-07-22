@@ -1371,3 +1371,4 @@ Creating or updating a kubeconfig file for an Amazon EKS cluster
 
     aws sts get-caller-identity
     aws eks update-kubeconfig --region region-code --name my-cluster
+    kubectl get svc
