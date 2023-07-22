@@ -1374,3 +1374,9 @@ Creating or updating a kubeconfig file for an Amazon EKS cluster
     kubectl get svc
 
 https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
+
+
+ّImage policy
+************
+
+https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy
