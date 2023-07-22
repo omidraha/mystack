@@ -1332,3 +1332,42 @@ you need to use the fully qualified domain name (FQDN).
 https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/#namespaces-and-dns
 
 
+Install kubectl
+****************
+
+.. code-block:: bash
+
+   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+Installing aws-iam-authenticator
+*********************************
+
+Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through
+the AWS IAM authenticator for Kubernetes.
+You can configure the stock kubectl client to work with Amazon EKS
+by installing the AWS IAM authenticator for Kubernetes and modifying your kubectl
+configuration file to use it for authentication.
+
+
+.. code-block:: bash
+
+    curl -Lo aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.5.9/aws-iam-authenticator_0.5.9_linux_amd64
+    chmod +x ./aws-iam-authenticator
+    mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$HOME/bin:$PATH
+    echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+    aws-iam-authenticator help
+
+https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
+
+
+Creating or updating a kubeconfig file for an Amazon EKS cluster
+*****************************************************************
+
+
+
+.. code-block:: bash
+
+    aws sts get-caller-identity
+    aws eks update-kubeconfig --region region-code --name my-cluster
