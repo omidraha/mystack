@@ -1287,6 +1287,8 @@ https://kubernetes.io/docs/tasks/debug/debug-application/get-shell-running-conta
 Provisioning status
 *******************
 
+Persistent Volume Claim (PVC)
+
 .. code-block:: bash
 
     kubectl get pvc -A -o wide
