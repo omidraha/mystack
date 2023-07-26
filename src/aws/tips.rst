@@ -536,3 +536,20 @@ RDS DB Parameter Group Family
 .. code-block:: bash
 
     $ aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
+
+
+Available PostgreSQL database versions
+**************************************
+
+.. code-block:: bash
+
+    aws rds describe-db-engine-versions --default-only --engine postgres
+
+
+https://aws.amazon.com/rds/faqs/#versioningGuidance
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#Concepts.DBInstanceClass.Support
+
+https://aws.amazon.com/rds/instance-types/
