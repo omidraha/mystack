@@ -423,3 +423,7 @@ Custom timeout
     )
 
 
+Helm Chart vs Release
+*********************
+
+https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/choosing-the-right-helm-resource-for-your-use-case/

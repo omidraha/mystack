@@ -528,3 +528,11 @@ https://stackoverflow.com/questions/67013095/what-is-the-best-practice-to-archit
 https://stackoverflow.com/questions/42637937/django-background-task-always-on#comment72427247_42637937
 
 https://learn.microsoft.com/en-us/azure/architecture/best-practices/background-jobs
+
+
+RDS DB Parameter Group Family
+*****************************
+
+.. code-block:: bash
+
+    $ aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"

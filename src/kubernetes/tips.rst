@@ -1382,3 +1382,21 @@ https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
 ************
 
 https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy
+
+Volume
+******
+
+https://gist.github.com/jwmatthews/d701da13eda5d57d4e8d2adf594fc4f2
+
+https://github.com/pulumi/pulumi-eks/issues/833
+
+https://stackoverflow.com/questions/75758115/persistentvolumeclaim-is-stuck-waiting-for-a-volume-to-be-created-either-by-ex/75758116#75758116
+
+https://repost.aws/knowledge-center/ebs-volume-type-differences
+
+https://kubernetes.io/docs/concepts/storage/storage-classes/
+
+cheatsheet
+**********
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
