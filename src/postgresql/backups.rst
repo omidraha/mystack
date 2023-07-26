@@ -10,6 +10,12 @@ It allows your organisation to perform remote backups of multiple servers in bus
 
 http://www.pgbarman.org/about/
 
+Install pg_dump
+----------------
+
+.. code-block:: bash
+
+    sudo apt-get install postgresql-client
 
 How To Backup and Restore PostgreSQL Database Using pg_dump and psql
 --------------------------------------------------------------------

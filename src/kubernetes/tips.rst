@@ -1400,3 +1400,12 @@ cheatsheet
 **********
 
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+
+Copy file from local to POD
+---------------------------
+
+.. code-block:: bash
+
+     kubectl cp sample.txt  pod-name:/path/in/the/pod -n pod-name-space
+
