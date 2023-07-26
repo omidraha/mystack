@@ -1402,8 +1402,8 @@ cheatsheet
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 
-Copy file from local to POD
----------------------------
+Copy file from local to the POD
+-------------------------------
 
 .. code-block:: bash
 
