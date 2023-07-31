@@ -1409,3 +1409,15 @@ Copy file from local to the POD
 
      kubectl cp sample.txt  pod-name:/path/in/the/pod -n pod-name-space
 
+
+Create a kubernetes deployment without service
+**********************************************
+
+Simply remove the entire Service object.
+For example for background tasks that only connects to other services,
+but does not expose any ports it listens to.
+Since you have an app that doesn't need to communicate via the network,
+you don't need a service.
+Think of the service as a kind of specialized load-balancer in front of an (HTTP?)
+API your pods expose. Since you don't have that API, you don't need it.
+
