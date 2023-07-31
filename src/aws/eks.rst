@@ -435,3 +435,5 @@ Note that this annotation should be specified during service creation and not ed
 https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/service/annotations/#lb-type
 
 https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html
+
+https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/network-load-balancing#internet-facing-nlb
