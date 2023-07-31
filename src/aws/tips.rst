@@ -554,3 +554,25 @@ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.
 
 https://aws.amazon.com/rds/instance-types/
 
+Kubernetes storage provisioner
+******************************
+
+The difference lies in the type of Kubernetes storage provisioner used:
+
+1. `provisioner="kubernetes.io/aws-ebs"`:
+   This is the provisioner for the AWS Elastic Block Store (EBS) volumes using the in-tree volume plugin.
+In older versions of Kubernetes, this in-tree plugin was the standard way to provision EBS volumes. However,
+in recent Kubernetes versions (1.19 and later), in-tree plugins are being deprecated,
+and users are encouraged to use CSI (Container Storage Interface) drivers.
+
+2. `provisioner: ebs.csi.aws.com`:
+   This is the provisioner for the AWS EBS volumes using the CSI driver.
+CSI is a standardized interface that allows external storage providers to implement storage plugins for Kubernetes.
+With the CSI driver, storage vendors can develop and maintain their plugins independently,
+without relying on in-tree plugins, making it more extensible and easier to maintain.
+
+In summary, `provisioner="kubernetes.io/aws-ebs"` is the legacy in-tree provisioner for AWS EBS,
+while `provisioner: ebs.csi.aws.com` is the CSI driver provisioner for AWS EBS, which is the recommended approach
+for newer Kubernetes versions. If possible,
+it's better to use CSI drivers as they offer better flexibility, compatibility,
+and future-proofing for your Kubernetes storage needs.
