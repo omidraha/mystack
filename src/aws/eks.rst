@@ -437,3 +437,29 @@ https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/servic
 https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html
 
 https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/network-load-balancing#internet-facing-nlb
+
+Elastic network interfaces
+**************************
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html?shortFooter=true#AvailableIpPerENI
+
+Increase the amount of available IP addresses for your Amazon EC2 nodes
+************************************************************************
+
+https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
+
+https://github.com/terraform-aws-modules/terraform-aws-eks/issues/2297
+
+https://github.com/pulumi/pulumi-eks/issues/611
+
+https://github.com/pulumi/pulumi-eks/issues/633
+
+https://github.com/pulumi/pulumi-eks/issues/609
+
+.. code-block:: bash
+
+        node_user_data="""
+          #!/bin/bash
+          set -o xtrace
+          /etc/eks/bootstrap.sh --apiserver-endpoint '${var.cluster_endpoint}' --b64-cluster-ca '${var.cluster_ca_data}' '${var.cluster_name}' --use-max-pods false --kubelet-extra-args '--max-pods=6'
+        """,
