@@ -471,3 +471,4 @@ https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html
 
 https://aws.github.io/aws-eks-best-practices/networking/subnets/
 
+https://github.com/pulumi/examples/blob/master/aws-py-eks/vpc.py
