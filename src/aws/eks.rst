@@ -463,3 +463,11 @@ https://github.com/pulumi/pulumi-eks/issues/609
           set -o xtrace
           /etc/eks/bootstrap.sh --apiserver-endpoint '${var.cluster_endpoint}' --b64-cluster-ca '${var.cluster_ca_data}' '${var.cluster_name}' --use-max-pods false --kubelet-extra-args '--max-pods=6'
         """,
+
+VPC
+***
+
+https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html
+
+https://aws.github.io/aws-eks-best-practices/networking/subnets/
+
