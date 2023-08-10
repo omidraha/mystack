@@ -1472,3 +1472,10 @@ Monitoring
 https://github.com/derailed/k9s
 
 https://github.com/robscott/kube-capacity
+
+Kubectl get event
+******************
+
+.. code-block:: bash
+
+    kubectl get event -n kube-system
