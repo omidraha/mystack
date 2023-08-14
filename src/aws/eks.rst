@@ -421,6 +421,8 @@ https://repost.aws/knowledge-center/eks-load-balancer-webidentityerr
 aws-load-balancer-type annotations
 ==================================
 
+.. code-block:: bash
+
     service.beta.kubernetes.io/aws-load-balancer-type
 
 The AWS Load Balancer Controller manages Kubernetes Services in a compatible way with the legacy aws cloud provider.
