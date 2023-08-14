@@ -450,6 +450,9 @@ Increase the amount of available IP addresses for your Amazon EC2 nodes
 
 https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
 
+Increase the number of pods limit per Kubernetes Node
+=====================================================
+
 https://github.com/terraform-aws-modules/terraform-aws-eks/issues/2297
 
 https://github.com/pulumi/pulumi-eks/issues/611
