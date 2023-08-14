@@ -307,13 +307,13 @@ https://github.com/kubernetes-sigs/aws-load-balancer-controller/issues/1629#issu
 
 
 CloudFormation
-**************
+==============
 
 
 https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2
 
 ALB Target type
-****************
+================
 
 The AWS Load Balancer Controller supports the following traffic modes:
 
@@ -342,7 +342,7 @@ https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html
 
 
 Increase the amount of available IP addresses for your Amazon EC2 nodes
-************************************************************************
+=======================================================================
 
 MINIMUM_IP_TARGET guarantees minimum number of IPs provisioned on the worker node
 (these IPs can either be used by Pods or stay in the pool as available)
@@ -371,19 +371,19 @@ https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.
 
 
 Bitbucket Pipelines Pipe: AWS ECR push image
-*********************************************
+============================================
 
 https://bitbucket.org/atlassian/aws-ecr-push-image/src/master/
 
 
 Share single ALB with multiple Ingress
-**************************************
+======================================
 
 https://catalog.workshops.aws/eks-immersionday/en-US/services-and-ingress/multi-ingress
 
 
 The "webidentityerr" error when using AWS Load Balancer Controller in Amazon EKS
-*********************************************************************************
+================================================================================
 
 .. code-block:: bash
 
@@ -419,7 +419,7 @@ https://repost.aws/knowledge-center/eks-load-balancer-webidentityerr
 
 
 aws-load-balancer-type annotations
-**********************************
+==================================
 
     service.beta.kubernetes.io/aws-load-balancer-type
 
@@ -439,12 +439,12 @@ https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html
 https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/network-load-balancing#internet-facing-nlb
 
 Elastic network interfaces
-**************************
+==========================
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html?shortFooter=true#AvailableIpPerENI
 
 Increase the amount of available IP addresses for your Amazon EC2 nodes
-************************************************************************
+=======================================================================
 
 https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
 
@@ -465,7 +465,7 @@ https://github.com/pulumi/pulumi-eks/issues/609
         """,
 
 VPC
-***
+===
 
 https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html
 
