@@ -589,3 +589,21 @@ CSI Driver for Amazon EFS
 https://github.com/kubernetes-sigs/aws-efs-csi-driver
 
 https://aws.amazon.com/efs/
+
+
+Amazon Elastic Cache Security Groups
+**********************************
+
+Q: How do I control access to Amazon ElastiCache?
+
+When not using VPC, Amazon ElastiCache allows you to control access to your clusters through Cache Security Groups.
+A Security Group acts like a firewall, controlling network access to your cluster.
+By default, network access is turned off to your clusters.
+If you want your applications to access your cluster,
+you must explicitly enable access from hosts in specific EC2 security groups.
+This process is called ingress.
+
+
+https://aws.amazon.com/elasticache/faqs/#Can_I_access_Amazon_ElastiCache_from_outside_AWS
+
+https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/SecurityGroups.html
