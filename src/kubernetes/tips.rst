@@ -1479,3 +1479,28 @@ Kubectl get event
 .. code-block:: bash
 
     kubectl get event -n kube-system
+
+
+Delete terminating namespace
+*****************************
+
+
+.. code-block:: bash
+
+    kubectl get namespace  -A
+        NAME              STATUS        AGE
+        my-ns           Terminating   2d21h
+        default           Active        2d21h
+        kube-node-lease   Active        2d21h
+        kube-public       Active        2d21h
+        kube-system       Active        2d21h
+
+    kubectl get namespace  my-ns  -n my-ns -o json > ns.json
+    geany ns.json
+        "spec": {
+            "finalizers": []
+        },
+    kubectl proxy
+    # In new tab
+    curl -k -H "Content-Type: application/json" -X PUT --data-binary @tmp.json http://127.0.0.1:8001/api/v1/namespaces/my-ns/finalize
+
