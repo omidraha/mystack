@@ -1480,6 +1480,13 @@ Kubectl get event
 
     kubectl get event -n kube-system
 
+Kubectl debug pod
+*****************
+
+.. code-block:: bash
+
+    kubectl run --rm -it --restart=Never debug --image=busybox -- sh
+
 
 Delete terminating namespace
 *****************************
@@ -1515,3 +1522,6 @@ https://github.com/grafana/loki
 
 https://github.com/fluent/fluent-bit
 
+Configure Fluent Bit
+
+https://docs.fluentbit.io/manual/v/1.2/installation/kubernetes
