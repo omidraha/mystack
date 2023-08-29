@@ -1525,3 +1525,14 @@ https://github.com/fluent/fluent-bit
 Configure Fluent Bit
 
 https://docs.fluentbit.io/manual/v/1.2/installation/kubernetes
+
+
+StorageClass PersistentVolume PersistentVolumeClaim
+****************************************************
+
+https://stackoverflow.com/questions/73147599/default-grafana-k8s-app-pv-issue-failedbinding-persistentvolume-controller-no-p
+
+https://stackoverflow.com/questions/55780083/error-no-persistent-volumes-available-for-this-claim-and-no-storage-class-is-se/55849106#55849106
+
+https://stackoverflow.com/questions/63552085/persistent-volume-claim-not-claiming-the-volume/63557664#63557664
+
