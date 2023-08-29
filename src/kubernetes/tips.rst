@@ -1536,3 +1536,10 @@ https://stackoverflow.com/questions/55780083/error-no-persistent-volumes-availab
 
 https://stackoverflow.com/questions/63552085/persistent-volume-claim-not-claiming-the-volume/63557664#63557664
 
+
+kubectl get events sort by time
+********************************
+
+.. code-block:: bash
+
+    kubectl get events --sort-by=.metadata.creationTimestamp -A
