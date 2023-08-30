@@ -477,3 +477,12 @@ https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html
 https://aws.github.io/aws-eks-best-practices/networking/subnets/
 
 https://github.com/pulumi/examples/blob/master/aws-py-eks/vpc.py
+
+
+List of all pods and its nodes
+===============================
+
+.. code-block:: bash
+
+    kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name -A
+    kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName -A
