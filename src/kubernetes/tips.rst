@@ -1543,3 +1543,11 @@ kubectl get events sort by time
 .. code-block:: bash
 
     kubectl get events --sort-by=.metadata.creationTimestamp -A
+
+
+Service account
+***************
+
+Configuring a Kubernetes service account to assume an IAM role
+
+https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html
