@@ -613,3 +613,22 @@ Amazon EKS IAM Policies, Roles, and Permissions
 ***********************************************
 
 https://docs.aws.amazon.com/eks/latest/userguide/IAM_policies.html
+
+
+Fluent Bit CloudWatch plugin
+****************************
+
+cloudwatch_logs
+
+https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch
+
+
+Deprecated:
+
+- cloudwatch
+    - https://github.com/aws/amazon-cloudwatch-logs-for-fluent-bit
+    - https://github.com/aws/aws-for-fluent-bit#plugins
+
+
+
+
