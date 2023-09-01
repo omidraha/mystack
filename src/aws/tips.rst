@@ -622,6 +622,12 @@ cloudwatch_logs
 
 https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch
 
+Images:
+    - https://github.com/aws/aws-for-fluent-bit
+    - https://hub.docker.com/r/amazon/aws-for-fluent-bit/tags
+    - https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch#aws-for-fluent-bit
+
+
 
 Deprecated:
 
