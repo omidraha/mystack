@@ -627,14 +627,14 @@ Images:
     - https://hub.docker.com/r/amazon/aws-for-fluent-bit/tags
     - https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch#aws-for-fluent-bit
 
+Configuration:
 
+    - https://github.com/fluent/helm-charts/blob/main/charts/fluent-bit/values.yaml
+    - https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file
 
 Deprecated:
 
 - cloudwatch
     - https://github.com/aws/amazon-cloudwatch-logs-for-fluent-bit
     - https://github.com/aws/aws-for-fluent-bit#plugins
-
-
-
 
