@@ -1551,3 +1551,11 @@ Service account
 Configuring a Kubernetes service account to assume an IAM role
 
 https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html
+
+
+Logs all pods
+*************
+
+.. code-block:: bash
+
+    kubectl logs --all-containers  -l key=val  -n namespace --max-log-requests=10 -f
