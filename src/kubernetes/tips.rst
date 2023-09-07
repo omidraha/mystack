@@ -1559,3 +1559,24 @@ Logs all pods
 .. code-block:: bash
 
     kubectl logs --all-containers  -l key=val  -n namespace --max-log-requests=10 -f
+
+SSH to node
+************
+
+.. code-block:: bash
+
+    $ kubectl get nodes  -A
+        NAME                                         STATUS   ROLES    AGE   VERSION
+        ip-11-0-140-30.us-west-2.compute.internal    Ready    <none>   8d    v1.27.4-eks-8ccc7ba
+        ip-11-0-156-115.us-west-2.compute.internal   Ready    <none>   8d    v1.27.4-eks-8ccc7ba
+        ip-11-0-25-168.us-west-2.compute.internal    Ready    <none>   8d    v1.27.4-eks-8ccc7ba
+        ip-11-0-26-42.us-west-2.compute.internal     Ready    <none>   8d    v1.27.4-eks-8ccc7ba
+        ip-11-0-66-59.us-west-2.compute.internal     Ready    <none>   8d    v1.27.4-eks-8ccc7ba
+        ip-11-0-77-92.us-west-2.compute.internal     Ready    <none>   8d    v1.27.4-eks-8ccc7ba
+
+    $ kubectl debug node/ip-11-0-77-92.us-west-2.compute.internal -it --image=busybox
+    $ chroot /host
+
+Images:
+- busybox
+- mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
