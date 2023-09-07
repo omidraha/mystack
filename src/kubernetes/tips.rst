@@ -1577,7 +1577,16 @@ SSH to node
     $ kubectl debug node/ip-11-0-77-92.us-west-2.compute.internal -it --image=busybox
     $ chroot /host
 
+Delete generated debug pod:
+
+.. code-block:: bash
+
+    kubectl get pods  -A
+    kubectl delete pod kubectl delete pod node-debugger-ip-11-0-77-92.us-west-2.compute.internal-rnln4  --now
+
 Images:
 
 - busybox
 - mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+
+https://kubernetes.io/docs/tasks/debug/debug-cluster/kubectl-node-debug/
