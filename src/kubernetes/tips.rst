@@ -1578,5 +1578,6 @@ SSH to node
     $ chroot /host
 
 Images:
+
 - busybox
 - mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
