@@ -638,3 +638,10 @@ Deprecated:
     - https://github.com/aws/amazon-cloudwatch-logs-for-fluent-bit
     - https://github.com/aws/aws-for-fluent-bit#plugins
 
+
+Access logs for Application Load Balancer
+*****************************************
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html
