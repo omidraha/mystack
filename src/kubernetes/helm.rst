@@ -39,6 +39,7 @@ Install
     helm install linkerd-viz linkerd/linkerd-viz
     curl -sL https://run.linkerd.io/install | sh
     export PATH=$PATH:~/.linkerd2/bin
+    linkerd viz dashboard
 
 Uninstall
 
