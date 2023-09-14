@@ -1487,6 +1487,17 @@ Kubectl debug pod
 
     kubectl run --rm -it --restart=Never debug --image=busybox -- sh
 
+Delete resources
+****************
+
+.. code-block:: bash
+
+    kubectl delete all --all -n example-namespace
+
+- The first all means the common resource kinds (pods, replicasets, deployments, ...)
+- The second --all means to select all resources of the selected kinds
+
+https://stackoverflow.com/a/60585130
 
 Delete terminating namespace
 *****************************
@@ -1509,7 +1520,7 @@ Delete terminating namespace
         },
     kubectl proxy
     # In new tab
-    curl -k -H "Content-Type: application/json" -X PUT --data-binary @tmp.json http://127.0.0.1:8001/api/v1/namespaces/my-ns/finalize
+    curl -k -H "Content-Type: application/json" -X PUT --data-binary @ns.json http://127.0.0.1:8001/api/v1/namespaces/my-ns/finalize
 
 
 Logging and Monitoring

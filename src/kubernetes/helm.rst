@@ -20,5 +20,50 @@ List all installed helm
 
 .. code-block:: bash
 
+    helm list --all --all-namespaces
     helm ls --all-namespaces
     helm ls -A
+
+
+linkerd
+-------
+
+
+Install
+
+.. code-block:: bash
+
+    helm repo add linkerd https://helm.linkerd.io/stable
+    helm install linkerd-crds linkerd/linkerd-crds -n linkerd --create-namespace
+    helm install linkerd-control-plane -n linkerd --set clusterNetworks="10.0.0.0/8\,11.0.0.0/8\,12.0.0.0/8" --set-file identityTrustAnchorsPEM=ca.crt --set-file identity.issuer.tls.crtPEM=issuer.crt --set-file identity.issuer.tls.keyPEM=issuer.key linkerd/linkerd-control-plane
+    helm install linkerd-viz linkerd/linkerd-viz
+    curl -sL https://run.linkerd.io/install | sh
+
+Uninstall
+
+.. code-block:: bash
+
+    helm uninstall linkerd-viz
+    helm uninstall linkerd-control-plane -n linkerd
+    helm uninstall linkerd-crds -n linkerd
+    kubectl delete ns linkerd
+    linkerd viz dashboard
+    kubectl delete all --all -n linkerd
+    kubectl delete ClusterRole  linkerd-linkerd-metrics-api linkerd-linkerd-prometheus linkerd-linkerd-tap linkerd-linkerd-tap-admin linkerd-linkerd-web-api linkerd-linkerd-web-check linkerd-tap-injector
+    linkerd-linkerd-metrics-api linkerd-linkerd-prometheus linkerd-linkerd-tap linkerd-linkerd-tap-auth-delegator linkerd-linkerd-web-admin linkerd-linkerd-web-api linkerd-linkerd-web-check linkerd-tap-injector
+
+
+Diagnostic
+
+.. code-block:: bash
+
+    linkerd check
+    kubectl -n linkerd logs deploy/linkerd-destination -c policy
+    linkerd diagnostics controller-metrics
+    kubectl get validatingwebhookconfigurations
+    kubectl get mutatingwebhookconfigurations
+    kubectl get ClusterRole
+    kubectl get ClusterRoleBinding
+    kubectl get -A secret
+    kubectl get -A cm
+

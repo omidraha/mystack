@@ -1567,3 +1567,16 @@ The following packages will be upgraded:
 
     $ sudo apt-get install <list of packages kept back>
     $ sudo apt-get update ; sudo apt-get dist-upgrade
+
+
+Restart
+-------
+
+.. code-block:: bash
+
+    journalctl --list-boots
+    grep reboot /home/*/.bash_history
+    grep reboot /root/.bash_history
+    history | grep -i reboot
+    history | grep -i init
+    last reboot
