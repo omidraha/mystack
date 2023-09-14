@@ -67,3 +67,30 @@ Diagnostic
     kubectl get -A secret
     kubectl get -A cm
 
+
+List all resources managed by the helm
+**************************************
+
+.. code-block:: bash
+
+    kubectl get all --all-namespaces -l='app.kubernetes.io/managed-by=Helm'
+
+https://stackoverflow.com/a/65774255
+
+List all resources in all namespaces
+**************************************
+
+.. code-block:: bash
+
+    kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get
+
+.. code-block:: bash
+
+    vim res.sh
+    for i in $(kubectl api-resources --verbs=list -o name | sort | uniq); do
+        echo "*************"
+        echo "Resource:" $i
+        kubectl get $i -A
+      done
+    chmod +x res.sh
+    ./res.sh
