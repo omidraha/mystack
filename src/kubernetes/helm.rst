@@ -38,6 +38,7 @@ Install
     helm install linkerd-control-plane -n linkerd --set clusterNetworks="10.0.0.0/8\,11.0.0.0/8\,12.0.0.0/8" --set-file identityTrustAnchorsPEM=ca.crt --set-file identity.issuer.tls.crtPEM=issuer.crt --set-file identity.issuer.tls.keyPEM=issuer.key linkerd/linkerd-control-plane
     helm install linkerd-viz linkerd/linkerd-viz
     curl -sL https://run.linkerd.io/install | sh
+    export PATH=$PATH:~/.linkerd2/bin
 
 Uninstall
 
