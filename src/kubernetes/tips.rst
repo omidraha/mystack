@@ -1548,7 +1548,7 @@ https://stackoverflow.com/questions/55780083/error-no-persistent-volumes-availab
 https://stackoverflow.com/questions/63552085/persistent-volume-claim-not-claiming-the-volume/63557664#63557664
 
 
-kubectl get events sort by time
+Get events sort by time
 ********************************
 
 .. code-block:: bash
@@ -1641,3 +1641,15 @@ https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constrai
             ),
             opts=pulumi.ResourceOptions(provider=provider),
         )
+
+
+
+get All pods for each node
+**************************
+
+.. code-block:: python
+
+    kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name --all-namespaces
+    kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces
+
+
