@@ -34,25 +34,28 @@ Install
 .. code-block:: bash
 
     helm repo add linkerd https://helm.linkerd.io/stable
-    helm install linkerd-crds linkerd/linkerd-crds -n linkerd --create-namespace
+    helm install linkerd-crds -n linkerd --create-namespace linkerd/linkerd-crds
     helm install linkerd-control-plane -n linkerd --set clusterNetworks="10.0.0.0/8\,11.0.0.0/8\,12.0.0.0/8" --set-file identityTrustAnchorsPEM=ca.crt --set-file identity.issuer.tls.crtPEM=issuer.crt --set-file identity.issuer.tls.keyPEM=issuer.key linkerd/linkerd-control-plane
-    helm install linkerd-viz linkerd/linkerd-viz
+    helm install linkerd-viz -n linkerd-viz --create-namespace linkerd/linkerd-viz
     curl -sL https://run.linkerd.io/install | sh
     export PATH=$PATH:~/.linkerd2/bin
     linkerd viz dashboard
+
+https://linkerd.io/2.11/tasks/install-helm/#customizing-the-namespace-in-the-stable-release
 
 Uninstall
 
 .. code-block:: bash
 
-    helm uninstall linkerd-viz
+    helm uninstall linkerd-viz -n linkerd-viz
     helm uninstall linkerd-control-plane -n linkerd
     helm uninstall linkerd-crds -n linkerd
     kubectl delete ns linkerd
+    kubectl delete ns linkerd-viz
     linkerd viz dashboard
     kubectl delete all --all -n linkerd
     kubectl delete ClusterRole  linkerd-linkerd-metrics-api linkerd-linkerd-prometheus linkerd-linkerd-tap linkerd-linkerd-tap-admin linkerd-linkerd-web-api linkerd-linkerd-web-check linkerd-tap-injector
-    linkerd-linkerd-metrics-api linkerd-linkerd-prometheus linkerd-linkerd-tap linkerd-linkerd-tap-auth-delegator linkerd-linkerd-web-admin linkerd-linkerd-web-api linkerd-linkerd-web-check linkerd-tap-injector
+    kubectl describe customresourcedefinitions.apiextensions.k8s.io httproutes.gateway.networking.k8s.io | grep -i linkerd
 
 
 Diagnostic
@@ -92,7 +95,7 @@ List all resources in all namespaces
     for i in $(kubectl api-resources --verbs=list -o name | sort | uniq); do
         echo "*************"
         echo "Resource:" $i
-        kubectl get $i -A
+        kubectl get $i -A -o wide --sort-by=.metadata.creationTimestamp | tac
       done
     chmod +x res.sh
     ./res.sh
