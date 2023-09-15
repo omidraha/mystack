@@ -1601,3 +1601,43 @@ Images:
 - mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 
 https://kubernetes.io/docs/tasks/debug/debug-cluster/kubectl-node-debug/
+
+
+Distribute a pod across nodes
+*****************************
+
+https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#topologyspreadconstraints-field
+
+.. code-block:: python
+
+    import pulumi
+    import pulumi_kubernetes as kubernetes
+
+    topology_spread_constraints = kubernetes.core.v1.TopologySpreadConstraintArgs(
+            max_skew=1,
+            topology_key='kubernetes.io/hostname',
+            when_unsatisfiable='DoNotSchedule',
+            label_selector=kubernetes.meta.v1.LabelSelectorArgs(
+                match_labels=app_labels,
+            ),
+        )
+
+        dep = kubernetes.apps.v1.Deployment(
+            app_name,
+            metadata=metadata,
+            spec=kubernetes.apps.v1.DeploymentSpecArgs(
+                replicas=n_replicas,
+                selector=kubernetes.meta.v1.LabelSelectorArgs(
+                    match_labels=app_labels,
+                ),
+                template=kubernetes.core.v1.PodTemplateSpecArgs(
+                    metadata=metadata,
+                    spec=kubernetes.core.v1.PodSpecArgs(
+                        containers=[container],
+                        init_containers=init_containers,
+                        topology_spread_constraints=[topology_spread_constraints]
+                    ),
+                ),
+            ),
+            opts=pulumi.ResourceOptions(provider=provider),
+        )
