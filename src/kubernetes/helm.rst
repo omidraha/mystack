@@ -55,6 +55,11 @@ Uninstall
     linkerd viz dashboard
     kubectl delete all --all -n linkerd
     kubectl delete ClusterRole  linkerd-linkerd-metrics-api linkerd-linkerd-prometheus linkerd-linkerd-tap linkerd-linkerd-tap-admin linkerd-linkerd-web-api linkerd-linkerd-web-check linkerd-tap-injector
+    kubectl delete apiservices.apiregistration.k8s.io v1alpha1.tap.linkerd.io
+    kubectl delete clusterrolebindings.rbac.authorization.k8s.io linkerd-linkerd-viz-metrics-api  linkerd-linkerd-viz-tap-auth-delegator  linkerd-linkerd-viz-prometheus  linkerd-tap-injector  linkerd-linkerd-viz-web-check    linkerd-linkerd-viz-web-api  linkerd-linkerd-viz-web-admin   linkerd-linkerd-viz-tap
+    kubectl delete clusterroles.rbac.authorization.k8s.io linkerd-linkerd-viz-prometheus linkerd-tap-injector  linkerd-linkerd-viz-web-check  linkerd-linkerd-viz-web-api  linkerd-linkerd-viz-tap-admin  linkerd-linkerd-viz-tap  linkerd-linkerd-viz-metrics-api
+    kubectl delete mutatingwebhookconfigurations.admissionregistration.k8s.io linkerd-tap-injector-webhook-config
+    kubectl delete rolebindings.rbac.authorization.k8s.io linkerd-linkerd-viz-tap-auth-reader
     kubectl describe customresourcedefinitions.apiextensions.k8s.io httproutes.gateway.networking.k8s.io | grep -i linkerd
 
 
