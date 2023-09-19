@@ -1549,12 +1549,18 @@ https://stackoverflow.com/questions/63552085/persistent-volume-claim-not-claimin
 
 
 Get events sort by time
-********************************
+************************
 
 .. code-block:: bash
 
     kubectl get events --sort-by=.metadata.creationTimestamp -A
 
+Get events only for a pod
+*************************
+
+.. code-block:: bash
+
+    kubectl get event -n namespace_name --field-selector involvedObject.name=my-pod-name --sort-by=.metadata.creationTimestamp
 
 Service account
 ***************
