@@ -24,9 +24,25 @@ S3cmd configuration to use with Swift storage object
 https://docs.minio.io/docs/s3cmd-with-minio
 
 
-Sync remote s3 objects to the local file system
------------------------------------------------
+Public Bucket in Amazon S3
+---------------------------
+
+Edit bucket policy and add this:
+Replace `BUCKET_NAME` with your bucket name.
 
 .. code-block:: bash
 
-    $ s3cmd sync s3://files/ ~/ws/backup/files/
+    {
+        "Version": "2008-10-17",
+        "Statement": [
+            {
+                "Sid": "AllowPublicRead",
+                "Effect": "Allow",
+                "Principal": {
+                    "AWS": "*"
+                },
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::BUCKET_NAME/*"
+            }
+        ]
+    }
