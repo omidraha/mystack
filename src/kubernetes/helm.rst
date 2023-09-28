@@ -76,6 +76,7 @@ Diagnostic
     kubectl get ClusterRoleBinding
     kubectl get -A secret
     kubectl get -A cm
+    linkerd viz install > linkerd.viz.yaml
 
 
 List all resources managed by the helm
