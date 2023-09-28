@@ -645,3 +645,11 @@ Access logs for Application Load Balancer
 https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html
 
 https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html
+
+
+NODE AMI ID
+***********
+
+Amazon EKS optimized Amazon Linux AMI IDs
+
+https://docs.aws.amazon.com/eks/latest/userguide/retrieve-ami-id.html
