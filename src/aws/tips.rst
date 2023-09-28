@@ -650,6 +650,6 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balance
 NODE AMI ID
 ***********
 
-Amazon EKS optimized Amazon Linux AMI IDs
+Amazon EKS optimized Amazon Linux AMI IDs (Amazon Machine Image)
 
 https://docs.aws.amazon.com/eks/latest/userguide/retrieve-ami-id.html
