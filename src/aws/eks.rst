@@ -486,3 +486,15 @@ List of all pods and its nodes
 
     kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name -A
     kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName -A
+
+If I need to expose services to the internet using ALB AWS,
+such as app1.example.com, app2.example.com,
+and these services also require access to the internet,
+Do I need to have public subnet?
+Yes you need public subnets,
+because the ALB has to have a public IP address, a
+nd the only way to get that public IP address is to be in a public subnet for a VPC-based service
+you need public subnets, because the ALB has to have a public IP address, and the only way to get that public IP address is to be in a public subnet for a VPC-based service (like EKS)
+All your EKS nodes should be in a private subnet tho. Nothing goes in a public subnet (usually, there are rare exceptions) but your load balancers. EKS can create and manage the LBs for you. That'll probably be easier.
+A single NAT Gateway is good for cost savings if you're doing a proof of concept. For a production workload, you want 3 AZs (this is the default) and you'll want a NAT Gateway in each AZ. One per AZ (also the default) is more reliable. I A single NAT Gateway is cheaper.
+

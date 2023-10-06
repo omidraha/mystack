@@ -653,3 +653,10 @@ NODE AMI ID
 Amazon EKS optimized Amazon Linux AMI IDs (Amazon Machine Image)
 
 https://docs.aws.amazon.com/eks/latest/userguide/retrieve-ami-id.html
+
+
+Resource limit
+**************
+
+http://aws.amazon.com/contact-us/ec2-request
+
