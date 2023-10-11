@@ -206,3 +206,11 @@ Open port
 
     $ ufw allow 80
     $ ufw allow 80/udp
+
+Show MAC address
+----------------
+
+.. code-block:: bash
+
+    ip addr show | grep link/ether
+    ifconfig -a  | grep ether
