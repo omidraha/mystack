@@ -1548,6 +1548,62 @@ https://stackoverflow.com/questions/55780083/error-no-persistent-volumes-availab
 https://stackoverflow.com/questions/63552085/persistent-volume-claim-not-claiming-the-volume/63557664#63557664
 
 
+PersistentVolumeClaim (PVC):
+
+represents a request for a volume. Pods that need to persist data reference a PersistentVolumeClaim,
+which is then matched to a PersistentVolume by Kubernetes if it finds one with specified requirements.
+
+PersistentVolume (PV):
+
+represents the actual storage backend.
+It has a size, type, and access mode (defines how many pods can access it simultaneously and
+if it is read-only). This object needs to be backed by an actual storage backend and is not ephemeral:
+you could define a new PVC, and if this volume is not in use, it could be reused and rewritten.
+
+StorageClass (SC):
+
+is used for dynamic provisioning to define the types of storage available,
+and which provisioner handles them.
+
+PersistentVolume creation is the part that is not directly handled by Kubernetes,
+and there are 2 ways to get around it:
+
+Manual provisioning:
+
+the cluster administrator manually creates PersistentVolume objects,
+after having provisioned a storage backend: NFS, separate partition on a local drive, cloud provider volumes, ..
+
+Dynamic provisioning:
+
+the administrator creates a StorageClass and installs a volume provisioner on the cluster.
+The provisioner is responsible to make calls to the cloud provider's API to create volumes on-demand to match
+created PVCs.
+For cloud deployments, dynamic provisioning is fairly easy,
+since Kubernetes comes bundled with ways to interact with all major cloud provider's volume backends,
+such as AWS EBS, so you just need to define the storage class. However for on-premise deployments,
+the primary solution is to have an external backend such as a Ceph cluster or NFS, that is not handled by Kubernetes,
+and install a provisioner for it in your cluster. We will explore another solution in this article,
+but you can also use the NFS provisioner, depending on your need.
+
+
+List of CSI Drivers
+********************
+
+https://kubernetes-csi.github.io/docs/drivers.html
+
+Open-source storage solution for Kubernetes
+*******************************************
+
+https://github.com/longhorn/longhorn
+
+https://github.com/openebs/openebs
+
+https://github.com/minio/minio
+
+https://github.com/seaweedfs/seaweedfs
+
+
+
 Get events sort by time
 ************************
 

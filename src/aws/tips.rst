@@ -654,6 +654,8 @@ Amazon EKS optimized Amazon Linux AMI IDs (Amazon Machine Image)
 
 https://docs.aws.amazon.com/eks/latest/userguide/retrieve-ami-id.html
 
+https://cloud-images.ubuntu.com/locator/ec2/
+
 
 Resource limit
 **************
