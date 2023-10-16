@@ -1537,16 +1537,25 @@ Configure Fluent Bit
 
 https://docs.fluentbit.io/manual/v/1.2/installation/kubernetes
 
+DaemonSet
+*********
+
+A DaemonSet ensures that all (or some) Nodes run a copy of a Pod.
+As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster,
+those Pods are garbage collected.
+Deleting a DaemonSet will clean up the Pods it created.
+
+Some typical uses of a DaemonSet are:
+*   running a cluster storage daemon on every node
+*   running a logs collection daemon on every node
+*   running a node monitoring daemon on every node
+
+
+https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
 
 StorageClass PersistentVolume PersistentVolumeClaim
 ****************************************************
-
-https://stackoverflow.com/questions/73147599/default-grafana-k8s-app-pv-issue-failedbinding-persistentvolume-controller-no-p
-
-https://stackoverflow.com/questions/55780083/error-no-persistent-volumes-available-for-this-claim-and-no-storage-class-is-se/55849106#55849106
-
-https://stackoverflow.com/questions/63552085/persistent-volume-claim-not-claiming-the-volume/63557664#63557664
-
 
 PersistentVolumeClaim (PVC):
 
@@ -1584,6 +1593,13 @@ such as AWS EBS, so you just need to define the storage class. However for on-pr
 the primary solution is to have an external backend such as a Ceph cluster or NFS, that is not handled by Kubernetes,
 and install a provisioner for it in your cluster. We will explore another solution in this article,
 but you can also use the NFS provisioner, depending on your need.
+
+https://stackoverflow.com/questions/73147599/default-grafana-k8s-app-pv-issue-failedbinding-persistentvolume-controller-no-p
+
+https://stackoverflow.com/questions/55780083/error-no-persistent-volumes-available-for-this-claim-and-no-storage-class-is-se/55849106#55849106
+
+https://stackoverflow.com/questions/63552085/persistent-volume-claim-not-claiming-the-volume/63557664#63557664
+
 
 
 List of CSI Drivers
