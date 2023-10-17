@@ -656,6 +656,11 @@ https://docs.aws.amazon.com/eks/latest/userguide/retrieve-ami-id.html
 
 https://cloud-images.ubuntu.com/locator/ec2/
 
+Ubuntu on Amazon Elastic Kubernetes Service (EKS)
+
+These images are customised specifically for the EKS service, and are not intended as general OS images.
+
+https://cloud-images.ubuntu.com/aws-eks/
 
 Resource limit
 **************
