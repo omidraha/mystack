@@ -667,3 +667,20 @@ Resource limit
 
 http://aws.amazon.com/contact-us/ec2-request
 
+
+Difference between Cluster Security Group vs Node Security Group
+*****************************************************************
+
+In Amazon EKS, there are two types of Security Groups are typically associated with an EKS cluster:
+
+*   ClusterSecurityGroup:
+    This is attached to the control plane of the EKS cluster.
+    It's used to manage access to the Kubernetes API Server.
+
+*   NodeSecurityGroup:
+    This is attached to the EKS worker nodes (and managed node groups).
+    It controls network access to worker nodes in the cluster.
+
+These two different types of security groups provide different levels
+of control over the network access for your EKS cluster and worker nodes.
+
