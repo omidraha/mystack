@@ -1580,3 +1580,13 @@ Restart
     history | grep -i reboot
     history | grep -i init
     last reboot
+
+
+
+Install jq
+----------
+
+.. code-block:: bash
+
+    sudo apt-get install jq
+
