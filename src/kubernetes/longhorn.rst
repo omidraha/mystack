@@ -8,3 +8,9 @@ https://raw.githubusercontent.com/longhorn/longhorn/v1.5.1/deploy/prerequisite/l
 
 https://longhorn.io/docs/1.5.1/deploy/install/#installing-nfsv4-client
 https://raw.githubusercontent.com/longhorn/longhorn/v1.5.1/deploy/prerequisite/longhorn-nfs-installation.yaml
+
+https://longhorn.io/docs/1.5.1/deploy/install/#using-the-environment-check-script
+
+.. code-block:: bash
+
+    curl -sSfL https://raw.githubusercontent.com/longhorn/longhorn/v1.5.1/scripts/environment_check.sh | bash
