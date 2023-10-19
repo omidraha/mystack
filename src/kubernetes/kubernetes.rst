@@ -9,4 +9,4 @@ Contents:
 
    tips
    helm
-   Longhorn
+   longhorn
