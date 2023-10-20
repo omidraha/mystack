@@ -1725,9 +1725,17 @@ https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constrai
 get All pods for each node
 **************************
 
-.. code-block:: python
+.. code-block:: bash
 
     kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name --all-namespaces
     kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces
 
 
+
+Taints and Tolerations
+**********************
+
+.. code-block:: bash
+
+    kubectl get nodes -o custom-columns=NODE:.metadata.name,TAINTS:.spec.taints[*].effect
+    kubectl get pods -A -o custom-columns=NAMESPACE:.metadata.namespace,POD:.metadata.name,TOLERATIONS:.spec.tolerations[*].key
