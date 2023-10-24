@@ -1739,3 +1739,28 @@ Taints and Tolerations
 
     kubectl get nodes -o custom-columns=NODE:.metadata.name,TAINTS:.spec.taints[*].effect
     kubectl get pods -A -o custom-columns=NAMESPACE:.metadata.namespace,POD:.metadata.name,TOLERATIONS:.spec.tolerations[*].key
+
+
+The access modes
+****************
+
+ReadWriteOnce
+
+    the volume can be mounted as read-write by a single node.
+ReadWriteOnce access mode still can allow multiple pods to access the volume when the pods are running on the same node.
+
+ReadOnlyMany
+
+    the volume can be mounted as read-only by many nodes.
+
+ReadWriteMany
+
+    the volume can be mounted as read-write by many nodes.
+
+ReadWriteOncePod
+
+    the volume can be mounted as read-write by a single Pod.
+Use ReadWriteOncePod access mode if you want to ensure that only one pod across the whole cluster can read that PVC or write to it.
+This is only supported for CSI volumes and Kubernetes version 1.22+.
+
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
