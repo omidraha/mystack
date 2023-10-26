@@ -684,3 +684,8 @@ In Amazon EKS, there are two types of Security Groups are typically associated w
 These two different types of security groups provide different levels
 of control over the network access for your EKS cluster and worker nodes.
 
+
+Why Use Fluent Bit for Sending Logs to Loki?
+********************************************
+
+https://calyptia.com/blog/how-to-send-logs-to-loki-using-fluent-bit
