@@ -13,7 +13,20 @@ Install latest version
 	$ sudo dpkg -i <desired_package.deb>
 
 
-Unistall running virtualbox
+Install from repository
+----------------------
+
+
+.. code-block:: bash
+
+	$ sudo apt-get purge virtualbox-\*
+	$ sudo apt-get update
+	$ sudo apt-get install virtualbox
+	$ sudo apt-get install virtualbox—ext–pack
+
+
+
+Uninstall running virtualbox
 ---------------------------
 
 .. code-block:: bash
