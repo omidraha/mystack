@@ -1557,6 +1557,9 @@ https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
 StorageClass PersistentVolume PersistentVolumeClaim
 ****************************************************
 
+A persistent volume (PV) is a piece of storage in the Kubernetes cluster,
+while a persistent volume claim (PVC) is a request for storage.
+
 PersistentVolumeClaim (PVC):
 
 represents a request for a volume. Pods that need to persist data reference a PersistentVolumeClaim,
