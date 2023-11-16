@@ -691,8 +691,8 @@ Why Use Fluent Bit for Sending Logs to Loki?
 https://calyptia.com/blog/how-to-send-logs-to-loki-using-fluent-bit
 
 
-Enable IAM Policies for SES send SES emails from a specific sender
-******************************************************************
+Send SES emails from a specific sender using AWS IAM Policy
+*************************************************************
 
 Restricting the "From" Address
 
@@ -721,3 +721,33 @@ https://docs.aws.amazon.com/ses/latest/dg/sending-authorization-policy-examples.
 
 https://docs.aws.amazon.com/ses/latest/dg/control-user-access.html
 
+Grant Access To Only One S3 Bucket using AWS IAM Policy
+*******************************************************
+
+
+
+.. code-block:: json
+
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                            "s3:GetBucketLocation",
+                            "s3:ListAllMyBuckets"
+                          ],
+                "Resource": "arn:aws:s3:::*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": "s3:*",
+                "Resource": [
+                    "arn:aws:s3:::MY-BUCKET",
+                    "arn:aws:s3:::MY-BUCKET/*"
+                ]
+            }
+        ]
+    }
+
+https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.S3CreatePolicy.html
