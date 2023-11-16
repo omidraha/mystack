@@ -689,3 +689,33 @@ Why Use Fluent Bit for Sending Logs to Loki?
 ********************************************
 
 https://calyptia.com/blog/how-to-send-logs-to-loki-using-fluent-bit
+
+
+Enable IAM Policies for SES send SES emails from a specific sender
+******************************************************************
+
+Restricting the "From" Address
+
+{
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Effect":"Allow",
+      "Action":[
+        "ses:SendEmail",
+        "ses:SendRawEmail"
+      ],
+      "Resource":"*",
+      "Condition":{
+        "StringEquals":{
+          "ses:FromAddress":"marketing@example.com"
+        }
+      }
+    }
+  ]
+}
+
+https://docs.aws.amazon.com/ses/latest/dg/sending-authorization-policy-examples.html
+
+https://docs.aws.amazon.com/ses/latest/dg/control-user-access.html
+
