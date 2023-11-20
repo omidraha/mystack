@@ -75,6 +75,7 @@ Contents:
    src/smartcard/smartcard
    src/sphinx/sphinx
    src/sport/sport
+   src/twilio/twilio
    src/vcs/vcs
    src/virtualization/virtualization
 
