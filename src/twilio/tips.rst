@@ -10,7 +10,7 @@ Send SMS with account sid and auth token
     from twilio.rest import Client
     account_sid = "SK***"
     auth_token="***"
-    client = Client(username=username, password=password)
+    client = Client(username=account_sid, password=auth_token)
     message = client.messages.create(body='Sample sms',from_='+1234',to='+156789',)
 
 
@@ -23,11 +23,11 @@ Send SMS with API Key and API Secret
 .. code-block:: python
 
     from twilio.rest import Client
-    username = "SK***"
-    password="***"
+    api_sid = "SK***"
+    api_secret="***"
     # @note: The `account_sid`: Account SID, required if using api_key to authenticate
     account_sid="AC***"
-    client = Client(username=username, password=password, account_sid=account_sid)
+    client = Client(username=api_sid, password=api_secret, account_sid=account_sid)
     # By using from number
     message = client.messages.create(body='Sample sms',from_='+1234',to='+156789',)
     # By using messaging service sid
