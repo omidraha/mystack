@@ -647,12 +647,14 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-acces
 https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html
 
 
-NODE AMI ID
-***********
+NODE AMI ID (Images)
+********************
 
 Amazon EKS optimized Amazon Linux AMI IDs (Amazon Machine Image)
 
 https://docs.aws.amazon.com/eks/latest/userguide/retrieve-ami-id.html
+
+https://cloud-images.ubuntu.com/locator/
 
 https://cloud-images.ubuntu.com/locator/ec2/
 
