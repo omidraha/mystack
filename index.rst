@@ -71,6 +71,7 @@ Contents:
    src/redmine/redmine
    src/research/research
    src/ruby/ruby
+   src/scim/scim
    src/security/security
    src/smartcard/smartcard
    src/sphinx/sphinx
