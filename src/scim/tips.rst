@@ -1,6 +1,9 @@
 SCIM
 ====
 
+System for Cross-domain Identity Management: Core Schema
+
+https://www.rfc-editor.org/rfc/rfc7643.html
 
 
 Customize user provisioning attribute-mappings
