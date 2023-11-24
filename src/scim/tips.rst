@@ -35,3 +35,9 @@ The prefix is joined with the suffix using the "@" symbol. For example, "someone
 
 
 https://learn.microsoft.com/en-us/windows/win32/ad/naming-properties#userprincipalname
+
+Design your user and group schema
+---------------------------------
+
+https://learn.microsoft.com/en-us/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups
+
