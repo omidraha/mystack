@@ -19,7 +19,7 @@ Custom extension attribute to a SCIM compliant application
 https://learn.microsoft.com/en-gb/entra/identity/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes
 
 
-user Principal Name
+User Principal Name
 --------------------
 
 A UPN must be unique among all security principal objects within a directory forest.
