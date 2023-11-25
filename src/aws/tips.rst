@@ -664,6 +664,8 @@ These images are customised specifically for the EKS service, and are not intend
 
 https://cloud-images.ubuntu.com/aws-eks/
 
+https://cloud-images.ubuntu.com/docs/aws/eks/
+
 Resource limit
 **************
 
