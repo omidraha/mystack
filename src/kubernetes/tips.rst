@@ -1674,7 +1674,7 @@ Delete generated debug pod:
 .. code-block:: bash
 
     kubectl get pods  -A
-    kubectl delete pod kubectl delete pod node-debugger-ip-11-0-77-92.us-west-2.compute.internal-rnln4  --now
+    kubectl delete pod node-debugger-ip-11-0-77-92.us-west-2.compute.internal-rnln4  --now
 
 Images:
 
