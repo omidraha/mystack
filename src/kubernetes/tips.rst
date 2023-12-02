@@ -1767,3 +1767,15 @@ Use ReadWriteOncePod access mode if you want to ensure that only one pod across 
 This is only supported for CSI volumes and Kubernetes version 1.22+.
 
 https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+
+
+Secure Kubernetes secrets on bare metal
+---------------------------------------
+
+https://discuss.kubernetes.io/t/how-to-secure-kubernetes-secrets-on-bare-metal/21761
+
+Encrypting Confidential Data at Rest
+
+https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/
+
+https://www.spectrocloud.com/blog/how-to-keep-your-kubernetes-secrets-secret

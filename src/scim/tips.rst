@@ -41,3 +41,7 @@ Design your user and group schema
 
 https://learn.microsoft.com/en-us/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups
 
+"Group" Resource Schema
+-----------------------
+
+https://datatracker.ietf.org/doc/html/rfc7643#section-4.2
