@@ -330,9 +330,9 @@ Download Youtube videos with Youtube subtitles on
 .. code-block:: bash
 
      # To download sub
-     $ youtube-dl --no-mtime --proxy http://127.0.0.1:8080 -f 18  --write-sub  URL
+     $ youtube-dl --no-mtime --proxy http://127.0.0.1:8080 -f 18  --write-sub --sub-lang en --write-auto-sub  URL
      # To embed sub
-     $ youtube-dl --no-mtime --proxy http://127.0.0.1:8080 -f 18  --embed-subs  URL
+     $ youtube-dl --no-mtime --proxy http://127.0.0.1:8080 -f 18  --embed-subs --sub-lang en --write-auto-sub URL
 
 
 Redirect output to null
