@@ -1,4 +1,4 @@
-SCIM
+Tips
 ====
 
 System for Cross-domain Identity Management: Core Schema

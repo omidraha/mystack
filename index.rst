@@ -62,6 +62,7 @@ Contents:
    src/nmap/nmap
    src/nodejs/nodejs
    src/notes/notes
+   src/oauth2/oauth2
    src/perl/perl
    src/piano/piano
    src/postgresql/postgresql
