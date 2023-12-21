@@ -10,3 +10,4 @@ Contents:
    tips
    helm
    longhorn
+   cert_manager
