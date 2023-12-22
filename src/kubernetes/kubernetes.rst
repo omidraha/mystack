@@ -11,3 +11,4 @@ Contents:
    helm
    longhorn
    cert_manager
+   k3s
