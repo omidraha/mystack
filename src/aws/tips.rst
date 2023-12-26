@@ -505,6 +505,11 @@ https://aws.amazon.com/ec2/instance-types/
 
 https://instances.vantage.sh/
 
+Max number of pods per node
+===========================
+
+https://github.com/awslabs/amazon-eks-ami/blob/master/files/eni-max-pods.txt
+
 
 Background Jobs with AWS
 ------------------------
