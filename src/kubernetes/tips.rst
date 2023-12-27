@@ -1779,3 +1779,8 @@ Encrypting Confidential Data at Rest
 https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/
 
 https://www.spectrocloud.com/blog/how-to-keep-your-kubernetes-secrets-secret
+
+NGINX Ingress rate limit
+-------------------------
+
+https://stackoverflow.com/a/64428560
