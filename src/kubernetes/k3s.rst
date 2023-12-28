@@ -25,3 +25,9 @@ Install
 
     export IP=192.168.0.1
     k3sup install --ip $IP --user ubuntu --k3s-extra-args '--disable traefik'
+
+
+Deploy Nginx instead of Traefik as your ingress controller on K3s
+------------------------------------------------------------------
+
+https://www.suse.com/support/kb/doc/?id=000020082
