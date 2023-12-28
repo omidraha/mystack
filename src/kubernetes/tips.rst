@@ -1784,3 +1784,9 @@ NGINX Ingress rate limit
 -------------------------
 
 https://stackoverflow.com/a/64428560
+
+Bare-metal considerations
+-------------------------
+
+https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#bare-metal-considerations
+
