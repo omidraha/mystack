@@ -1798,3 +1798,5 @@ https://kubernetes.io/docs/concepts/services-networking/ingress/#load-balancing
 https://docs.k3s.io/datastore/cluster-loadbalancer
 
 https://github.com/kubernetes/ingress-nginx
+
+https://metallb.universe.tf/#why
