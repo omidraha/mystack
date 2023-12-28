@@ -1790,3 +1790,7 @@ Bare-metal considerations
 
 https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#bare-metal-considerations
 
+Load balancing
+--------------
+
+https://kubernetes.io/docs/concepts/services-networking/ingress/#load-balancing
