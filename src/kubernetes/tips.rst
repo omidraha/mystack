@@ -1800,3 +1800,5 @@ https://docs.k3s.io/datastore/cluster-loadbalancer
 https://github.com/kubernetes/ingress-nginx
 
 https://metallb.universe.tf/#why
+
+https://itnext.io/kubernetes-loadbalancer-service-for-on-premises-6b7f75187be8
