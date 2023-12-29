@@ -31,3 +31,10 @@ Deploy Nginx instead of Traefik as your ingress controller on K3s
 ------------------------------------------------------------------
 
 https://www.suse.com/support/kb/doc/?id=000020082
+
+
+DNS
+---
+
+https://ranchermanager.docs.rancher.com/v2.5/troubleshooting/other-troubleshooting-tips/dns#check-if-dns-pods-are-running
+
