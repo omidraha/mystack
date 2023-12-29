@@ -38,3 +38,4 @@ DNS
 
 https://ranchermanager.docs.rancher.com/v2.5/troubleshooting/other-troubleshooting-tips/dns#check-if-dns-pods-are-running
 
+https://blog.differentpla.net/blog/2022/02/25/pod-dns-problems/
