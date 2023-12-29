@@ -1802,3 +1802,7 @@ https://github.com/kubernetes/ingress-nginx
 https://metallb.universe.tf/#why
 
 https://itnext.io/kubernetes-loadbalancer-service-for-on-premises-6b7f75187be8
+
+
+kubectl edit deployment coredns -n kube-system
+kubectl edit deployment metrics-server -n kube-system
