@@ -12,3 +12,5 @@ Contents:
    longhorn
    cert_manager
    k3s
+   metal_lb
+
