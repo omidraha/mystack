@@ -15,3 +15,5 @@ https://mauilion.dev/posts/kind-metallb/
 https://stackoverflow.com/a/66302342
 
 https://www.youtube.com/watch?v=k8bxtsWe9qw
+
+https://www.youtube.com/watch?v=2SmYjj-GFnE
