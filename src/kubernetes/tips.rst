@@ -1537,6 +1537,9 @@ Configure Fluent Bit
 
 https://docs.fluentbit.io/manual/v/1.2/installation/kubernetes
 
+https://github.com/boz/kail
+
+
 DaemonSet
 *********
 
