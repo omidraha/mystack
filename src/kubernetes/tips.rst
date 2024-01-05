@@ -1809,3 +1809,9 @@ https://itnext.io/kubernetes-loadbalancer-service-for-on-premises-6b7f75187be8
 
 kubectl edit deployment coredns -n kube-system
 kubectl edit deployment metrics-server -n kube-system
+
+
+NGINX Ingress
+-------------
+
+https://loft.sh/blog/kubernetes-nginx-ingress-10-useful-configuration-options/
