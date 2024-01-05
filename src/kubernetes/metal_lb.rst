@@ -17,3 +17,5 @@ https://stackoverflow.com/a/66302342
 https://www.youtube.com/watch?v=k8bxtsWe9qw
 
 https://www.youtube.com/watch?v=2SmYjj-GFnE
+
+https://r00t.dk/post/2022/02/19/exposing-services-kubernetes-load-balancer-bare-metal-metallb/
