@@ -21,3 +21,13 @@ Helm
 https://longhorn.io/docs/1.5.1/advanced-resources/deploy/customizing-default-settings/#using-helm
 
 https://staging.artifacthub.io/packages/helm/longhorn/longhorn/1.5.1
+
+
+Set up Node Selector During installing Longhorn with Helm
+*********************************************************
+
+https://github.com/longhorn/longhorn/issues/7407#issuecomment-1867014096
+
+https://github.com/longhorn/longhorn/blob/3e9742772d957990916d4bbac3a5353eac95166a/chart/values.yaml#L233
+
+https://longhorn.io/docs/1.5.3/references/settings/#system-managed-components-node-selector
