@@ -1815,3 +1815,11 @@ NGINX Ingress
 -------------
 
 https://loft.sh/blog/kubernetes-nginx-ingress-10-useful-configuration-options/
+
+NGINX Ingress Controller Preserving the client source IP
+---------------------------------------------------------
+
+https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
+
+https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml#L559C7-L559C28
+
