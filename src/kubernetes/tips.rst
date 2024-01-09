@@ -1816,6 +1816,18 @@ NGINX Ingress
 
 https://loft.sh/blog/kubernetes-nginx-ingress-10-useful-configuration-options/
 
+What is ingress controller
+--------------------------
+
+Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.
+Traffic routing is controlled by rules defined on the Ingress resource.
+
+An Ingress controller is responsible for fulfilling the Ingress, usually with a load balancer,
+though it may also configure your edge router or additional frontend to help handle the traffic.
+
+https://kubernetes.io/docs/concepts/services-networking/ingress/
+
+
 NGINX Ingress Controller Preserving the client source IP
 ---------------------------------------------------------
 
