@@ -1835,3 +1835,9 @@ https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load
 
 https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml#L559C7-L559C28
 
+https://github.com/kubernetes/ingress-nginx/blob/helm-chart-4.5.2/charts/ingress-nginx/values.yaml#L431
+
+https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+
+https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#use-proxy-protocol
+
