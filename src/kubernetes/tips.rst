@@ -1841,3 +1841,7 @@ https://kubernetes.io/docs/concepts/services-networking/service/#publishing-serv
 
 https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#use-proxy-protocol
 
+NGINX Ingress Bare-metal considerations
+---------------------------------------
+
+https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/baremetal.md
