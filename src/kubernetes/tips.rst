@@ -1849,3 +1849,5 @@ NGINX Ingress Bare-metal considerations
 ---------------------------------------
 
 https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/baremetal.md
+
+https://itnext.io/bare-metal-kubernetes-with-kubeadm-nginx-ingress-controller-and-haproxy-bb0a7ef29d4e#bypass
