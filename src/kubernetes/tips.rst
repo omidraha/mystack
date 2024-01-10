@@ -1825,6 +1825,10 @@ Traffic routing is controlled by rules defined on the Ingress resource.
 An Ingress controller is responsible for fulfilling the Ingress, usually with a load balancer,
 though it may also configure your edge router or additional frontend to help handle the traffic.
 
+.. code-block:: bash
+
+    kubectl get ingressclass
+
 https://kubernetes.io/docs/concepts/services-networking/ingress/
 
 
