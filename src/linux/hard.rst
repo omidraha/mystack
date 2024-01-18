@@ -336,3 +336,15 @@ Mount unknown filesystem exfat
 
     $ sudo apt-get install exfat-fuse exfat-utils
 
+
+Determine the total size of a directory
+---------------------------------------
+
+.. code-block:: bash
+
+    du -hsc * | sort -hr
+
+.. code-block:: bash
+
+    sudo apt-get install ncdu
+    ncdu /
