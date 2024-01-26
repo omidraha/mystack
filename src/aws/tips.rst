@@ -760,3 +760,19 @@ Grant Access To Only One S3 Bucket using AWS IAM Policy
     }
 
 https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.S3CreatePolicy.html
+
+
+ELB
+----
+
+Internet-facing Classic Load Balancers
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internet-facing-load-balancers.html
+
+Why does ELB need one public IP address for each public subnet?
+
+https://repost.aws/questions/QUHNazu9Y5ThK5BUAkJLGVyA/why-does-elb-need-one-public-ip-address-for-each-public-subnet#ANZv3fDNgKQ7S7vZq1PWpMZw
+
+What's the source IP address of the traffic that Elastic Load Balancing sends to my web servers?
+
+https://repost.aws/knowledge-center/elb-find-load-balancer-ip
