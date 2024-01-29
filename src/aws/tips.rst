@@ -776,3 +776,18 @@ https://repost.aws/questions/QUHNazu9Y5ThK5BUAkJLGVyA/why-does-elb-need-one-publ
 What's the source IP address of the traffic that Elastic Load Balancing sends to my web servers?
 
 https://repost.aws/knowledge-center/elb-find-load-balancer-ip
+
+
+CloudWatch
+-----------
+
+
+.. code-block::
+
+    fields @timestamp, @message
+    | filter @logStream = 'app-web'
+    | filter @message like "1.2.3.4"
+    | parse @message 'log":"* - - [*] \"* * *\" * * * \"*",' as  ip, time, method, path, http, status, _, __,ua
+    | DISPLAY ip, time, method, path, http, status, ua
+    | sort @timestamp desc
+    | limit 25
