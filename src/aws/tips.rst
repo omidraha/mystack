@@ -796,6 +796,7 @@ CloudWatch
 
     fields @timestamp, @message
     | parse @message 'log":"* - - [*] \"* * *\" * * * \"*",' as  ip, time, method, path, http, status, _, __,ua
+    | filter ispresent(ip)
     | stats count() as count by ip
     | sort count desc
 
