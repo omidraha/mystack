@@ -811,6 +811,7 @@ CloudWatch
 
     fields @timestamp, @message
     | parse @message 'log":"* - - [*] \"* * *\" * * * \"*",' as  ip, time, method, path, http, status, _, __,ua
-    | filter status like "500"
-    | DISPLAY ip, time, method, path, http, status, ua
+    | filter ispresent(status)
+    | filter status == "500"
+    | DISPLAY @logStream, ip, time, method, path, http, status, ua
     | sort status desc
