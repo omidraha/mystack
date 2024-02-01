@@ -815,3 +815,13 @@ CloudWatch
     | filter status == "500"
     | DISPLAY @logStream, ip, time, method, path, http, status, ua
     | sort status desc
+
+
+WAF2
+----
+
+https://aws.amazon.com/about-aws/whats-new/2023/07/aws-waf-uri-path-aggregation-key-rate-based-rules/
+
+https://docs.aws.amazon.com/waf/latest/APIReference/API_UriPath.html
+
+https://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html
