@@ -792,6 +792,7 @@ CloudWatch
     | sort @timestamp desc
     | limit 25
 
+
 .. code-block:: bash
 
     fields @timestamp, @message
@@ -800,12 +801,14 @@ CloudWatch
     | stats count() as count by ip
     | sort count desc
 
+
 .. code-block:: bash
 
     fields @timestamp, @message
     | parse @message 'log":"* - - [*] \"* * *\" * * * \"*",' as  ip, time, method, path, http, status, _, __,ua
     | stats count() as count by status, method, path
     | sort count desc
+
 
 .. code-block:: bash
 
