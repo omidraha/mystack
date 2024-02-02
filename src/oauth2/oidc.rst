@@ -32,3 +32,5 @@ https://github.com/indigo-dc/oidc-agent
 https://stackoverflow.com/a/72985009
 
 https://stackoverflow.com/a/74643174
+
+https://auth0.com/docs/get-started/authentication-and-authorization-flow/device-authorization-flow/call-your-api-using-the-device-authorization-flow
