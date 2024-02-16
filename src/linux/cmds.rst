@@ -48,6 +48,16 @@ Allowing other users to run sudo
         # Allow members of group sudo to execute any command
         %sudo	ALL=(ALL:ALL) ALL
 
+
+
+Note:  If the user matches more than one rule. In that case the last matching rule wins. So, you need to move:
+
+.. code-block:: bash
+
+    or      ALL=(ALL:ALL) ALL
+
+To the end of the file, it should work.
+
 http://askubuntu.com/questions/7477/how-can-i-add-a-new-user-as-sudoer-using-the-command-line
 
 https://help.ubuntu.com/community/RootSudo#Allowing_other_users_to_run_sudo
