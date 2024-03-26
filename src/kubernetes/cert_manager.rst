@@ -73,3 +73,9 @@ This is the URL for the staging environment of Let's Encrypt.
 The staging environment is a testing environment provided by Let's Encrypt for developers to test their ACME client implementations without affecting the production infrastructure.
 
 Certificates issued in the staging environment are not trusted by browsers and are meant for testing purposes only.
+
+
+Let's Encrypt - Best Practice - Keep Port 80 Open
+-------------------------------------------------
+
+https://letsencrypt.org/docs/allow-port-80/
