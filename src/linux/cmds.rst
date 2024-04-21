@@ -308,6 +308,18 @@ Download from YouTube
 	$ youtube-dl https://www.youtube.com/watch?v=video_id --proxy http://host:port
 	$ youtube-dl -v -i --no-mtime --no-check-certificate   --youtube-skip-dash-manifest https://www.youtube.com/watch?v=video_id
 
+
+Download YouTube Video as a audio
+---------------------------------
+
+Download mp3 of video from YouTube
+
+.. code-block:: bash
+
+	# apt-get install yt-dlp
+    $ yt-dlp -x --audio-format mp3   https://www.youtube.com/watch?v=video_id
+
+
 How to use youtube-dl from a python program
 -------------------------------------------
 
