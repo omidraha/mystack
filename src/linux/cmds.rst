@@ -316,7 +316,7 @@ Download mp3 of video from YouTube
 
 .. code-block:: bash
 
-	# apt-get install yt-dlp
+    # apt-get install yt-dlp
     $ yt-dlp -x --audio-format mp3   https://www.youtube.com/watch?v=video_id
 
 
