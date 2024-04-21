@@ -39,5 +39,3 @@ For example, provisioner would be `efs.csi.aws.com` for Amazon EFS` or `ebs.csi.
 
 
 https://aws.amazon.com/blogs/storage/persistent-storage-for-kubernetes/
-
-
