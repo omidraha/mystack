@@ -109,3 +109,15 @@ Connect to db:
 
 https://www.mongodb.com/docs/mongodb-shell/install/
 
+
+Download mongosh cli
+--------------------
+
+Download `mongo` cli
+
+
+https://www.mongodb.com/try/download/shell
+
+ .. code-block:: bash
+
+    $ mongosh -u USERNAME -p PASSWORD IP/COLLECTION_NAME
