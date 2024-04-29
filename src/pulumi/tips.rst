@@ -471,3 +471,10 @@ This is often used for clusters that need outbound internet access but do not re
         nat_gateway_strategy=eks.NatGatewayStrategy.ONE_PER_AZ,
         # If you need tags for subnets (without using auto-generated VPC & subnets), you need to tag your subnets outside of Pulumi.
     )
+
+https://platform9.com/docs/kubernetes/setup-clusters-on-aws-vpc-private-subnets
+
+https://kubedemy.io/aws-eks-part-11-deploy-workers-in-private-subnets-behind-nat-gateway
+
+https://medium.com/@shamsul.arefin.sajib/understanding-vpc-cidr-subnet-nat-in-aws-6cc31ecb4c27
+
