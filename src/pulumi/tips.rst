@@ -427,3 +427,47 @@ Helm Chart vs Release
 *********************
 
 https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/choosing-the-right-helm-resource-for-your-use-case/
+
+
+Private EKS
+***********
+
+https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html
+
+To deploy an AWS EKS cluster that's only accessible via private IP,
+you don't necessarily need Application Load Balancers (ALBs) or Network Load Balancers (NLBs)
+unless you want to expose services within the cluster through a load balancer that's also only accessible within your VPC.
+
+The tags 'kubernetes.io/role/internal-elb' and 'kubernetes.io/role/elb'
+are used by Kubernetes to determine which subnets are used for internal and external load balancers.
+
+If the goal is to keep the cluster internal and not expose it to the public internet,
+you should use 'kubernetes.io/role/internal-elb': '1' for your subnets and not use 'kubernetes.io/role/elb': '1',
+as this indicates public-facing load balancers.
+
+Using a NAT Gateway strategy of ONE_PER_AZ will configure one NAT Gateway per availability zone,
+allowing resources within private subnets to access the internet
+for necessary operations (like downloading container images)
+while remaining inaccessible from the outside.
+
+This is often used for clusters that need outbound internet access but do not require any inbound access from the internet.
+
+.. code-block:: bash
+
+    import pulumi
+    import pulumi_eks as eks
+
+    # Create an EKS cluster with private access only and setup a NAT Gateway strategy ONE_PER_AZ
+    cluster = eks.Cluster('private-eks-cluster',
+        skip_default_node_group=True,
+        # Replace with the VPC ID you want to use.
+        vpc_id="vpc-id-placeholder",
+        # Replace with your private subnets.
+        private_subnet_ids=["private-subnetid-placeholder1", "private-subnetid-placeholder2"],
+        endpoint_private_access=True,
+        endpoint_public_access=False,
+        # List of instance IAM roles for the EKS cluster.
+        instance_roles=[/* ... instance roles ... */],
+        nat_gateway_strategy=eks.NatGatewayStrategy.ONE_PER_AZ,
+        # If you need tags for subnets (without using auto-generated VPC & subnets), you need to tag your subnets outside of Pulumi.
+    )
