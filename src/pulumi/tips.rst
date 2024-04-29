@@ -432,8 +432,6 @@ https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/choosing-the-r
 Private EKS
 ***********
 
-https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html
-
 To deploy an AWS EKS cluster that's only accessible via private IP,
 you don't necessarily need Application Load Balancers (ALBs) or Network Load Balancers (NLBs)
 unless you want to expose services within the cluster through a load balancer that's also only accessible within your VPC.
@@ -472,8 +470,11 @@ This is often used for clusters that need outbound internet access but do not re
         # If you need tags for subnets (without using auto-generated VPC & subnets), you need to tag your subnets outside of Pulumi.
     )
 
+https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html
+
 https://aws.amazon.com/blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/
 
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
 
 https://platform9.com/docs/kubernetes/setup-clusters-on-aws-vpc-private-subnets
 
