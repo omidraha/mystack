@@ -123,6 +123,17 @@ Install docker on ``Debian``
 
 https://docs.docker.com/engine/installation/debian/
 
+Install docker on ``Ubuntu 22.04``
+-----------------------------------
+
+.. code-block:: bash
+
+    $ sudo apt-get update
+    $ sudo apt install docker.io
+    $ sudo usermod -aG docker ${USER}
+    $ sudo usermod -aG docker <username>
+    $ sudo service docker restart
+
 Install docker on ``Ubuntu Server``
 -----------------------------------
 
