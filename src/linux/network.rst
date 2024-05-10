@@ -214,3 +214,15 @@ Show MAC address
 
     ip addr show | grep link/ether
     ifconfig -a  | grep ether
+
+
+External localhost
+------------------
+
+https://ngrok.com/docs
+
+https://serveo.net/
+
+http://localhost.run/
+
+https://www.btunnel.in/
