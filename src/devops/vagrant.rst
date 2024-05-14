@@ -98,3 +98,21 @@ Plugin Update
 .. code-block:: bash
 
     vagrant plugin update [<name>]
+
+Delete Vagrant machine
+----------------------
+
+.. code-block:: bash
+
+    vagrant global-status
+
+        id       name   provider   state   directory
+        ---------------------------------------------------------------------------------
+        1e53621  server virtualbox running /home/or/ws/prj/company/idmelon/git/devops/op
+
+    vagrant box list
+
+        ubuntu/jammy64 (virtualbox, 20240417.0.0)
+
+    vagrant destroy server
+    vagrant box remove ubuntu/jammy64
