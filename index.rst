@@ -6,10 +6,6 @@
 Welcome to Omid Raha MyStack's documentation!
 =============================================
 
-    Hi !
-
-    I'm Omid Raha,
-
     Here I am compiling notes based on my experience in various subjects that I have worked on.
 
 
