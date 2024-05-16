@@ -396,6 +396,14 @@ Merge a git branch into master
     $ git merge <Branch_Name>
 
 
+Remove first init commit from remote git repository
+---------------------------------------------
+
+.. code-block:: bash
+
+    $ git update-ref -d HEAD
+    $ git push origin +HEAD
+
 Remove last commit from remote git repository
 ---------------------------------------------
 
