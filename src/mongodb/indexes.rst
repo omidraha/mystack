@@ -186,7 +186,20 @@ For instance, you might be tempted to use mongodump and mongorestore, but these 
 This means that when you run mongorestore, all the indexes declared for any collections you’ve backed up will be re-created. As always, if your data set is
 large, the time it takes to build these indexes may be unacceptable.
 
+To backup mongodb data:
 
+.. code-block:: bash
+
+    mongodump --uri="mongodb+srv://username:password@cluster0.example.mongodb.net" <additional_options>
+
+To restore mongodb data:
+
+    mongorestore --uri="mongodb+srv://username:password@cluster0.example.mongodb.net" <path to the backup folder>
+
+
+.. code-block:: bash
+
+    mongodump --uri="mongodb+srv://username:password@cluster0.example.mongodb.net" <additional_options>
 
 The order of fields in an index
 -------------------------------
