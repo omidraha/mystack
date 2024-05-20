@@ -135,14 +135,15 @@ https://www.digitalocean.com/community/tutorials/how-to-configure-virtual-memory
 
 .. code-block:: bash
 
-    $ cd /var
-    $ touch swap.img
-    $ chmod 600 swap.img
-
-    # to crate 512MB image file
-    $ dd if=/dev/zero of=/var/swap.img bs=1024k count=512
-    $ mkswap /var/swap.img
-    $ swapon /var/swap.img
+    cd /var
+    touch swap.img
+    chmod 600 swap.img
+    # To crate 512MB image file
+    dd if=/dev/zero of=/var/swap.img bs=1024k count=512
+    # To crate 2GB image file
+    dd if=/dev/zero of=/var/swap.img bs=1M count=2048
+    mkswap /var/swap.img
+    swapon /var/swap.img
 
 
 Remove swap
