@@ -73,15 +73,15 @@ Sample js console code to test:
 
 .. code-block:: bash
 
-        fetch('https://storage.googleapis.com/BUCKET-NAME/FOLDER/sample.json')
-          .then(response => response.blob())
-          .then(blob => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'meta.json';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-          })
-          .catch(error => console.error('Error downloading file:', error));
+    fetch('https://storage.googleapis.com/BUCKET-NAME/FOLDER/sample.json')
+      .then(response => response.blob())
+      .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'meta.json';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+      })
+      .catch(error => console.error('Error downloading file:', error));
