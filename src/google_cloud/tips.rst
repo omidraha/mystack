@@ -69,9 +69,9 @@ Commands
 
     gcloud storage buckets describe gs://BUCKET-NAME --format="default(cors_config)"
 
-.. code-block:: bash
+Sample js console code to test:
 
-    Sample js console code to test:
+.. code-block:: bash
 
         fetch('https://storage.googleapis.com/BUCKET-NAME/FOLDER/sample.json')
           .then(response => response.blob())
