@@ -54,7 +54,7 @@ The `cors.json` file:
     [
         {
           "origin": ["https://example.com", "https://example.io"],
-          "method": ["GET", "OPTION"],
+          "method": ["GET", "OPTIONS"],
           "responseHeader": ["Content-Type", "Access-Control-Allow-Origin"],
           "maxAgeSeconds": 3600
         }
