@@ -40,7 +40,9 @@ WSL
 
     dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 
+.. code-block:: bash
 
+    wsl --set-default-version 2
 
 .. code-block:: bash
 
