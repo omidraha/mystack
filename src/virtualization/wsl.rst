@@ -70,7 +70,7 @@ Rancher Desktop:
     For information please visit https://aka.ms/enablevirtualization
     Error code: Wsl/Service/RegisterDistro/CreateVm/HCS/HCS_E_HYPERV_NOT_INSTALLED
 
-Minicube:
+Minikube:
 
 .. code-block:: bash
 
