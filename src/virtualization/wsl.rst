@@ -44,6 +44,8 @@ WSL
 
     wsl --set-default-version 2
 
+Docker Desktop:
+
 .. code-block:: bash
 
     wsl --set-version Ubuntu 2
@@ -55,6 +57,18 @@ WSL
     Enable "Virtual Machine Platform" by running: wsl.exe --install --no-distribution
     For information please visit https://aka.ms/enablevirtualization
     Error code: Wsl/Service/CreateVm/HCS/HCS_E_HYPERV_NOT_INSTALLED
+
+Rancher Desktop:
+
+.. code-block:: bash
+
+    wsl --set-version Ubuntu 2
+
+    WSL2 is not supported with your current machine configuration.
+    Please enable the "Virtual Machine Platform" optional component and ensure virtualization is enabled in the BIOS.
+    Enable "Virtual Machine Platform" by running: wsl.exe --install --no-distribution
+    For information please visit https://aka.ms/enablevirtualization
+    Error code: Wsl/Service/RegisterDistro/CreateVm/HCS/HCS_E_HYPERV_NOT_INSTALLED
 
 
 The newest version of WSL uses a subset of Hyper-V architecture to enable its virtualization.
