@@ -70,6 +70,17 @@ Rancher Desktop:
     For information please visit https://aka.ms/enablevirtualization
     Error code: Wsl/Service/RegisterDistro/CreateVm/HCS/HCS_E_HYPERV_NOT_INSTALLED
 
+Minicube:
+
+.. code-block:: bash
+
+    * Creating hyperv VM (CPUs=2, Memory=2200MB, Disk=20000MB) ...
+    * Failed to start hyperv VM. Running "minikube delete" may fix it: creating host: create: precreate: Hyper-V PowerShell Module is not available
+
+    X Exiting due to PR_HYPERV_MODULE_NOT_INSTALLED: Failed to start host: creating host: create: precreate: Hyper-V PowerShell Module is not available
+    * Suggestion: Run: 'Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Tools-All -All'
+    * Documentation: https://www.altaro.com/hyper-v/install-hyper-v-powershell-module/
+    * Related issue: https://github.com/kubernetes/minikube/issues/9040
 
 The newest version of WSL uses a subset of Hyper-V architecture to enable its virtualization.
 
