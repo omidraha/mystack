@@ -10,6 +10,7 @@ Contents:
    docker
    virtualbox
    wine
+   wsl
 
 
 
