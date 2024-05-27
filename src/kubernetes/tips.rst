@@ -1860,3 +1860,24 @@ kubernetes restart pod
 
     kubectl rollout restart deployment web-sample -n apps-sample
 
+
+To use kubectl via an ssh tunnel
+--------------------------------
+
+.. code-block:: bash
+
+    ssh -D 8000  user@ip
+
+    export HTTPS_PROXY=socks5://localhost:8000
+    kubectl get pods
+
+Or:
+
+The `kube_config.yaml`
+
+.. code-block:: bash
+
+    apiVersion: v1
+    clusters:
+    - cluster:
+        proxy-url: socks5://localhost:8000
