@@ -62,3 +62,15 @@ Run project:
 .. code-block:: bash
 
     npm run start
+
+.. code-block:: bash
+
+    npm i -D @swc/cli @swc/cor
+    npm run start -- -b swc
+
+
+.. code-block:: bash
+
+    npm run lint
+    npm run format
+
