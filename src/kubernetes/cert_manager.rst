@@ -79,3 +79,26 @@ Let's Encrypt - Best Practice - Keep Port 80 Open
 -------------------------------------------------
 
 https://letsencrypt.org/docs/allow-port-80/
+
+
+Renew Let’s Encrypt Certificates Managed by cert-manager on Kubernetes
+----------------------------------------------------------------------
+
+
+.. code-block:: bash
+
+    kubectl get  certificates -A
+    kubectl describe certificates -n ns-name cert-name
+
+    Status:
+      Conditions:
+        Last Transition Time:  2024-05-17T18:31:26Z
+        Message:               Certificate is up to date and has not expired
+        Observed Generation:   1
+        Reason:                Ready
+        Status:                True
+        Type:                  Ready
+      Not After:               2024-08-15T17:31:25Z
+      Not Before:              2024-05-17T17:31:26Z
+      Renewal Time:            2024-07-16T17:31:25Z
+      Revision:                1
