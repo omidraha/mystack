@@ -19,4 +19,5 @@ Contents:
    tools
    cmds
    monitoring
+   cluster
 

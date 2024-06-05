@@ -10,3 +10,4 @@ Contents:
    tips
    backups
    postgres-xl
+   cluster
