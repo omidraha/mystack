@@ -1612,3 +1612,13 @@ Install jq
 
     sudo apt-get install jq
 
+PDF OCR to PDF
+--------------
+
+.. code-block:: bash
+
+    docker pull jbarlow83/ocrmypdf-alpine
+
+    docker tag jbarlow83/ocrmypdf-alpine ocrmypdf
+
+    docker run --rm -i ocrmypdf  --skip-text - -  <in.pdf >out.pdf
