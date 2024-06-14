@@ -244,3 +244,9 @@ Sample python code to test
         except ldap.INVALID_CREDENTIALS:
             return False
         return True
+
+
+Apache LDAP Directory Studio
+-----------------------------
+
+https://directory.apache.org/studio/downloads.html
