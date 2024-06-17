@@ -111,6 +111,9 @@ Packaging a Python script into a Windows executable on Linux
     # Install PyInstaller in your virtual environment
     pip install pyinstaller
 
+    # Install requirements of project
+    WINEPREFIX=~/.wine64 WINEARCH=win64 wine python -m pip install -r requirements.txt
+
     # Create a basic executable
     WINEPREFIX=~/.wine64 WINEARCH=win64 wine pyinstaller --name=my_app --onefile my_app.py
 
