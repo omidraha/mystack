@@ -505,3 +505,23 @@ All your EKS nodes should be in a private subnet tho. Nothing goes in a public s
 
 A single NAT Gateway is good for cost savings if you're doing a proof of concept. For a production workload, you want 3 AZs (this is the default) and you'll want a NAT Gateway in each AZ. One per AZ (also the default) is more reliable. I A single NAT Gateway is cheaper.
 
+
+Amazon EKS optimized Amazon Linux AMIs
+--------------------------------------
+
+Get a list of Amazon EKS optimized Amazon Linux AMIs
+
+
+.. code-block:: bash
+
+    aws ec2 describe-images --owners 602401143452 --filters "Name=name,Values=amazon-eks-node-1.30*" --query 'Images[*].[ImageId,Name,Architecture,CreationDate]' --region us-east-1 --output table
+
+    ---------------------------------------------------------------------------------------------------
+    |                                         DescribeImages                                          |
+    +-----------------------+----------------------------------+---------+----------------------------+
+    |  ami-0469fcb2e219afb31|  amazon-eks-node-1.30-v20240531  |  x86_64 |  2024-05-31T16:01:09.000Z  |
+    |  ami-0b9e545aa4c20aac6|  amazon-eks-node-1.30-v20240605  |  x86_64 |  2024-06-06T02:21:36.000Z  |
+    |  ami-01d267b705a0521d1|  amazon-eks-node-1.30-v20240514  |  x86_64 |  2024-05-14T17:03:12.000Z  |
+    |  ami-05e7e986227a095a9|  amazon-eks-node-1.30-v20240615  |  x86_64 |  2024-06-17T07:28:07.000Z  |
+    |  ami-0d06f30e8d6e02990|  amazon-eks-node-1.30-v20240522  |  x86_64 |  2024-05-23T05:59:52.000Z  |
+    +-----------------------+----------------------------------+---------+----------------------------+
