@@ -1622,3 +1622,58 @@ PDF OCR to PDF
     docker tag jbarlow83/ocrmypdf-alpine ocrmypdf
 
     docker run --rm -i ocrmypdf  --skip-text - -  <in.pdf >out.pdf
+
+Using a Bastion Host with SSH Agent Forwarding
+-----------------------------------------------
+
+Introduction
+++++++++++++
+
+A Bastion Host (or Jump Server) is an intermediate server used to securely access other servers within a private network.
+
+This method enhances network security by centralizing and controlling access to internal servers.
+
+Steps to Use a Bastion Host with SSH Agent Forwarding
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1. **Setup SSH Agent on Local Machine:**
+   Start the SSH agent and add your private key.
+
+.. code-block:: bash
+
+   eval $(ssh-agent)
+   ssh-add /path/to/your/private/key
+
+2. **Connect to Bastion Host with Agent Forwarding:**
+   Use the `-A` option to enable SSH Agent Forwarding when connecting to the Bastion Host.
+
+.. code-block:: bash
+
+   ssh -A user@bastion-host
+
+3. **SSH from Bastion Host to Destination Server:**
+   From the Bastion Host, SSH into the destination server.
+
+.. code-block:: bash
+
+   ssh user@destination-server
+   ```
+
+Configuration Requirements
+++++++++++++++++++++++++++
+
+Ensure the SSH configuration on the Bastion Host allows agent forwarding. The `/etc/ssh/sshd_config` file should include:
+
+.. code-block:: bash
+
+    AllowAgentForwarding yes
+
+
+Benefits
++++++++
+
+- **Enhanced Security:** Limits direct access to internal servers.
+- **Centralized Control:** Provides a single point for monitoring and managing access.
+- **Key Management:** Keeps the private key on the local machine, reducing exposure.
+
+Using a Bastion Host with SSH Agent Forwarding improves security and management of server access within a network.
