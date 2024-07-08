@@ -1499,8 +1499,8 @@ Delete resources
 
 https://stackoverflow.com/a/60585130
 
-Delete terminating namespace
-*****************************
+Delete namespace (terminating namespace)
+****************************************
 
 
 .. code-block:: bash
@@ -1521,6 +1521,16 @@ Delete terminating namespace
     kubectl proxy
     # In new tab
     curl -k -H "Content-Type: application/json" -X PUT --data-binary @ns.json http://127.0.0.1:8001/api/v1/namespaces/my-ns/finalize
+
+
+Delete ingress (terminating ingress)
+************************************
+
+Edit ingress and  remove the finalizers section
+
+.. code-block:: bash
+
+    kubectl edit ingress my-ingress
 
 
 Logging and Monitoring
