@@ -1677,3 +1677,13 @@ Benefits
 - **Key Management:** Keeps the private key on the local machine, reducing exposure.
 
 Using a Bastion Host with SSH Agent Forwarding improves security and management of server access within a network.
+
+
+
+Commandline Browser linux
++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+    sudo apt install w3m
+    w3m https://google.com
