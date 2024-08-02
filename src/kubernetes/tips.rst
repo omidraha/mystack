@@ -1891,3 +1891,13 @@ The `kube_config.yaml`
     clusters:
     - cluster:
         proxy-url: socks5://localhost:8000
+
+
+To see the logs of pods with specific labels in Kubernetes
+-----------------------------------------------------------
+
+.. code-block:: bash
+
+    kubectl get logs -n my-ns -l app=my-app -f
+
+
