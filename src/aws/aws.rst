@@ -11,4 +11,5 @@ Contents:
    eks
    s3
    tips
+   Managing-and-Switching-Between-Multiple-AWS-Profiles-on-Ubuntu.rst
 

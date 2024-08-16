@@ -1,100 +1,6 @@
 Tips
 ====
 
-https://github.com/boto/boto
-
-https://github.com/bitly/asyncdynamo
-
-https://pypi.python.org/pypi/dynamodb-mapper/1.1.0
-
-https://pypi.python.org/pypi/ddbmock
-
-http://boto.readthedocs.org/en/latest/dynamodb2_tut.html
-
-Amazon upload
--------------
-
-http://stackoverflow.com/questions/670442/asynchronous-file-upload-to-amazon-s3-with-django
-
-https://github.com/jezdez/django-queued-storage
-
-https://github.com/sbc/django-uploadify-s3
-
-https://github.com/burgalon/plupload-s3mixin
-
-http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingHTTPPOST.html
-
-https://aws.amazon.com/items/1434?externalID=1434
-
-https://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html
-
-Django S3
-----------
-
-https://github.com/etianen/django-s3-storage
-
-https://django-storages.readthedocs.org/en/latest/index.html
-
-Time Limited Signed UR
-----------------------
-
-http://www.bucketexplorer.com/documentation/amazon-s3--how-to-generate-url-for-amazon-s3-files.html
-
-http://stackoverflow.com/questions/17831535/how-to-generate-file-link-without-expiry
-
-AWS SDK for Python (Boto)
--------------------------
-
-http://aws.amazon.com/sdk-for-python/
-
-http://boto.readthedocs.org/en/latest/index.html
-
-http://aws.amazon.com/python/
-
-http://stackoverflow.com/questions/4993439/how-can-i-access-s3-files-in-python-using-urls
-
-http://sendapatch.se/projects/simples3/
-
-http://stackoverflow.com/questions/11026719/is-there-a-way-to-serve-s3-files-directly-to-the-user-with-a-url-that-cant-be-s
-
-sign URLs with an IP
---------------------
-
-CloudFront
-
-http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarted.html
-
-http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html
-
-http://improve.dk/how-to-set-up-and-serve-private-content-using-s3/
-
-session based authorization
-
-http://stackoverflow.com/questions/12279056/rails-allow-download-of-files-stored-on-s3-without-showing-the-actual-s3-url-to
-
-download private file
-
-https://medium.com/@hiromitz/generate-expiring-amazon-s3-link-with-custom-file-name-c277975c3b8d
-
-https://gist.github.com/hiromitz/9321852
-
-https://pypi.python.org/pypi/Ax_Handoff/1.1.3
-
-https://pypi.python.org/pypi/s3url/0.1.6
-
-Boto
------
-
-http://boto.readthedocs.org/en/latest/index.html
-
-http://aws.amazon.com/developers/getting-started/python/
-
-http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls-overview.html
-
-
-`http://www.networkautomation.com/automate/urc/resources/livedocs/am/10/Technical_Reference/Actions___Activities/Amazon_S3/S3_-_Get_Predesigned_URL.htm`
-
-
 Amazon EC2
 ----------
 
@@ -828,3 +734,101 @@ https://aws.amazon.com/about-aws/whats-new/2023/07/aws-waf-uri-path-aggregation-
 https://docs.aws.amazon.com/waf/latest/APIReference/API_UriPath.html
 
 https://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html
+
+
+Tips
+====
+
+https://github.com/boto/boto
+
+https://github.com/bitly/asyncdynamo
+
+https://pypi.python.org/pypi/dynamodb-mapper/1.1.0
+
+https://pypi.python.org/pypi/ddbmock
+
+http://boto.readthedocs.org/en/latest/dynamodb2_tut.html
+
+Amazon upload
+-------------
+
+http://stackoverflow.com/questions/670442/asynchronous-file-upload-to-amazon-s3-with-django
+
+https://github.com/jezdez/django-queued-storage
+
+https://github.com/sbc/django-uploadify-s3
+
+https://github.com/burgalon/plupload-s3mixin
+
+http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingHTTPPOST.html
+
+https://aws.amazon.com/items/1434?externalID=1434
+
+https://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html
+
+Django S3
+----------
+
+https://github.com/etianen/django-s3-storage
+
+https://django-storages.readthedocs.org/en/latest/index.html
+
+Time Limited Signed UR
+----------------------
+
+http://www.bucketexplorer.com/documentation/amazon-s3--how-to-generate-url-for-amazon-s3-files.html
+
+http://stackoverflow.com/questions/17831535/how-to-generate-file-link-without-expiry
+
+AWS SDK for Python (Boto)
+-------------------------
+
+http://aws.amazon.com/sdk-for-python/
+
+http://boto.readthedocs.org/en/latest/index.html
+
+http://aws.amazon.com/python/
+
+http://stackoverflow.com/questions/4993439/how-can-i-access-s3-files-in-python-using-urls
+
+http://sendapatch.se/projects/simples3/
+
+http://stackoverflow.com/questions/11026719/is-there-a-way-to-serve-s3-files-directly-to-the-user-with-a-url-that-cant-be-s
+
+sign URLs with an IP
+--------------------
+
+CloudFront
+
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarted.html
+
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html
+
+http://improve.dk/how-to-set-up-and-serve-private-content-using-s3/
+
+session based authorization
+
+http://stackoverflow.com/questions/12279056/rails-allow-download-of-files-stored-on-s3-without-showing-the-actual-s3-url-to
+
+download private file
+
+https://medium.com/@hiromitz/generate-expiring-amazon-s3-link-with-custom-file-name-c277975c3b8d
+
+https://gist.github.com/hiromitz/9321852
+
+https://pypi.python.org/pypi/Ax_Handoff/1.1.3
+
+https://pypi.python.org/pypi/s3url/0.1.6
+
+Boto
+-----
+
+http://boto.readthedocs.org/en/latest/index.html
+
+http://aws.amazon.com/developers/getting-started/python/
+
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls-overview.html
+
+
+`http://www.networkautomation.com/automate/urc/resources/livedocs/am/10/Technical_Reference/Actions___Activities/Amazon_S3/S3_-_Get_Predesigned_URL.htm`
+
