@@ -558,7 +558,7 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-acces
 https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html
 
 
-NODE AMI ID (Images)
+NODE AMI ID (Image ID)
 ********************
 
 Amazon EKS optimized Amazon Linux AMI IDs (Amazon Machine Image)
@@ -576,6 +576,17 @@ These images are customised specifically for the EKS service, and are not intend
 https://cloud-images.ubuntu.com/aws-eks/
 
 https://cloud-images.ubuntu.com/docs/aws/eks/
+
+
+Programmatically retrieve the Amazon Machine Image (AMI) ID for Amazon EKS optimized AMIs:
+
+Set region as `--region us-west-2` in:
+
+.. code-block:: bash
+
+    aws ssm get-parameter --name /aws/service/eks/optimized-ami/1.30/amazon-linux-2023/x86_64/standard/recommended/image_id --region us-west-2 --query "Parameter.Value" --output text
+
+https://docs.aws.amazon.com/eks/latest/userguide/retrieve-ami-id.html
 
 Resource limit
 **************
