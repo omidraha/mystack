@@ -1901,3 +1901,36 @@ To see the logs of pods with specific labels in Kubernetes
     kubectl get logs -n my-ns -l app=my-app -f
 
 
+To run an image directly to kubernetes
+---------------------------------------
+
+An ubuntu image:
+
+.. code-block:: bash
+
+    kubectl run -i --tty --rm ubuntu --image=ubuntu -- bash
+
+
+A Postgres client image:
+
+.. code-block:: bash
+
+    kubectl run postgres-client --rm -i --tty --image=postgres -- bash
+
+
+A Redis client image:
+
+.. code-block:: bash
+
+    kubectl run -i --tty --rm redis-client --image=redis -- bash
+
+
+A mongo client image:
+
+.. code-block:: bash
+
+    kubectl run mongo-client --rm -i --tty --image=mongo -- bash
+
+
+
+
