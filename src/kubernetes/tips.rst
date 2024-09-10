@@ -1932,5 +1932,23 @@ A mongo client image:
     kubectl run mongo-client --rm -i --tty --image=mongo -- bash
 
 
+kubernetes dashboard
+---------------------
+
+.. code-block:: bash
+
+    # Add kubernetes-dashboard repository
+    helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+    # Deploy a Helm Release named "kubernetes-dashboard" using the kubernetes-dashboard chart
+    helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --create-namespace --namespace kubernetes-dashboard
+
+.. code-block:: bash
+
+    kubectl create clusterrolebinding kubernetes-dashboard-read-only --clusterrole=view --serviceaccount=kubernetes-dashboard:kubernetes-dashboard-kong
+    kubectl auth can-i list pods --as=system:serviceaccount:kubernetes-dashboard:kubernetes-dashboard-kong
+    kubectl -n kubernetes-dashboard create token kubernetes-dashboard-kong
 
 
+.. code-block:: bash
+
+    kubectl port-forward -n kubernetes-dashboard svc/kubernetes-dashboard-kong-proxy 8443:443
