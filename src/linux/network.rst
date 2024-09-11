@@ -96,7 +96,7 @@ How do I install dig?
 
 .. code-block:: bash
 
-    $ sudo apt-get istall dnsutils
+    $ sudo apt-get install dnsutils
 
 Monitor bandwidth usage per process
 -----------------------------------
