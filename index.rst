@@ -37,6 +37,7 @@ Contents:
    src/ffmpeg/ffmpeg
    src/game/game
    src/go/go
+   src/gcp/gcp
    src/google_cloud/google_cloud
    src/gunicorn/gunicorn
    src/haproxy/haproxy
