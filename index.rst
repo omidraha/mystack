@@ -15,9 +15,9 @@ Contents:
    :maxdepth: 3
 
 
-   src/aircrack-ng/aircrack-ng
-   src/apple/apple
-   src/astronomy/astronomy
+   src/article/article
+   src/linux/linux
+   src/vcs/vcs
    src/atlassian/atlassian
    src/aws/aws
    src/azure/azure
@@ -49,7 +49,6 @@ Contents:
    src/javascript/javascript
    src/kubernetes/kubernetes
    src/latex/latex
-   src/linux/linux
    src/machine_learning/machine_learning
    src/mercurial/mercurial
    src/metasploit/metasploit
@@ -75,8 +74,10 @@ Contents:
    src/sphinx/sphinx
    src/sport/sport
    src/twilio/twilio
-   src/vcs/vcs
    src/virtualization/virtualization
+   src/aircrack-ng/aircrack-ng
+   src/apple/apple
+   src/astronomy/astronomy
 
 Indices and tables
 ==================
