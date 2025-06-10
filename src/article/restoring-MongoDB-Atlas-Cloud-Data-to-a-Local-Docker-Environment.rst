@@ -40,11 +40,11 @@ Run the following command to start the MongoDB container with the correct versio
             -v /home/user/data/db:/data/db \
             mongo:7.0.20
 
-      - `--name mongo`: Names the container `mongo`.
-      - `-d`: Runs the container in detached mode.
-      - `-p 27017:27017`: Maps port 27017 from the container to your host machine, which is the default port for MongoDB.
-      - `-v /home/user/data/db:/data/db`: Mounts your local backup data directory (`/home/or/Downloads/db/us/data`)
-        into the container’s data directory (`/data/db`), ensuring MongoDB can access the data.
+  - `--name mongo`: Names the container `mongo`.
+  - `-d`: Runs the container in detached mode.
+  - `-p 27017:27017`: Maps port 27017 from the container to your host machine, which is the default port for MongoDB.
+  - `-v /home/user/data/db:/data/db`: Mounts your local backup data directory (`/home/or/Downloads/db/us/data`)
+    into the container’s data directory (`/data/db`), ensuring MongoDB can access the data.
 
 3. **Verify MongoDB is Running Locally**
 
