@@ -7,6 +7,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   how-to-create-a-self-signed-certificate-with-complete-certificate-chain
    restoring-MongoDB-Atlas-Cloud-Data-to-a-Local-Docker-Environment
    how-to-run-cursor-as-an-application-in-ubuntu
 
