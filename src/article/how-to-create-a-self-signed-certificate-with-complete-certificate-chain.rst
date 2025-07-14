@@ -5,7 +5,8 @@ This guide will walk you through the process of creating a self-signed certifica
 
 **Full Commands for Creating Complete Certificate Chain**
 
-### Self-Sign Certificate
+Self-Sign Certificate
+---------------------
 
 To create a self-signed certificate, use the following commands:
 
@@ -20,7 +21,8 @@ After generating the certificate, copy the key and certificate to the appropriat
     cp example.key ../config/ingress/tls.key
     cp example.crt ../config/ingress/tls.crt
 
-### Configuration File (example.cnf)
+Configuration File (example.cnf)
+---------------------------------
 
 The `example.cnf` configuration file should look as follows:
 
@@ -50,7 +52,8 @@ The `example.cnf` configuration file should look as follows:
     DNS.1 = example.com
     DNS.2 = *.example.com
 
-### Step 1: Create Configuration Files
+Step 1: Create Configuration Files
+-----------------------------------
 
 Create the configuration files as shown below:
 
@@ -109,7 +112,8 @@ Create the configuration files as shown below:
     subjectKeyIdentifier = hash
     EOF
 
-### Step 2: Generate Root CA
+Step 2: Generate Root CA
+-------------------------
 
 Generate the Root CA:
 
@@ -120,7 +124,8 @@ Generate the Root CA:
     # Generate Root CA certificate
     openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 365 -out rootCA.crt -config rootCA.cnf
 
-### Step 3: Generate Intermediate CA
+Step 3: Generate Intermediate CA
+--------------------------------
 
 Generate the Intermediate CA:
 
@@ -134,7 +139,8 @@ Generate the Intermediate CA:
     # Sign Intermediate CA with Root CA
     openssl x509 -req -in intermediateCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out intermediateCA.crt -days 365 -extensions v3_ca -extfile intermediateCA_sign_simple.cnf
 
-### Step 4: Generate Server Certificate
+Step 4: Generate Server Certificate
+-----------------------------------
 
 Generate the server certificate:
 
@@ -145,7 +151,8 @@ Generate the server certificate:
     # Sign server certificate with Intermediate CA
     openssl x509 -req -in example.csr -CA intermediateCA.crt -CAkey intermediateCA.key -CAcreateserial -out example.crt -days 365 -extensions req_ext -extfile example.cnf
 
-### Step 5: Create Certificate Chain
+Step 5: Create Certificate Chain
+---------------------------------
 
 Combine all certificates into one chain file:
 
