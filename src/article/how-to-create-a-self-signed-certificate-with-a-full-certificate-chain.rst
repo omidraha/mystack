@@ -1,9 +1,8 @@
-How to Create a Self-Signed Certificate with Complete Certificate Chain
-======================================================================
+How to Creating a Self-Signed Certificate with a Full Certificate Chain
+=======================================================================
 
 This guide will walk you through the process of creating a self-signed certificate that includes a complete certificate chain.
 
-**Full Commands for Creating Complete Certificate Chain**
 
 Self-Sign Certificate
 ---------------------
