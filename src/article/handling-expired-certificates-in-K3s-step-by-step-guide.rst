@@ -53,30 +53,31 @@ To determine if the certificates have expired, you will first need to extract th
 
 4. **Check Expiry Date of the Certificates**
 
-   * To check the expiry date of the Certificate Authority:
+* To check the expiry date of the Certificate Authority:
 
 .. code-block:: bash
 
      openssl x509 -in /tmp/k3s-ca.pem -noout -enddate
 
 
-   * To check the expiry date of the Client Certificate:
+* To check the expiry date of the Client Certificate:
 
 .. code-block:: bash
 
      openssl x509 -in /tmp/k3s-client-cert.pem -noout -enddate
 
 
-   * Example output:
+* Example output:
 
 .. code-block:: bash
 
      notAfter=May 19 18:28:11 2025 GMT
 
 
-   If any certificate has expired, proceed with the renewal process.
+If any certificate has expired, proceed with the renewal process.
 
-## Step 2: Renew the Certificates
+Step 2: Renew the Certificates
+------------------------------
 
 1. **Stop K3s Service**
 
@@ -87,25 +88,26 @@ To determine if the certificates have expired, you will first need to extract th
    sudo systemctl stop k3s
 
 2. **Rotate the Certificates**
+
    Use the `k3s certificate rotate` command to renew the certificates:
 
 .. code-block:: bash
 
    sudo k3s certificate rotate
 
-
-   This command will regenerate all necessary certificates, including the client certificate, server certificate, and CA certificate.
+This command will regenerate all necessary certificates, including the client certificate, server certificate, and CA certificate.
 
 3. **Start K3s Service**
 
-   Once the certificates have been rotated, restart the K3s service:
+Once the certificates have been rotated, restart the K3s service:
 
 .. code-block:: bash
 
    sudo systemctl start k3s
 
 
-## Step 3: Verify the Renewal of Certificates
+Step 3: Verify the Renewal of Certificates
+-------------------------------------------
 
 After restarting the K3s service, check the expiry dates again to verify that the certificates have been successfully renewed:
 
@@ -115,13 +117,11 @@ After restarting the K3s service, check the expiry dates again to verify that th
 
    sudo cat /etc/rancher/k3s/k3s.yaml | grep 'certificate-authority-data' | awk '{print $2}' | base64 -d > /tmp/k3s-ca.pem
 
-
 2. **Extract the Client Certificate**
 
 .. code-block:: bash
 
    sudo cat /etc/rancher/k3s/k3s.yaml | grep 'client-certificate-data' | awk '{print $2}' | base64 -d > /tmp/k3s-client-cert.pem
-
 
 3. **Extract the Client Key**
 
@@ -134,7 +134,6 @@ After restarting the K3s service, check the expiry dates again to verify that th
 .. code-block:: bash
 
    openssl x509 -in /tmp/k3s-ca.pem -noout -enddate
-
 
 5. **Check the Client Certificate Expiry Date**
 
@@ -149,20 +148,23 @@ After restarting the K3s service, check the expiry dates again to verify that th
 
    openssl x509 -in /tmp/k3s-client-key.pem -noout -enddate
 
-
 The new certificates should show updated expiry dates that are far in the future.
 
-## Step 4: Test the Connection
+Step 4: Test the Connection
+---------------------------
 
 Finally, test if you can successfully execute `kubectl` commands again:
 
-```bash
-kubectl get pods -n example-ns
-```
+.. code-block:: bash
 
-If everything is set up correctly, you should no longer see the "You must be logged in to the server" error, and the command should return the expected pod information.
+    kubectl get pods -n example-ns
 
-## Conclusion
+
+If everything is set up correctly, you should no longer see the "You must be logged in to the server" error,
+and the command should return the expected pod information.
+
+Conclusion
+----------
 
 By following these steps, you should have resolved the certificate expiry issue in K3s.
 
