@@ -1,9 +1,6 @@
-Ubuntu Markdown to PDF Conversion Guide
-========================================
+Markdown to PDF Conversion Guide
+=================================
 
-.. contents:: Table of Contents
-   :local:
-   :depth: 3
 
 Overview
 --------
